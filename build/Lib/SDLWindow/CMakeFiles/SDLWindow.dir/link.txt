@@ -1,0 +1,2 @@
+/usr/bin/ar qc libSDLWindow.a  CMakeFiles/SDLWindow.dir/src/SDLWindowManager.cpp.o
+/usr/bin/ranlib libSDLWindow.a

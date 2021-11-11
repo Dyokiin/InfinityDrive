@@ -1,0 +1,46 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/theo/Temple Run/Lib/Program/include/FilePath.hpp
+string
+-
+
+/home/theo/Temple Run/Lib/Program/include/Program.hpp
+GL/glew.h
+-
+Shader.hpp
+/home/theo/Temple Run/Lib/Program/include/Shader.hpp
+FilePath.hpp
+/home/theo/Temple Run/Lib/Program/include/FilePath.hpp
+
+/home/theo/Temple Run/Lib/Program/include/Shader.hpp
+GL/glew.h
+-
+string
+-
+FilePath.hpp
+/home/theo/Temple Run/Lib/Program/include/FilePath.hpp
+
+/home/theo/Temple Run/Lib/Program/src/Program.cpp
+../include/Program.hpp
+/home/theo/Temple Run/Lib/Program/include/Program.hpp
+stdexcept
+-
+
+/home/theo/Temple Run/Lib/Program/src/Shader.cpp
+../include/Shader.hpp
+/home/theo/Temple Run/Lib/Program/include/Shader.hpp
+fstream
+-
+stdexcept
+-
+string
+-
+sstream
+-
+

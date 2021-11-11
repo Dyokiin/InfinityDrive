@@ -1,0 +1,2 @@
+/usr/bin/ar qc libProgram.a  CMakeFiles/Program.dir/src/Program.cpp.o CMakeFiles/Program.dir/src/Shader.cpp.o
+/usr/bin/ranlib libProgram.a

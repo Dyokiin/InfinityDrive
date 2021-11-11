@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/theo/Temple Run/Lib/SDLWindow/include/SDLWindowManager.hpp
+cstdint
+-
+SDL/SDL.h
+-
+glm/glm.hpp
+-
+
+/home/theo/Temple Run/Lib/SDLWindow/src/SDLWindowManager.cpp
+../include/SDLWindowManager.hpp
+/home/theo/Temple Run/Lib/SDLWindow/include/SDLWindowManager.hpp
+iostream
+-
+

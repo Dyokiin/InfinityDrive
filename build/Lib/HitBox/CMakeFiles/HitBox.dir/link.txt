@@ -1,0 +1,2 @@
+/usr/bin/ar qc libHitBox.a  CMakeFiles/HitBox.dir/src/Box.cpp.o CMakeFiles/HitBox.dir/src/HitBox.cpp.o
+/usr/bin/ranlib libHitBox.a

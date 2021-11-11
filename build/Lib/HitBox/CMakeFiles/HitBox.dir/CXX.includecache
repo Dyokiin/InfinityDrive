@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/theo/Temple Run/Lib/HitBox/include/Box.hpp
+glm/glm.hpp
+-
+
+/home/theo/Temple Run/Lib/HitBox/include/HitBox.hpp
+Box.hpp
+/home/theo/Temple Run/Lib/HitBox/include/Box.hpp
+functional
+-
+
+/home/theo/Temple Run/Lib/HitBox/src/HitBox.cpp
+../include/HitBox.hpp
+/home/theo/Temple Run/Lib/HitBox/include/HitBox.hpp
+
