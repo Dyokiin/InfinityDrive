@@ -1,1 +1,1 @@
-/usr/bin/c++     CMakeFiles/Main.dir/main.cpp.o  -o ../bin/Main  -lSDL2 
+/usr/bin/c++     CMakeFiles/Main.dir/main.cpp.o  -o ../bin/Main  ../INTERFACE/libLibmacrun.a -lSDL2 

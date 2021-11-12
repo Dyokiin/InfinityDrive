@@ -4,16 +4,20 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/theo/Temple Run/Main/main.cpp" "/home/theo/Temple Run/build/Main/CMakeFiles/Main.dir/main.cpp.o"
+  "/home/theo/VroomRun/Main/main.cpp" "/home/theo/VroomRun/build/Main/CMakeFiles/Main.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
+  "../Lib/include"
+  "../Main/Libmacrun"
+  "/usr/include/SDL2"
   )
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
+  "/home/theo/VroomRun/build/INTERFACE/CMakeFiles/Libmacrun.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

@@ -1,4 +1,4 @@
-# Install script for directory: /home/theo/Temple Run/Main
+# Install script for directory: /home/theo/VroomRun/Main
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

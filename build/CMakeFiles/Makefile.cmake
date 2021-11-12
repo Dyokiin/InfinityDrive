@@ -9,9 +9,6 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeCache.txt"
   "../CMakeLists.txt"
   "../Lib/CMakeLists.txt"
-  "../Lib/HitBox/CMakeLists.txt"
-  "../Lib/Program/CMakeLists.txt"
-  "../Lib/SDLWindow/CMakeLists.txt"
   "../Main/CMakeLists.txt"
   "CMakeFiles/3.16.3/CMakeCCompiler.cmake"
   "CMakeFiles/3.16.3/CMakeCXXCompiler.cmake"
@@ -50,17 +47,12 @@ set(CMAKE_MAKEFILE_OUTPUTS
 # Byproducts of CMake generate step:
 set(CMAKE_MAKEFILE_PRODUCTS
   "CMakeFiles/CMakeDirectoryInformation.cmake"
-  "Lib/CMakeFiles/CMakeDirectoryInformation.cmake"
-  "Lib/HitBox/CMakeFiles/CMakeDirectoryInformation.cmake"
-  "Lib/Program/CMakeFiles/CMakeDirectoryInformation.cmake"
-  "Lib/SDLWindow/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "INTERFACE/CMakeFiles/CMakeDirectoryInformation.cmake"
   "Main/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
-  "Lib/HitBox/CMakeFiles/HitBox.dir/DependInfo.cmake"
-  "Lib/Program/CMakeFiles/Program.dir/DependInfo.cmake"
-  "Lib/SDLWindow/CMakeFiles/SDLWindow.dir/DependInfo.cmake"
+  "INTERFACE/CMakeFiles/Libmacrun.dir/DependInfo.cmake"
   "Main/CMakeFiles/Main.dir/DependInfo.cmake"
   )

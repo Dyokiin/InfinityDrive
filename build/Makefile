@@ -48,13 +48,59 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/home/theo/Temple Run"
+CMAKE_SOURCE_DIR = /home/theo/VroomRun
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/home/theo/Temple Run/build"
+CMAKE_BINARY_DIR = /home/theo/VroomRun/build
 
 #=============================================================================
 # Targets provided globally by CMake.
+
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip/fast
+
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
+
+# Special rule for the target install/local
+install/local/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local/fast
+
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install
+
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install/fast
+
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+
+.PHONY : list_install_components/fast
 
 # Special rule for the target rebuild_cache
 rebuild_cache:
@@ -80,9 +126,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/home/theo/Temple Run/build/CMakeFiles" "/home/theo/Temple Run/build/CMakeFiles/progress.marks"
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/theo/VroomRun/build/CMakeFiles /home/theo/VroomRun/build/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start "/home/theo/Temple Run/build/CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/theo/VroomRun/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -111,43 +157,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named HitBox
+# Target rules for targets named Libmacrun
 
 # Build rule for target.
-HitBox: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 HitBox
-.PHONY : HitBox
+Libmacrun: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Libmacrun
+.PHONY : Libmacrun
 
 # fast build rule for target.
-HitBox/fast:
-	$(MAKE) -f Lib/HitBox/CMakeFiles/HitBox.dir/build.make Lib/HitBox/CMakeFiles/HitBox.dir/build
-.PHONY : HitBox/fast
-
-#=============================================================================
-# Target rules for targets named Program
-
-# Build rule for target.
-Program: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 Program
-.PHONY : Program
-
-# fast build rule for target.
-Program/fast:
-	$(MAKE) -f Lib/Program/CMakeFiles/Program.dir/build.make Lib/Program/CMakeFiles/Program.dir/build
-.PHONY : Program/fast
-
-#=============================================================================
-# Target rules for targets named SDLWindow
-
-# Build rule for target.
-SDLWindow: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 SDLWindow
-.PHONY : SDLWindow
-
-# fast build rule for target.
-SDLWindow/fast:
-	$(MAKE) -f Lib/SDLWindow/CMakeFiles/SDLWindow.dir/build.make Lib/SDLWindow/CMakeFiles/SDLWindow.dir/build
-.PHONY : SDLWindow/fast
+Libmacrun/fast:
+	$(MAKE) -f INTERFACE/CMakeFiles/Libmacrun.dir/build.make INTERFACE/CMakeFiles/Libmacrun.dir/build
+.PHONY : Libmacrun/fast
 
 #=============================================================================
 # Target rules for targets named Main
@@ -168,11 +188,13 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
+	@echo "... install/strip"
+	@echo "... install/local"
+	@echo "... install"
+	@echo "... list_install_components"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... HitBox"
-	@echo "... Program"
-	@echo "... SDLWindow"
+	@echo "... Libmacrun"
 	@echo "... Main"
 .PHONY : help
 

@@ -44,109 +44,49 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/home/theo/Temple Run"
+CMAKE_SOURCE_DIR = /home/theo/VroomRun
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/home/theo/Temple Run/build"
+CMAKE_BINARY_DIR = /home/theo/VroomRun/build
 
 #=============================================================================
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: Lib/all
+all: INTERFACE/all
 all: Main/all
 
 .PHONY : all
 
 # The main recursive "preinstall" target.
-preinstall: Lib/preinstall
+preinstall: INTERFACE/preinstall
 preinstall: Main/preinstall
 
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: Lib/clean
+clean: INTERFACE/clean
 clean: Main/clean
 
 .PHONY : clean
 
 #=============================================================================
-# Directory level rules for directory Lib
+# Directory level rules for directory INTERFACE
 
 # Recursive "all" directory target.
-Lib/all: Lib/HitBox/all
-Lib/all: Lib/Program/all
-Lib/all: Lib/SDLWindow/all
+INTERFACE/all: INTERFACE/CMakeFiles/Libmacrun.dir/all
 
-.PHONY : Lib/all
+.PHONY : INTERFACE/all
 
 # Recursive "preinstall" directory target.
-Lib/preinstall: Lib/HitBox/preinstall
-Lib/preinstall: Lib/Program/preinstall
-Lib/preinstall: Lib/SDLWindow/preinstall
+INTERFACE/preinstall:
 
-.PHONY : Lib/preinstall
+.PHONY : INTERFACE/preinstall
 
 # Recursive "clean" directory target.
-Lib/clean: Lib/HitBox/clean
-Lib/clean: Lib/Program/clean
-Lib/clean: Lib/SDLWindow/clean
+INTERFACE/clean: INTERFACE/CMakeFiles/Libmacrun.dir/clean
 
-.PHONY : Lib/clean
-
-#=============================================================================
-# Directory level rules for directory Lib/HitBox
-
-# Recursive "all" directory target.
-Lib/HitBox/all: Lib/HitBox/CMakeFiles/HitBox.dir/all
-
-.PHONY : Lib/HitBox/all
-
-# Recursive "preinstall" directory target.
-Lib/HitBox/preinstall:
-
-.PHONY : Lib/HitBox/preinstall
-
-# Recursive "clean" directory target.
-Lib/HitBox/clean: Lib/HitBox/CMakeFiles/HitBox.dir/clean
-
-.PHONY : Lib/HitBox/clean
-
-#=============================================================================
-# Directory level rules for directory Lib/Program
-
-# Recursive "all" directory target.
-Lib/Program/all: Lib/Program/CMakeFiles/Program.dir/all
-
-.PHONY : Lib/Program/all
-
-# Recursive "preinstall" directory target.
-Lib/Program/preinstall:
-
-.PHONY : Lib/Program/preinstall
-
-# Recursive "clean" directory target.
-Lib/Program/clean: Lib/Program/CMakeFiles/Program.dir/clean
-
-.PHONY : Lib/Program/clean
-
-#=============================================================================
-# Directory level rules for directory Lib/SDLWindow
-
-# Recursive "all" directory target.
-Lib/SDLWindow/all: Lib/SDLWindow/CMakeFiles/SDLWindow.dir/all
-
-.PHONY : Lib/SDLWindow/all
-
-# Recursive "preinstall" directory target.
-Lib/SDLWindow/preinstall:
-
-.PHONY : Lib/SDLWindow/preinstall
-
-# Recursive "clean" directory target.
-Lib/SDLWindow/clean: Lib/SDLWindow/CMakeFiles/SDLWindow.dir/clean
-
-.PHONY : Lib/SDLWindow/clean
+.PHONY : INTERFACE/clean
 
 #=============================================================================
 # Directory level rules for directory Main
@@ -167,101 +107,47 @@ Main/clean: Main/CMakeFiles/Main.dir/clean
 .PHONY : Main/clean
 
 #=============================================================================
-# Target rules for target Lib/HitBox/CMakeFiles/HitBox.dir
+# Target rules for target INTERFACE/CMakeFiles/Libmacrun.dir
 
 # All Build rule for target.
-Lib/HitBox/CMakeFiles/HitBox.dir/all:
-	$(MAKE) -f Lib/HitBox/CMakeFiles/HitBox.dir/build.make Lib/HitBox/CMakeFiles/HitBox.dir/depend
-	$(MAKE) -f Lib/HitBox/CMakeFiles/HitBox.dir/build.make Lib/HitBox/CMakeFiles/HitBox.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/home/theo/Temple Run/build/CMakeFiles" --progress-num=1,2,3 "Built target HitBox"
-.PHONY : Lib/HitBox/CMakeFiles/HitBox.dir/all
+INTERFACE/CMakeFiles/Libmacrun.dir/all:
+	$(MAKE) -f INTERFACE/CMakeFiles/Libmacrun.dir/build.make INTERFACE/CMakeFiles/Libmacrun.dir/depend
+	$(MAKE) -f INTERFACE/CMakeFiles/Libmacrun.dir/build.make INTERFACE/CMakeFiles/Libmacrun.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/theo/VroomRun/build/CMakeFiles --progress-num=1,2,3,4,5,6,7 "Built target Libmacrun"
+.PHONY : INTERFACE/CMakeFiles/Libmacrun.dir/all
 
 # Build rule for subdir invocation for target.
-Lib/HitBox/CMakeFiles/HitBox.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/home/theo/Temple Run/build/CMakeFiles" 3
-	$(MAKE) -f CMakeFiles/Makefile2 Lib/HitBox/CMakeFiles/HitBox.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start "/home/theo/Temple Run/build/CMakeFiles" 0
-.PHONY : Lib/HitBox/CMakeFiles/HitBox.dir/rule
+INTERFACE/CMakeFiles/Libmacrun.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/theo/VroomRun/build/CMakeFiles 7
+	$(MAKE) -f CMakeFiles/Makefile2 INTERFACE/CMakeFiles/Libmacrun.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/theo/VroomRun/build/CMakeFiles 0
+.PHONY : INTERFACE/CMakeFiles/Libmacrun.dir/rule
 
 # Convenience name for target.
-HitBox: Lib/HitBox/CMakeFiles/HitBox.dir/rule
+Libmacrun: INTERFACE/CMakeFiles/Libmacrun.dir/rule
 
-.PHONY : HitBox
-
-# clean rule for target.
-Lib/HitBox/CMakeFiles/HitBox.dir/clean:
-	$(MAKE) -f Lib/HitBox/CMakeFiles/HitBox.dir/build.make Lib/HitBox/CMakeFiles/HitBox.dir/clean
-.PHONY : Lib/HitBox/CMakeFiles/HitBox.dir/clean
-
-#=============================================================================
-# Target rules for target Lib/Program/CMakeFiles/Program.dir
-
-# All Build rule for target.
-Lib/Program/CMakeFiles/Program.dir/all:
-	$(MAKE) -f Lib/Program/CMakeFiles/Program.dir/build.make Lib/Program/CMakeFiles/Program.dir/depend
-	$(MAKE) -f Lib/Program/CMakeFiles/Program.dir/build.make Lib/Program/CMakeFiles/Program.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/home/theo/Temple Run/build/CMakeFiles" --progress-num=6,7,8 "Built target Program"
-.PHONY : Lib/Program/CMakeFiles/Program.dir/all
-
-# Build rule for subdir invocation for target.
-Lib/Program/CMakeFiles/Program.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/home/theo/Temple Run/build/CMakeFiles" 3
-	$(MAKE) -f CMakeFiles/Makefile2 Lib/Program/CMakeFiles/Program.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start "/home/theo/Temple Run/build/CMakeFiles" 0
-.PHONY : Lib/Program/CMakeFiles/Program.dir/rule
-
-# Convenience name for target.
-Program: Lib/Program/CMakeFiles/Program.dir/rule
-
-.PHONY : Program
+.PHONY : Libmacrun
 
 # clean rule for target.
-Lib/Program/CMakeFiles/Program.dir/clean:
-	$(MAKE) -f Lib/Program/CMakeFiles/Program.dir/build.make Lib/Program/CMakeFiles/Program.dir/clean
-.PHONY : Lib/Program/CMakeFiles/Program.dir/clean
-
-#=============================================================================
-# Target rules for target Lib/SDLWindow/CMakeFiles/SDLWindow.dir
-
-# All Build rule for target.
-Lib/SDLWindow/CMakeFiles/SDLWindow.dir/all:
-	$(MAKE) -f Lib/SDLWindow/CMakeFiles/SDLWindow.dir/build.make Lib/SDLWindow/CMakeFiles/SDLWindow.dir/depend
-	$(MAKE) -f Lib/SDLWindow/CMakeFiles/SDLWindow.dir/build.make Lib/SDLWindow/CMakeFiles/SDLWindow.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/home/theo/Temple Run/build/CMakeFiles" --progress-num=9,10 "Built target SDLWindow"
-.PHONY : Lib/SDLWindow/CMakeFiles/SDLWindow.dir/all
-
-# Build rule for subdir invocation for target.
-Lib/SDLWindow/CMakeFiles/SDLWindow.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/home/theo/Temple Run/build/CMakeFiles" 2
-	$(MAKE) -f CMakeFiles/Makefile2 Lib/SDLWindow/CMakeFiles/SDLWindow.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start "/home/theo/Temple Run/build/CMakeFiles" 0
-.PHONY : Lib/SDLWindow/CMakeFiles/SDLWindow.dir/rule
-
-# Convenience name for target.
-SDLWindow: Lib/SDLWindow/CMakeFiles/SDLWindow.dir/rule
-
-.PHONY : SDLWindow
-
-# clean rule for target.
-Lib/SDLWindow/CMakeFiles/SDLWindow.dir/clean:
-	$(MAKE) -f Lib/SDLWindow/CMakeFiles/SDLWindow.dir/build.make Lib/SDLWindow/CMakeFiles/SDLWindow.dir/clean
-.PHONY : Lib/SDLWindow/CMakeFiles/SDLWindow.dir/clean
+INTERFACE/CMakeFiles/Libmacrun.dir/clean:
+	$(MAKE) -f INTERFACE/CMakeFiles/Libmacrun.dir/build.make INTERFACE/CMakeFiles/Libmacrun.dir/clean
+.PHONY : INTERFACE/CMakeFiles/Libmacrun.dir/clean
 
 #=============================================================================
 # Target rules for target Main/CMakeFiles/Main.dir
 
 # All Build rule for target.
-Main/CMakeFiles/Main.dir/all:
+Main/CMakeFiles/Main.dir/all: INTERFACE/CMakeFiles/Libmacrun.dir/all
 	$(MAKE) -f Main/CMakeFiles/Main.dir/build.make Main/CMakeFiles/Main.dir/depend
 	$(MAKE) -f Main/CMakeFiles/Main.dir/build.make Main/CMakeFiles/Main.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/home/theo/Temple Run/build/CMakeFiles" --progress-num=4,5 "Built target Main"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/theo/VroomRun/build/CMakeFiles --progress-num=8,9 "Built target Main"
 .PHONY : Main/CMakeFiles/Main.dir/all
 
 # Build rule for subdir invocation for target.
 Main/CMakeFiles/Main.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/home/theo/Temple Run/build/CMakeFiles" 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/theo/VroomRun/build/CMakeFiles 9
 	$(MAKE) -f CMakeFiles/Makefile2 Main/CMakeFiles/Main.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start "/home/theo/Temple Run/build/CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/theo/VroomRun/build/CMakeFiles 0
 .PHONY : Main/CMakeFiles/Main.dir/rule
 
 # Convenience name for target.

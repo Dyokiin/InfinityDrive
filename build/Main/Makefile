@@ -48,13 +48,59 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/home/theo/Temple Run"
+CMAKE_SOURCE_DIR = /home/theo/VroomRun
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/home/theo/Temple Run/build"
+CMAKE_BINARY_DIR = /home/theo/VroomRun/build
 
 #=============================================================================
 # Targets provided globally by CMake.
+
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip/fast
+
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
+
+# Special rule for the target install/local
+install/local/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local/fast
+
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install
+
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install/fast
+
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+
+.PHONY : list_install_components/fast
 
 # Special rule for the target rebuild_cache
 rebuild_cache:
@@ -80,14 +126,14 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd "/home/theo/Temple Run/build" && $(CMAKE_COMMAND) -E cmake_progress_start "/home/theo/Temple Run/build/CMakeFiles" "/home/theo/Temple Run/build/Main/CMakeFiles/progress.marks"
-	cd "/home/theo/Temple Run/build" && $(MAKE) -f CMakeFiles/Makefile2 Main/all
-	$(CMAKE_COMMAND) -E cmake_progress_start "/home/theo/Temple Run/build/CMakeFiles" 0
+	cd /home/theo/VroomRun/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/theo/VroomRun/build/CMakeFiles /home/theo/VroomRun/build/Main/CMakeFiles/progress.marks
+	cd /home/theo/VroomRun/build && $(MAKE) -f CMakeFiles/Makefile2 Main/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/theo/VroomRun/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd "/home/theo/Temple Run/build" && $(MAKE) -f CMakeFiles/Makefile2 Main/clean
+	cd /home/theo/VroomRun/build && $(MAKE) -f CMakeFiles/Makefile2 Main/clean
 .PHONY : clean
 
 # The main clean target
@@ -97,22 +143,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd "/home/theo/Temple Run/build" && $(MAKE) -f CMakeFiles/Makefile2 Main/preinstall
+	cd /home/theo/VroomRun/build && $(MAKE) -f CMakeFiles/Makefile2 Main/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd "/home/theo/Temple Run/build" && $(MAKE) -f CMakeFiles/Makefile2 Main/preinstall
+	cd /home/theo/VroomRun/build && $(MAKE) -f CMakeFiles/Makefile2 Main/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd "/home/theo/Temple Run/build" && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/theo/VroomRun/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 Main/CMakeFiles/Main.dir/rule:
-	cd "/home/theo/Temple Run/build" && $(MAKE) -f CMakeFiles/Makefile2 Main/CMakeFiles/Main.dir/rule
+	cd /home/theo/VroomRun/build && $(MAKE) -f CMakeFiles/Makefile2 Main/CMakeFiles/Main.dir/rule
 .PHONY : Main/CMakeFiles/Main.dir/rule
 
 # Convenience name for target.
@@ -122,7 +168,7 @@ Main: Main/CMakeFiles/Main.dir/rule
 
 # fast build rule for target.
 Main/fast:
-	cd "/home/theo/Temple Run/build" && $(MAKE) -f Main/CMakeFiles/Main.dir/build.make Main/CMakeFiles/Main.dir/build
+	cd /home/theo/VroomRun/build && $(MAKE) -f Main/CMakeFiles/Main.dir/build.make Main/CMakeFiles/Main.dir/build
 .PHONY : Main/fast
 
 main.o: main.cpp.o
@@ -131,7 +177,7 @@ main.o: main.cpp.o
 
 # target to build an object file
 main.cpp.o:
-	cd "/home/theo/Temple Run/build" && $(MAKE) -f Main/CMakeFiles/Main.dir/build.make Main/CMakeFiles/Main.dir/main.cpp.o
+	cd /home/theo/VroomRun/build && $(MAKE) -f Main/CMakeFiles/Main.dir/build.make Main/CMakeFiles/Main.dir/main.cpp.o
 .PHONY : main.cpp.o
 
 main.i: main.cpp.i
@@ -140,7 +186,7 @@ main.i: main.cpp.i
 
 # target to preprocess a source file
 main.cpp.i:
-	cd "/home/theo/Temple Run/build" && $(MAKE) -f Main/CMakeFiles/Main.dir/build.make Main/CMakeFiles/Main.dir/main.cpp.i
+	cd /home/theo/VroomRun/build && $(MAKE) -f Main/CMakeFiles/Main.dir/build.make Main/CMakeFiles/Main.dir/main.cpp.i
 .PHONY : main.cpp.i
 
 main.s: main.cpp.s
@@ -149,7 +195,7 @@ main.s: main.cpp.s
 
 # target to generate assembly for a file
 main.cpp.s:
-	cd "/home/theo/Temple Run/build" && $(MAKE) -f Main/CMakeFiles/Main.dir/build.make Main/CMakeFiles/Main.dir/main.cpp.s
+	cd /home/theo/VroomRun/build && $(MAKE) -f Main/CMakeFiles/Main.dir/build.make Main/CMakeFiles/Main.dir/main.cpp.s
 .PHONY : main.cpp.s
 
 # Help Target
@@ -158,6 +204,10 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
+	@echo "... install/strip"
+	@echo "... install/local"
+	@echo "... install"
+	@echo "... list_install_components"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... Main"
@@ -175,6 +225,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd "/home/theo/Temple Run/build" && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/theo/VroomRun/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 
