@@ -9,7 +9,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeCache.txt"
   "../CMakeLists.txt"
   "../Lib/CMakeLists.txt"
-  "../Main/CMakeLists.txt"
+  "../Libmacrun/CMakeLists.txt"
   "CMakeFiles/3.16.3/CMakeCCompiler.cmake"
   "CMakeFiles/3.16.3/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.16.3/CMakeSystem.cmake"
@@ -48,11 +48,12 @@ set(CMAKE_MAKEFILE_OUTPUTS
 set(CMAKE_MAKEFILE_PRODUCTS
   "CMakeFiles/CMakeDirectoryInformation.cmake"
   "INTERFACE/CMakeFiles/CMakeDirectoryInformation.cmake"
-  "Main/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "Libmacrun/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
-  "INTERFACE/CMakeFiles/Libmacrun.dir/DependInfo.cmake"
-  "Main/CMakeFiles/Main.dir/DependInfo.cmake"
+  "CMakeFiles/IMACRun.dir/DependInfo.cmake"
+  "INTERFACE/CMakeFiles/Lib.dir/DependInfo.cmake"
+  "Libmacrun/CMakeFiles/Libmacrun.dir/DependInfo.cmake"
   )

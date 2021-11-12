@@ -7,6 +7,8 @@
 int main(int argc, char* argv[]){
 
 	SDLWindowManager wndwManager(1000, 800, "IMACrun");
+
+	
 	bool quit = false;
 	Uint32 lastUpdate = SDL_GetTicks();
 	SDL_Event e;

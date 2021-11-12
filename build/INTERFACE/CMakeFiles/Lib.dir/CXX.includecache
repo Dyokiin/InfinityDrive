@@ -1,0 +1,32 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/theo/VroomRun/Lib/include/FilePath.hpp
+string
+-
+
+/home/theo/VroomRun/Lib/include/Image.hpp
+vector
+-
+memory
+-
+unordered_map
+-
+glm/glm.hpp
+-
+FilePath.hpp
+/home/theo/VroomRun/Lib/include/FilePath.hpp
+
+/home/theo/VroomRun/Lib/src/Image.cpp
+../include/Image.hpp
+/home/theo/VroomRun/Lib/include/Image.hpp
+stb/stb_image.h
+-
+iostream
+-
+

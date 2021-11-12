@@ -157,6 +157,32 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named IMACRun
+
+# Build rule for target.
+IMACRun: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 IMACRun
+.PHONY : IMACRun
+
+# fast build rule for target.
+IMACRun/fast:
+	$(MAKE) -f CMakeFiles/IMACRun.dir/build.make CMakeFiles/IMACRun.dir/build
+.PHONY : IMACRun/fast
+
+#=============================================================================
+# Target rules for targets named Lib
+
+# Build rule for target.
+Lib: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Lib
+.PHONY : Lib
+
+# fast build rule for target.
+Lib/fast:
+	$(MAKE) -f INTERFACE/CMakeFiles/Lib.dir/build.make INTERFACE/CMakeFiles/Lib.dir/build
+.PHONY : Lib/fast
+
+#=============================================================================
 # Target rules for targets named Libmacrun
 
 # Build rule for target.
@@ -166,21 +192,35 @@ Libmacrun: cmake_check_build_system
 
 # fast build rule for target.
 Libmacrun/fast:
-	$(MAKE) -f INTERFACE/CMakeFiles/Libmacrun.dir/build.make INTERFACE/CMakeFiles/Libmacrun.dir/build
+	$(MAKE) -f Libmacrun/CMakeFiles/Libmacrun.dir/build.make Libmacrun/CMakeFiles/Libmacrun.dir/build
 .PHONY : Libmacrun/fast
 
-#=============================================================================
-# Target rules for targets named Main
+main.o: main.cpp.o
 
-# Build rule for target.
-Main: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 Main
-.PHONY : Main
+.PHONY : main.o
 
-# fast build rule for target.
-Main/fast:
-	$(MAKE) -f Main/CMakeFiles/Main.dir/build.make Main/CMakeFiles/Main.dir/build
-.PHONY : Main/fast
+# target to build an object file
+main.cpp.o:
+	$(MAKE) -f CMakeFiles/IMACRun.dir/build.make CMakeFiles/IMACRun.dir/main.cpp.o
+.PHONY : main.cpp.o
+
+main.i: main.cpp.i
+
+.PHONY : main.i
+
+# target to preprocess a source file
+main.cpp.i:
+	$(MAKE) -f CMakeFiles/IMACRun.dir/build.make CMakeFiles/IMACRun.dir/main.cpp.i
+.PHONY : main.cpp.i
+
+main.s: main.cpp.s
+
+.PHONY : main.s
+
+# target to generate assembly for a file
+main.cpp.s:
+	$(MAKE) -f CMakeFiles/IMACRun.dir/build.make CMakeFiles/IMACRun.dir/main.cpp.s
+.PHONY : main.cpp.s
 
 # Help Target
 help:
@@ -194,8 +234,12 @@ help:
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
+	@echo "... IMACRun"
+	@echo "... Lib"
 	@echo "... Libmacrun"
-	@echo "... Main"
+	@echo "... main.o"
+	@echo "... main.i"
+	@echo "... main.s"
 .PHONY : help
 
 

@@ -222,16 +222,22 @@ IMACRun_BINARY_DIR:STATIC=/home/theo/VroomRun/build
 IMACRun_SOURCE_DIR:STATIC=/home/theo/VroomRun
 
 //Value Computed by CMake
-Libmacrun_BINARY_DIR:STATIC=/home/theo/VroomRun/build/INTERFACE
+Lib_BINARY_DIR:STATIC=/home/theo/VroomRun/build/INTERFACE
 
 //Value Computed by CMake
-Libmacrun_SOURCE_DIR:STATIC=/home/theo/VroomRun/Lib
+Lib_SOURCE_DIR:STATIC=/home/theo/VroomRun/Lib
 
 //Value Computed by CMake
-Main_BINARY_DIR:STATIC=/home/theo/VroomRun/build/Main
+Libmacrun_BINARY_DIR:STATIC=/home/theo/VroomRun/build/Libmacrun
 
 //Value Computed by CMake
-Main_SOURCE_DIR:STATIC=/home/theo/VroomRun/Main
+Libmacrun_SOURCE_DIR:STATIC=/home/theo/VroomRun/Libmacrun
+
+//Value Computed by CMake
+Main_BINARY_DIR:STATIC=/home/theo/VroomRun/build/Libmacrun
+
+//Value Computed by CMake
+Main_SOURCE_DIR:STATIC=/home/theo/VroomRun/Libmacrun
 
 //The directory containing a CMake configuration file for SDL2.
 SDL2_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/SDL2

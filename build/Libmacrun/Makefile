@@ -126,14 +126,14 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/theo/VroomRun/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/theo/VroomRun/build/CMakeFiles /home/theo/VroomRun/build/INTERFACE/CMakeFiles/progress.marks
-	cd /home/theo/VroomRun/build && $(MAKE) -f CMakeFiles/Makefile2 INTERFACE/all
+	cd /home/theo/VroomRun/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/theo/VroomRun/build/CMakeFiles /home/theo/VroomRun/build/Libmacrun/CMakeFiles/progress.marks
+	cd /home/theo/VroomRun/build && $(MAKE) -f CMakeFiles/Makefile2 Libmacrun/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/theo/VroomRun/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/theo/VroomRun/build && $(MAKE) -f CMakeFiles/Makefile2 INTERFACE/clean
+	cd /home/theo/VroomRun/build && $(MAKE) -f CMakeFiles/Makefile2 Libmacrun/clean
 .PHONY : clean
 
 # The main clean target
@@ -143,12 +143,12 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/theo/VroomRun/build && $(MAKE) -f CMakeFiles/Makefile2 INTERFACE/preinstall
+	cd /home/theo/VroomRun/build && $(MAKE) -f CMakeFiles/Makefile2 Libmacrun/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/theo/VroomRun/build && $(MAKE) -f CMakeFiles/Makefile2 INTERFACE/preinstall
+	cd /home/theo/VroomRun/build && $(MAKE) -f CMakeFiles/Makefile2 Libmacrun/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
@@ -157,154 +157,100 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-INTERFACE/CMakeFiles/Lib.dir/rule:
-	cd /home/theo/VroomRun/build && $(MAKE) -f CMakeFiles/Makefile2 INTERFACE/CMakeFiles/Lib.dir/rule
-.PHONY : INTERFACE/CMakeFiles/Lib.dir/rule
+Libmacrun/CMakeFiles/Libmacrun.dir/rule:
+	cd /home/theo/VroomRun/build && $(MAKE) -f CMakeFiles/Makefile2 Libmacrun/CMakeFiles/Libmacrun.dir/rule
+.PHONY : Libmacrun/CMakeFiles/Libmacrun.dir/rule
 
 # Convenience name for target.
-Lib: INTERFACE/CMakeFiles/Lib.dir/rule
+Libmacrun: Libmacrun/CMakeFiles/Libmacrun.dir/rule
 
-.PHONY : Lib
+.PHONY : Libmacrun
 
 # fast build rule for target.
-Lib/fast:
-	cd /home/theo/VroomRun/build && $(MAKE) -f INTERFACE/CMakeFiles/Lib.dir/build.make INTERFACE/CMakeFiles/Lib.dir/build
-.PHONY : Lib/fast
+Libmacrun/fast:
+	cd /home/theo/VroomRun/build && $(MAKE) -f Libmacrun/CMakeFiles/Libmacrun.dir/build.make Libmacrun/CMakeFiles/Libmacrun.dir/build
+.PHONY : Libmacrun/fast
 
-src/Image.o: src/Image.cpp.o
+src/Box.o: src/Box.cpp.o
 
-.PHONY : src/Image.o
-
-# target to build an object file
-src/Image.cpp.o:
-	cd /home/theo/VroomRun/build && $(MAKE) -f INTERFACE/CMakeFiles/Lib.dir/build.make INTERFACE/CMakeFiles/Lib.dir/src/Image.cpp.o
-.PHONY : src/Image.cpp.o
-
-src/Image.i: src/Image.cpp.i
-
-.PHONY : src/Image.i
-
-# target to preprocess a source file
-src/Image.cpp.i:
-	cd /home/theo/VroomRun/build && $(MAKE) -f INTERFACE/CMakeFiles/Lib.dir/build.make INTERFACE/CMakeFiles/Lib.dir/src/Image.cpp.i
-.PHONY : src/Image.cpp.i
-
-src/Image.s: src/Image.cpp.s
-
-.PHONY : src/Image.s
-
-# target to generate assembly for a file
-src/Image.cpp.s:
-	cd /home/theo/VroomRun/build && $(MAKE) -f INTERFACE/CMakeFiles/Lib.dir/build.make INTERFACE/CMakeFiles/Lib.dir/src/Image.cpp.s
-.PHONY : src/Image.cpp.s
-
-src/Program.o: src/Program.cpp.o
-
-.PHONY : src/Program.o
+.PHONY : src/Box.o
 
 # target to build an object file
-src/Program.cpp.o:
-	cd /home/theo/VroomRun/build && $(MAKE) -f INTERFACE/CMakeFiles/Lib.dir/build.make INTERFACE/CMakeFiles/Lib.dir/src/Program.cpp.o
-.PHONY : src/Program.cpp.o
+src/Box.cpp.o:
+	cd /home/theo/VroomRun/build && $(MAKE) -f Libmacrun/CMakeFiles/Libmacrun.dir/build.make Libmacrun/CMakeFiles/Libmacrun.dir/src/Box.cpp.o
+.PHONY : src/Box.cpp.o
 
-src/Program.i: src/Program.cpp.i
+src/Box.i: src/Box.cpp.i
 
-.PHONY : src/Program.i
+.PHONY : src/Box.i
 
 # target to preprocess a source file
-src/Program.cpp.i:
-	cd /home/theo/VroomRun/build && $(MAKE) -f INTERFACE/CMakeFiles/Lib.dir/build.make INTERFACE/CMakeFiles/Lib.dir/src/Program.cpp.i
-.PHONY : src/Program.cpp.i
+src/Box.cpp.i:
+	cd /home/theo/VroomRun/build && $(MAKE) -f Libmacrun/CMakeFiles/Libmacrun.dir/build.make Libmacrun/CMakeFiles/Libmacrun.dir/src/Box.cpp.i
+.PHONY : src/Box.cpp.i
 
-src/Program.s: src/Program.cpp.s
+src/Box.s: src/Box.cpp.s
 
-.PHONY : src/Program.s
+.PHONY : src/Box.s
 
 # target to generate assembly for a file
-src/Program.cpp.s:
-	cd /home/theo/VroomRun/build && $(MAKE) -f INTERFACE/CMakeFiles/Lib.dir/build.make INTERFACE/CMakeFiles/Lib.dir/src/Program.cpp.s
-.PHONY : src/Program.cpp.s
+src/Box.cpp.s:
+	cd /home/theo/VroomRun/build && $(MAKE) -f Libmacrun/CMakeFiles/Libmacrun.dir/build.make Libmacrun/CMakeFiles/Libmacrun.dir/src/Box.cpp.s
+.PHONY : src/Box.cpp.s
 
-src/SDLTtfManager.o: src/SDLTtfManager.cpp.o
+src/HitBox.o: src/HitBox.cpp.o
 
-.PHONY : src/SDLTtfManager.o
+.PHONY : src/HitBox.o
 
 # target to build an object file
-src/SDLTtfManager.cpp.o:
-	cd /home/theo/VroomRun/build && $(MAKE) -f INTERFACE/CMakeFiles/Lib.dir/build.make INTERFACE/CMakeFiles/Lib.dir/src/SDLTtfManager.cpp.o
-.PHONY : src/SDLTtfManager.cpp.o
+src/HitBox.cpp.o:
+	cd /home/theo/VroomRun/build && $(MAKE) -f Libmacrun/CMakeFiles/Libmacrun.dir/build.make Libmacrun/CMakeFiles/Libmacrun.dir/src/HitBox.cpp.o
+.PHONY : src/HitBox.cpp.o
 
-src/SDLTtfManager.i: src/SDLTtfManager.cpp.i
+src/HitBox.i: src/HitBox.cpp.i
 
-.PHONY : src/SDLTtfManager.i
+.PHONY : src/HitBox.i
 
 # target to preprocess a source file
-src/SDLTtfManager.cpp.i:
-	cd /home/theo/VroomRun/build && $(MAKE) -f INTERFACE/CMakeFiles/Lib.dir/build.make INTERFACE/CMakeFiles/Lib.dir/src/SDLTtfManager.cpp.i
-.PHONY : src/SDLTtfManager.cpp.i
+src/HitBox.cpp.i:
+	cd /home/theo/VroomRun/build && $(MAKE) -f Libmacrun/CMakeFiles/Libmacrun.dir/build.make Libmacrun/CMakeFiles/Libmacrun.dir/src/HitBox.cpp.i
+.PHONY : src/HitBox.cpp.i
 
-src/SDLTtfManager.s: src/SDLTtfManager.cpp.s
+src/HitBox.s: src/HitBox.cpp.s
 
-.PHONY : src/SDLTtfManager.s
+.PHONY : src/HitBox.s
 
 # target to generate assembly for a file
-src/SDLTtfManager.cpp.s:
-	cd /home/theo/VroomRun/build && $(MAKE) -f INTERFACE/CMakeFiles/Lib.dir/build.make INTERFACE/CMakeFiles/Lib.dir/src/SDLTtfManager.cpp.s
-.PHONY : src/SDLTtfManager.cpp.s
+src/HitBox.cpp.s:
+	cd /home/theo/VroomRun/build && $(MAKE) -f Libmacrun/CMakeFiles/Libmacrun.dir/build.make Libmacrun/CMakeFiles/Libmacrun.dir/src/HitBox.cpp.s
+.PHONY : src/HitBox.cpp.s
 
-src/SDLWindowManager.o: src/SDLWindowManager.cpp.o
+src/Shapes.o: src/Shapes.cpp.o
 
-.PHONY : src/SDLWindowManager.o
+.PHONY : src/Shapes.o
 
 # target to build an object file
-src/SDLWindowManager.cpp.o:
-	cd /home/theo/VroomRun/build && $(MAKE) -f INTERFACE/CMakeFiles/Lib.dir/build.make INTERFACE/CMakeFiles/Lib.dir/src/SDLWindowManager.cpp.o
-.PHONY : src/SDLWindowManager.cpp.o
+src/Shapes.cpp.o:
+	cd /home/theo/VroomRun/build && $(MAKE) -f Libmacrun/CMakeFiles/Libmacrun.dir/build.make Libmacrun/CMakeFiles/Libmacrun.dir/src/Shapes.cpp.o
+.PHONY : src/Shapes.cpp.o
 
-src/SDLWindowManager.i: src/SDLWindowManager.cpp.i
+src/Shapes.i: src/Shapes.cpp.i
 
-.PHONY : src/SDLWindowManager.i
-
-# target to preprocess a source file
-src/SDLWindowManager.cpp.i:
-	cd /home/theo/VroomRun/build && $(MAKE) -f INTERFACE/CMakeFiles/Lib.dir/build.make INTERFACE/CMakeFiles/Lib.dir/src/SDLWindowManager.cpp.i
-.PHONY : src/SDLWindowManager.cpp.i
-
-src/SDLWindowManager.s: src/SDLWindowManager.cpp.s
-
-.PHONY : src/SDLWindowManager.s
-
-# target to generate assembly for a file
-src/SDLWindowManager.cpp.s:
-	cd /home/theo/VroomRun/build && $(MAKE) -f INTERFACE/CMakeFiles/Lib.dir/build.make INTERFACE/CMakeFiles/Lib.dir/src/SDLWindowManager.cpp.s
-.PHONY : src/SDLWindowManager.cpp.s
-
-src/Shader.o: src/Shader.cpp.o
-
-.PHONY : src/Shader.o
-
-# target to build an object file
-src/Shader.cpp.o:
-	cd /home/theo/VroomRun/build && $(MAKE) -f INTERFACE/CMakeFiles/Lib.dir/build.make INTERFACE/CMakeFiles/Lib.dir/src/Shader.cpp.o
-.PHONY : src/Shader.cpp.o
-
-src/Shader.i: src/Shader.cpp.i
-
-.PHONY : src/Shader.i
+.PHONY : src/Shapes.i
 
 # target to preprocess a source file
-src/Shader.cpp.i:
-	cd /home/theo/VroomRun/build && $(MAKE) -f INTERFACE/CMakeFiles/Lib.dir/build.make INTERFACE/CMakeFiles/Lib.dir/src/Shader.cpp.i
-.PHONY : src/Shader.cpp.i
+src/Shapes.cpp.i:
+	cd /home/theo/VroomRun/build && $(MAKE) -f Libmacrun/CMakeFiles/Libmacrun.dir/build.make Libmacrun/CMakeFiles/Libmacrun.dir/src/Shapes.cpp.i
+.PHONY : src/Shapes.cpp.i
 
-src/Shader.s: src/Shader.cpp.s
+src/Shapes.s: src/Shapes.cpp.s
 
-.PHONY : src/Shader.s
+.PHONY : src/Shapes.s
 
 # target to generate assembly for a file
-src/Shader.cpp.s:
-	cd /home/theo/VroomRun/build && $(MAKE) -f INTERFACE/CMakeFiles/Lib.dir/build.make INTERFACE/CMakeFiles/Lib.dir/src/Shader.cpp.s
-.PHONY : src/Shader.cpp.s
+src/Shapes.cpp.s:
+	cd /home/theo/VroomRun/build && $(MAKE) -f Libmacrun/CMakeFiles/Libmacrun.dir/build.make Libmacrun/CMakeFiles/Libmacrun.dir/src/Shapes.cpp.s
+.PHONY : src/Shapes.cpp.s
 
 # Help Target
 help:
@@ -318,22 +264,16 @@ help:
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... Lib"
-	@echo "... src/Image.o"
-	@echo "... src/Image.i"
-	@echo "... src/Image.s"
-	@echo "... src/Program.o"
-	@echo "... src/Program.i"
-	@echo "... src/Program.s"
-	@echo "... src/SDLTtfManager.o"
-	@echo "... src/SDLTtfManager.i"
-	@echo "... src/SDLTtfManager.s"
-	@echo "... src/SDLWindowManager.o"
-	@echo "... src/SDLWindowManager.i"
-	@echo "... src/SDLWindowManager.s"
-	@echo "... src/Shader.o"
-	@echo "... src/Shader.i"
-	@echo "... src/Shader.s"
+	@echo "... Libmacrun"
+	@echo "... src/Box.o"
+	@echo "... src/Box.i"
+	@echo "... src/Box.s"
+	@echo "... src/HitBox.o"
+	@echo "... src/HitBox.i"
+	@echo "... src/HitBox.s"
+	@echo "... src/Shapes.o"
+	@echo "... src/Shapes.i"
+	@echo "... src/Shapes.s"
 .PHONY : help
 
 

@@ -38,9 +38,27 @@ add_subdirectory(Lib INTERFACE)
 include_directories(${CMAKE_SOURCE_DIR}/Lib/include)
 
 # add myCode2
-message(STATUS "Main cmake part ..." )
-add_subdirectory(Main)
+message(STATUS "Libmacrun cmake part ..." )
+add_subdirectory(Libmacrun)
 
-# (optional) debug or release
-#set(CMAKE_BUILD_TYPE Debug)
-set(CMAKE_BUILD_TYPE Release)
+# collect all cpp files (sometimes considered as bad practice)
+file(GLOB_RECURSE src_files_list src/*.cpp)
+
+# files to compile
+add_executable(IMACRun main.cpp)
+
+find_package(SDL2 REQUIRED)
+
+# lib include path
+target_include_directories(IMACRun PRIVATE Libmacrun)
+target_include_directories(IMACRun PRIVATE Lib)
+target_include_directories(IMACRun PRIVATE "${SDL2_INCLUDE_DIRS}")
+
+# specify the library lib path
+target_link_libraries(IMACRun PRIVATE Libmacrun)
+target_link_libraries(IMACRun PRIVATE Lib)
+target_link_libraries(IMACRun PRIVATE ${SDL2_LIBRARIES})
+
+# compilation flags
+target_compile_features(IMACRun PRIVATE cxx_std_11) # use at least c++ 11
+target_compile_options(IMACRun PRIVATE -Wall -O2)   # specify some compilation flags

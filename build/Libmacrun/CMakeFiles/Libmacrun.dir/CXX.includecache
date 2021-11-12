@@ -1,0 +1,30 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../Libmacrun/include/Box.hpp
+glm/glm.hpp
+-
+
+../Libmacrun/include/HitBox.hpp
+Box.hpp
+../Libmacrun/include/Box.hpp
+functional
+-
+
+/home/theo/VroomRun/Libmacrun/src/Shapes.cpp
+vector
+-
+HitBox.hpp
+/home/theo/VroomRun/Libmacrun/src/HitBox.hpp
+GL/gl.h
+-
+glm/glm.hpp
+-
+iostream
+-
+
