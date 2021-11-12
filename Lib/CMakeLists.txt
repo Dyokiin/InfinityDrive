@@ -1,17 +1,36 @@
 cmake_minimum_required(VERSION 3.13)
 
+# give a name to the project
+project(Libmacrun LANGUAGES C CXX)
 
-project(LIBMACRun)
+# automatic get all files in a directory
+file(GLOB_RECURSE source_files src/*.cpp)
+file(GLOB_RECURSE header_files include/*.hpp)
 
-# add myLib
-message(STATUS "HitBox cmake part ..." )
-add_subdirectory(HitBox)
-include_directories(${CMAKE_SOURCE_DIR}/HitBox/include) # important : other projects called by this cmake will know this include directory
+# call the CMakeLists.txt to make the documentation (Doxygen)
+find_package(Doxygen OPTIONAL_COMPONENTS QUIET)
+if(DOXYGEN_FOUND)
+	#add_subdirectory(doc)
+else()
+	message(WARNING "Doxygen not found, skip dococumentation")
+endif()
 
-message(STATUS "Program cmake part ..." )
-add_subdirectory(Program)
-include_directories(${CMAKE_SOURCE_DIR}/Program/include) # important : other projects called by this cmake will know this include directory
+# Instructions to compile a library (no main() inside)
+# default STATIC ??
+# SHARED to make a .so instead of a .a
+# add_library(ganQ SHARED ${source_files} ${header_files})
+add_library(Libmacrun ${source_files} ${header_files})
 
-message(STATUS "SDLWindow cmake part ..." )
-add_subdirectory(SDLWindow)
-include_directories(${CMAKE_SOURCE_DIR}/SDLWindow/include) # important : other projects called by this cmake will know this include directory
+# compilation flags
+target_compile_features(Libmacrun PRIVATE cxx_std_11) # use at least c++ 11
+target_compile_options(Libmacrun PRIVATE -Wall -O2)   # specify some compilation flags
+
+# include directory
+target_include_directories(Libmacrun PRIVATE "include")
+
+# install (optional, install a lib is not mandatory)
+install(FILES ${header_files} DESTINATION /usr/local/include/Libmacrun)
+install(TARGETS Libmacrun
+        RUNTIME DESTINATION /usr/local/lib
+        LIBRARY DESTINATION /usr/local/lib
+        ARCHIVE DESTINATION /usr/local/lib)

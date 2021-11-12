@@ -34,7 +34,8 @@ set(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin)
 
 
 message(STATUS "Lib cmake part ..." )
-add_subdirectory(Lib)
+add_subdirectory(Lib INTERFACE)
+include_directories(${CMAKE_SOURCE_DIR}/Lib/include)
 
 # add myCode2
 message(STATUS "Main cmake part ..." )

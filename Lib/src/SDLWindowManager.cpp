@@ -6,23 +6,22 @@ SDLWindowManager::SDLWindowManager(uint32_t width, uint32_t height, const char* 
         std::cerr << SDL_GetError() << std::endl;
         return;
     }
-    if(!SDL_SetVideoMode(width, height, 32, SDL_OPENGL)) {
+    _window = SDL_CreateWindow(title , SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 1500, 1000, SDL_WINDOW_SHOWN | SDL_WINDOW_OPENGL);
+    if(_window == NULL) {
         std::cerr << SDL_GetError() << std::endl;
         return;
     }
-    SDL_WM_SetCaption(title, nullptr);
+    _glcont = SDL_GL_CreateContext(_window);
 }
 
 SDLWindowManager::~SDLWindowManager() {
+    SDL_GL_DeleteContext(_glcont);
+    SDL_DestroyWindow(_window);
     SDL_Quit();
 }
 
 bool SDLWindowManager::pollEvent(SDL_Event& e) {
     return SDL_PollEvent(&e);
-}
-
-bool SDLWindowManager::isKeyPressed(SDLKey key) const {
-    return SDL_GetKeyState(nullptr)[key];
 }
 
 // button can SDL_BUTTON_LEFT, SDL_BUTTON_RIGHT and SDL_BUTTON_MIDDLE
@@ -37,7 +36,7 @@ glm::ivec2 SDLWindowManager::getMousePosition() const {
 }
 
 void SDLWindowManager::swapBuffers() {
-    SDL_GL_SwapBuffers();
+    SDL_GL_SwapWindow(_window);
 }
 
 float SDLWindowManager::getTime() const {

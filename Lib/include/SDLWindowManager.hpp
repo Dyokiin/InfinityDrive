@@ -1,18 +1,19 @@
 #pragma once
 
 #include <cstdint>
-#include <SDL/SDL.h>
+#include <SDL2/SDL.h>
 #include <glm/glm.hpp>
 
 class SDLWindowManager {
+private:
+    SDL_Window* _window;
+    SDL_GLContext _glcont;
 public:
     SDLWindowManager(uint32_t width, uint32_t height, const char* title);
 
     ~SDLWindowManager();
 
     bool pollEvent(SDL_Event& e);
-
-    bool isKeyPressed(SDLKey key) const;
 
     // button can SDL_BUTTON_LEFT, SDL_BUTTON_RIGHT and SDL_BUTTON_MIDDLE
     bool isMouseButtonPressed(uint32_t button) const;
