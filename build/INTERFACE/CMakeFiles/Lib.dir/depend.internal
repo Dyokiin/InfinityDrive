@@ -10,9 +10,6 @@ INTERFACE/CMakeFiles/Lib.dir/src/Program.cpp.o
  /home/theo/VroomRun/Lib/include/Program.hpp
  /home/theo/VroomRun/Lib/include/Shader.hpp
  /home/theo/VroomRun/Lib/src/Program.cpp
-INTERFACE/CMakeFiles/Lib.dir/src/SDLTtfManager.cpp.o
- /home/theo/VroomRun/Lib/include/SDLTtfManager.hpp
- /home/theo/VroomRun/Lib/src/SDLTtfManager.cpp
 INTERFACE/CMakeFiles/Lib.dir/src/SDLWindowManager.cpp.o
  /home/theo/VroomRun/Lib/include/SDLWindowManager.hpp
  /home/theo/VroomRun/Lib/src/SDLWindowManager.cpp

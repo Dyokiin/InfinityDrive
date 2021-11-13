@@ -8,7 +8,11 @@ Libmacrun/CMakeFiles/Libmacrun.dir/src/HitBox.cpp.o: ../Libmacrun/include/Box.hp
 Libmacrun/CMakeFiles/Libmacrun.dir/src/HitBox.cpp.o: ../Libmacrun/include/HitBox.hpp
 Libmacrun/CMakeFiles/Libmacrun.dir/src/HitBox.cpp.o: ../Libmacrun/src/HitBox.cpp
 
+Libmacrun/CMakeFiles/Libmacrun.dir/src/SDLTtfManager.cpp.o: ../Libmacrun/include/SDLTtfManager.hpp
+Libmacrun/CMakeFiles/Libmacrun.dir/src/SDLTtfManager.cpp.o: ../Libmacrun/src/SDLTtfManager.cpp
+
 Libmacrun/CMakeFiles/Libmacrun.dir/src/Shapes.cpp.o: ../Libmacrun/include/Box.hpp
 Libmacrun/CMakeFiles/Libmacrun.dir/src/Shapes.cpp.o: ../Libmacrun/include/HitBox.hpp
+Libmacrun/CMakeFiles/Libmacrun.dir/src/Shapes.cpp.o: ../Libmacrun/include/Shapes.hpp
 Libmacrun/CMakeFiles/Libmacrun.dir/src/Shapes.cpp.o: ../Libmacrun/src/Shapes.cpp
 

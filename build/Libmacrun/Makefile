@@ -225,6 +225,33 @@ src/HitBox.cpp.s:
 	cd /home/theo/VroomRun/build && $(MAKE) -f Libmacrun/CMakeFiles/Libmacrun.dir/build.make Libmacrun/CMakeFiles/Libmacrun.dir/src/HitBox.cpp.s
 .PHONY : src/HitBox.cpp.s
 
+src/SDLTtfManager.o: src/SDLTtfManager.cpp.o
+
+.PHONY : src/SDLTtfManager.o
+
+# target to build an object file
+src/SDLTtfManager.cpp.o:
+	cd /home/theo/VroomRun/build && $(MAKE) -f Libmacrun/CMakeFiles/Libmacrun.dir/build.make Libmacrun/CMakeFiles/Libmacrun.dir/src/SDLTtfManager.cpp.o
+.PHONY : src/SDLTtfManager.cpp.o
+
+src/SDLTtfManager.i: src/SDLTtfManager.cpp.i
+
+.PHONY : src/SDLTtfManager.i
+
+# target to preprocess a source file
+src/SDLTtfManager.cpp.i:
+	cd /home/theo/VroomRun/build && $(MAKE) -f Libmacrun/CMakeFiles/Libmacrun.dir/build.make Libmacrun/CMakeFiles/Libmacrun.dir/src/SDLTtfManager.cpp.i
+.PHONY : src/SDLTtfManager.cpp.i
+
+src/SDLTtfManager.s: src/SDLTtfManager.cpp.s
+
+.PHONY : src/SDLTtfManager.s
+
+# target to generate assembly for a file
+src/SDLTtfManager.cpp.s:
+	cd /home/theo/VroomRun/build && $(MAKE) -f Libmacrun/CMakeFiles/Libmacrun.dir/build.make Libmacrun/CMakeFiles/Libmacrun.dir/src/SDLTtfManager.cpp.s
+.PHONY : src/SDLTtfManager.cpp.s
+
 src/Shapes.o: src/Shapes.cpp.o
 
 .PHONY : src/Shapes.o
@@ -271,6 +298,9 @@ help:
 	@echo "... src/HitBox.o"
 	@echo "... src/HitBox.i"
 	@echo "... src/HitBox.s"
+	@echo "... src/SDLTtfManager.o"
+	@echo "... src/SDLTtfManager.i"
+	@echo "... src/SDLTtfManager.s"
 	@echo "... src/Shapes.o"
 	@echo "... src/Shapes.i"
 	@echo "... src/Shapes.s"

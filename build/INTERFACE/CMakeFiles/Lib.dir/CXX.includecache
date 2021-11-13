@@ -6,27 +6,17 @@
 
 #IncludeRegexTransform: 
 
-/home/theo/VroomRun/Lib/include/FilePath.hpp
-string
+/home/theo/VroomRun/Lib/include/SDLWindowManager.hpp
+cstdint
 -
-
-/home/theo/VroomRun/Lib/include/Image.hpp
-vector
--
-memory
--
-unordered_map
+SDL2/SDL.h
 -
 glm/glm.hpp
 -
-FilePath.hpp
-/home/theo/VroomRun/Lib/include/FilePath.hpp
 
-/home/theo/VroomRun/Lib/src/Image.cpp
-../include/Image.hpp
-/home/theo/VroomRun/Lib/include/Image.hpp
-stb/stb_image.h
--
+/home/theo/VroomRun/Lib/src/SDLWindowManager.cpp
+../include/SDLWindowManager.hpp
+/home/theo/VroomRun/Lib/include/SDLWindowManager.hpp
 iostream
 -
 

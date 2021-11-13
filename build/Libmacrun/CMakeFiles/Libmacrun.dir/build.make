@@ -83,9 +83,22 @@ Libmacrun/CMakeFiles/Libmacrun.dir/src/HitBox.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Libmacrun.dir/src/HitBox.cpp.s"
 	cd /home/theo/VroomRun/build/Libmacrun && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/theo/VroomRun/Libmacrun/src/HitBox.cpp -o CMakeFiles/Libmacrun.dir/src/HitBox.cpp.s
 
+Libmacrun/CMakeFiles/Libmacrun.dir/src/SDLTtfManager.cpp.o: Libmacrun/CMakeFiles/Libmacrun.dir/flags.make
+Libmacrun/CMakeFiles/Libmacrun.dir/src/SDLTtfManager.cpp.o: ../Libmacrun/src/SDLTtfManager.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/theo/VroomRun/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object Libmacrun/CMakeFiles/Libmacrun.dir/src/SDLTtfManager.cpp.o"
+	cd /home/theo/VroomRun/build/Libmacrun && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Libmacrun.dir/src/SDLTtfManager.cpp.o -c /home/theo/VroomRun/Libmacrun/src/SDLTtfManager.cpp
+
+Libmacrun/CMakeFiles/Libmacrun.dir/src/SDLTtfManager.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Libmacrun.dir/src/SDLTtfManager.cpp.i"
+	cd /home/theo/VroomRun/build/Libmacrun && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/theo/VroomRun/Libmacrun/src/SDLTtfManager.cpp > CMakeFiles/Libmacrun.dir/src/SDLTtfManager.cpp.i
+
+Libmacrun/CMakeFiles/Libmacrun.dir/src/SDLTtfManager.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Libmacrun.dir/src/SDLTtfManager.cpp.s"
+	cd /home/theo/VroomRun/build/Libmacrun && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/theo/VroomRun/Libmacrun/src/SDLTtfManager.cpp -o CMakeFiles/Libmacrun.dir/src/SDLTtfManager.cpp.s
+
 Libmacrun/CMakeFiles/Libmacrun.dir/src/Shapes.cpp.o: Libmacrun/CMakeFiles/Libmacrun.dir/flags.make
 Libmacrun/CMakeFiles/Libmacrun.dir/src/Shapes.cpp.o: ../Libmacrun/src/Shapes.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/theo/VroomRun/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object Libmacrun/CMakeFiles/Libmacrun.dir/src/Shapes.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/theo/VroomRun/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object Libmacrun/CMakeFiles/Libmacrun.dir/src/Shapes.cpp.o"
 	cd /home/theo/VroomRun/build/Libmacrun && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Libmacrun.dir/src/Shapes.cpp.o -c /home/theo/VroomRun/Libmacrun/src/Shapes.cpp
 
 Libmacrun/CMakeFiles/Libmacrun.dir/src/Shapes.cpp.i: cmake_force
@@ -100,6 +113,7 @@ Libmacrun/CMakeFiles/Libmacrun.dir/src/Shapes.cpp.s: cmake_force
 Libmacrun_OBJECTS = \
 "CMakeFiles/Libmacrun.dir/src/Box.cpp.o" \
 "CMakeFiles/Libmacrun.dir/src/HitBox.cpp.o" \
+"CMakeFiles/Libmacrun.dir/src/SDLTtfManager.cpp.o" \
 "CMakeFiles/Libmacrun.dir/src/Shapes.cpp.o"
 
 # External object files for target Libmacrun
@@ -107,10 +121,11 @@ Libmacrun_EXTERNAL_OBJECTS =
 
 Libmacrun/libLibmacrun.a: Libmacrun/CMakeFiles/Libmacrun.dir/src/Box.cpp.o
 Libmacrun/libLibmacrun.a: Libmacrun/CMakeFiles/Libmacrun.dir/src/HitBox.cpp.o
+Libmacrun/libLibmacrun.a: Libmacrun/CMakeFiles/Libmacrun.dir/src/SDLTtfManager.cpp.o
 Libmacrun/libLibmacrun.a: Libmacrun/CMakeFiles/Libmacrun.dir/src/Shapes.cpp.o
 Libmacrun/libLibmacrun.a: Libmacrun/CMakeFiles/Libmacrun.dir/build.make
 Libmacrun/libLibmacrun.a: Libmacrun/CMakeFiles/Libmacrun.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/theo/VroomRun/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX static library libLibmacrun.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/theo/VroomRun/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX static library libLibmacrun.a"
 	cd /home/theo/VroomRun/build/Libmacrun && $(CMAKE_COMMAND) -P CMakeFiles/Libmacrun.dir/cmake_clean_target.cmake
 	cd /home/theo/VroomRun/build/Libmacrun && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Libmacrun.dir/link.txt --verbose=$(VERBOSE)
 

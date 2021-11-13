@@ -83,22 +83,9 @@ INTERFACE/CMakeFiles/Lib.dir/src/Program.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Lib.dir/src/Program.cpp.s"
 	cd /home/theo/VroomRun/build/INTERFACE && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/theo/VroomRun/Lib/src/Program.cpp -o CMakeFiles/Lib.dir/src/Program.cpp.s
 
-INTERFACE/CMakeFiles/Lib.dir/src/SDLTtfManager.cpp.o: INTERFACE/CMakeFiles/Lib.dir/flags.make
-INTERFACE/CMakeFiles/Lib.dir/src/SDLTtfManager.cpp.o: ../Lib/src/SDLTtfManager.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/theo/VroomRun/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object INTERFACE/CMakeFiles/Lib.dir/src/SDLTtfManager.cpp.o"
-	cd /home/theo/VroomRun/build/INTERFACE && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Lib.dir/src/SDLTtfManager.cpp.o -c /home/theo/VroomRun/Lib/src/SDLTtfManager.cpp
-
-INTERFACE/CMakeFiles/Lib.dir/src/SDLTtfManager.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Lib.dir/src/SDLTtfManager.cpp.i"
-	cd /home/theo/VroomRun/build/INTERFACE && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/theo/VroomRun/Lib/src/SDLTtfManager.cpp > CMakeFiles/Lib.dir/src/SDLTtfManager.cpp.i
-
-INTERFACE/CMakeFiles/Lib.dir/src/SDLTtfManager.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Lib.dir/src/SDLTtfManager.cpp.s"
-	cd /home/theo/VroomRun/build/INTERFACE && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/theo/VroomRun/Lib/src/SDLTtfManager.cpp -o CMakeFiles/Lib.dir/src/SDLTtfManager.cpp.s
-
 INTERFACE/CMakeFiles/Lib.dir/src/SDLWindowManager.cpp.o: INTERFACE/CMakeFiles/Lib.dir/flags.make
 INTERFACE/CMakeFiles/Lib.dir/src/SDLWindowManager.cpp.o: ../Lib/src/SDLWindowManager.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/theo/VroomRun/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object INTERFACE/CMakeFiles/Lib.dir/src/SDLWindowManager.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/theo/VroomRun/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object INTERFACE/CMakeFiles/Lib.dir/src/SDLWindowManager.cpp.o"
 	cd /home/theo/VroomRun/build/INTERFACE && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Lib.dir/src/SDLWindowManager.cpp.o -c /home/theo/VroomRun/Lib/src/SDLWindowManager.cpp
 
 INTERFACE/CMakeFiles/Lib.dir/src/SDLWindowManager.cpp.i: cmake_force
@@ -111,7 +98,7 @@ INTERFACE/CMakeFiles/Lib.dir/src/SDLWindowManager.cpp.s: cmake_force
 
 INTERFACE/CMakeFiles/Lib.dir/src/Shader.cpp.o: INTERFACE/CMakeFiles/Lib.dir/flags.make
 INTERFACE/CMakeFiles/Lib.dir/src/Shader.cpp.o: ../Lib/src/Shader.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/theo/VroomRun/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object INTERFACE/CMakeFiles/Lib.dir/src/Shader.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/theo/VroomRun/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object INTERFACE/CMakeFiles/Lib.dir/src/Shader.cpp.o"
 	cd /home/theo/VroomRun/build/INTERFACE && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Lib.dir/src/Shader.cpp.o -c /home/theo/VroomRun/Lib/src/Shader.cpp
 
 INTERFACE/CMakeFiles/Lib.dir/src/Shader.cpp.i: cmake_force
@@ -126,7 +113,6 @@ INTERFACE/CMakeFiles/Lib.dir/src/Shader.cpp.s: cmake_force
 Lib_OBJECTS = \
 "CMakeFiles/Lib.dir/src/Image.cpp.o" \
 "CMakeFiles/Lib.dir/src/Program.cpp.o" \
-"CMakeFiles/Lib.dir/src/SDLTtfManager.cpp.o" \
 "CMakeFiles/Lib.dir/src/SDLWindowManager.cpp.o" \
 "CMakeFiles/Lib.dir/src/Shader.cpp.o"
 
@@ -135,12 +121,11 @@ Lib_EXTERNAL_OBJECTS =
 
 INTERFACE/libLib.a: INTERFACE/CMakeFiles/Lib.dir/src/Image.cpp.o
 INTERFACE/libLib.a: INTERFACE/CMakeFiles/Lib.dir/src/Program.cpp.o
-INTERFACE/libLib.a: INTERFACE/CMakeFiles/Lib.dir/src/SDLTtfManager.cpp.o
 INTERFACE/libLib.a: INTERFACE/CMakeFiles/Lib.dir/src/SDLWindowManager.cpp.o
 INTERFACE/libLib.a: INTERFACE/CMakeFiles/Lib.dir/src/Shader.cpp.o
 INTERFACE/libLib.a: INTERFACE/CMakeFiles/Lib.dir/build.make
 INTERFACE/libLib.a: INTERFACE/CMakeFiles/Lib.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/theo/VroomRun/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX static library libLib.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/theo/VroomRun/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX static library libLib.a"
 	cd /home/theo/VroomRun/build/INTERFACE && $(CMAKE_COMMAND) -P CMakeFiles/Lib.dir/cmake_clean_target.cmake
 	cd /home/theo/VroomRun/build/INTERFACE && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Lib.dir/link.txt --verbose=$(VERBOSE)
 

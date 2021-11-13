@@ -1,2 +1,2 @@
-/usr/bin/ar qc libLibmacrun.a  CMakeFiles/Libmacrun.dir/src/Box.cpp.o CMakeFiles/Libmacrun.dir/src/HitBox.cpp.o CMakeFiles/Libmacrun.dir/src/Shapes.cpp.o
+/usr/bin/ar qc libLibmacrun.a  CMakeFiles/Libmacrun.dir/src/Box.cpp.o CMakeFiles/Libmacrun.dir/src/HitBox.cpp.o CMakeFiles/Libmacrun.dir/src/SDLTtfManager.cpp.o CMakeFiles/Libmacrun.dir/src/Shapes.cpp.o
 /usr/bin/ranlib libLibmacrun.a

@@ -39,7 +39,7 @@ endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/usr/local/include/Lib/FilePath.hpp;/usr/local/include/Lib/Image.hpp;/usr/local/include/Lib/Program.hpp;/usr/local/include/Lib/SDLTtfManager.hpp;/usr/local/include/Lib/SDLWindowManager.hpp;/usr/local/include/Lib/Shader.hpp")
+   "/usr/local/include/Lib/FilePath.hpp;/usr/local/include/Lib/Image.hpp;/usr/local/include/Lib/Program.hpp;/usr/local/include/Lib/SDLWindowManager.hpp;/usr/local/include/Lib/Shader.hpp")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
@@ -50,7 +50,6 @@ file(INSTALL DESTINATION "/usr/local/include/Lib" TYPE FILE FILES
     "/home/theo/VroomRun/Lib/include/FilePath.hpp"
     "/home/theo/VroomRun/Lib/include/Image.hpp"
     "/home/theo/VroomRun/Lib/include/Program.hpp"
-    "/home/theo/VroomRun/Lib/include/SDLTtfManager.hpp"
     "/home/theo/VroomRun/Lib/include/SDLWindowManager.hpp"
     "/home/theo/VroomRun/Lib/include/Shader.hpp"
     )

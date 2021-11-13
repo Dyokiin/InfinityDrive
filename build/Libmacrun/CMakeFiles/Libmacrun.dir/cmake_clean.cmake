@@ -1,6 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/Libmacrun.dir/src/Box.cpp.o"
   "CMakeFiles/Libmacrun.dir/src/HitBox.cpp.o"
+  "CMakeFiles/Libmacrun.dir/src/SDLTtfManager.cpp.o"
   "CMakeFiles/Libmacrun.dir/src/Shapes.cpp.o"
   "libLibmacrun.a"
   "libLibmacrun.pdb"

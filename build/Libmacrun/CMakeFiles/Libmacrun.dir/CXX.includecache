@@ -6,25 +6,19 @@
 
 #IncludeRegexTransform: 
 
-../Libmacrun/include/Box.hpp
-glm/glm.hpp
+/home/theo/VroomRun/Libmacrun/include/SDLTtfManager.hpp
+SDL2/SDL.h
 -
-
-../Libmacrun/include/HitBox.hpp
-Box.hpp
-../Libmacrun/include/Box.hpp
-functional
+SDL2/SDL_ttf.h
 -
-
-/home/theo/VroomRun/Libmacrun/src/Shapes.cpp
+GL/glew.h
+-
 vector
 -
-HitBox.hpp
-/home/theo/VroomRun/Libmacrun/src/HitBox.hpp
-GL/gl.h
--
 glm/glm.hpp
 -
-iostream
--
+
+/home/theo/VroomRun/Libmacrun/src/SDLTtfManager.cpp
+../include/SDLTtfManager.hpp
+/home/theo/VroomRun/Libmacrun/include/SDLTtfManager.hpp
 

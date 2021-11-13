@@ -1,2 +1,2 @@
-/usr/bin/ar qc libLib.a  CMakeFiles/Lib.dir/src/Image.cpp.o CMakeFiles/Lib.dir/src/Program.cpp.o CMakeFiles/Lib.dir/src/SDLTtfManager.cpp.o CMakeFiles/Lib.dir/src/SDLWindowManager.cpp.o CMakeFiles/Lib.dir/src/Shader.cpp.o
+/usr/bin/ar qc libLib.a  CMakeFiles/Lib.dir/src/Image.cpp.o CMakeFiles/Lib.dir/src/Program.cpp.o CMakeFiles/Lib.dir/src/SDLWindowManager.cpp.o CMakeFiles/Lib.dir/src/Shader.cpp.o
 /usr/bin/ranlib libLib.a

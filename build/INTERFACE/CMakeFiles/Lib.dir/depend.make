@@ -10,9 +10,6 @@ INTERFACE/CMakeFiles/Lib.dir/src/Program.cpp.o: ../Lib/include/Program.hpp
 INTERFACE/CMakeFiles/Lib.dir/src/Program.cpp.o: ../Lib/include/Shader.hpp
 INTERFACE/CMakeFiles/Lib.dir/src/Program.cpp.o: ../Lib/src/Program.cpp
 
-INTERFACE/CMakeFiles/Lib.dir/src/SDLTtfManager.cpp.o: ../Lib/include/SDLTtfManager.hpp
-INTERFACE/CMakeFiles/Lib.dir/src/SDLTtfManager.cpp.o: ../Lib/src/SDLTtfManager.cpp
-
 INTERFACE/CMakeFiles/Lib.dir/src/SDLWindowManager.cpp.o: ../Lib/include/SDLWindowManager.hpp
 INTERFACE/CMakeFiles/Lib.dir/src/SDLWindowManager.cpp.o: ../Lib/src/SDLWindowManager.cpp
 

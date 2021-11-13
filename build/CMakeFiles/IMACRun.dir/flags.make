@@ -6,5 +6,5 @@ CXX_FLAGS =   -Wall -O2
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/theo/VroomRun/Lib/include -I/home/theo/VroomRun/Libmacrun -I/home/theo/VroomRun/Lib -I/usr/include/SDL2 
+CXX_INCLUDES = -I/home/theo/VroomRun/Lib/include -I/home/theo/VroomRun/Libmacrun/include -I/usr/include/SDL2 -I/home/theo/VroomRun/Libmacrun -I/home/theo/VroomRun/Lib 
 

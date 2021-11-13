@@ -6,6 +6,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/theo/VroomRun/Libmacrun/src/Box.cpp" "/home/theo/VroomRun/build/Libmacrun/CMakeFiles/Libmacrun.dir/src/Box.cpp.o"
   "/home/theo/VroomRun/Libmacrun/src/HitBox.cpp" "/home/theo/VroomRun/build/Libmacrun/CMakeFiles/Libmacrun.dir/src/HitBox.cpp.o"
+  "/home/theo/VroomRun/Libmacrun/src/SDLTtfManager.cpp" "/home/theo/VroomRun/build/Libmacrun/CMakeFiles/Libmacrun.dir/src/SDLTtfManager.cpp.o"
   "/home/theo/VroomRun/Libmacrun/src/Shapes.cpp" "/home/theo/VroomRun/build/Libmacrun/CMakeFiles/Libmacrun.dir/src/Shapes.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")

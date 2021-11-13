@@ -39,7 +39,7 @@ endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/usr/local/include/Libmacrun/Box.hpp;/usr/local/include/Libmacrun/HitBox.hpp")
+   "/usr/local/include/Libmacrun/Box.hpp;/usr/local/include/Libmacrun/HitBox.hpp;/usr/local/include/Libmacrun/SDLTtfManager.hpp;/usr/local/include/Libmacrun/Shapes.hpp")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
@@ -49,6 +49,8 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
 file(INSTALL DESTINATION "/usr/local/include/Libmacrun" TYPE FILE FILES
     "/home/theo/VroomRun/Libmacrun/include/Box.hpp"
     "/home/theo/VroomRun/Libmacrun/include/HitBox.hpp"
+    "/home/theo/VroomRun/Libmacrun/include/SDLTtfManager.hpp"
+    "/home/theo/VroomRun/Libmacrun/include/Shapes.hpp"
     )
 endif()
 

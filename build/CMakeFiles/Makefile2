@@ -112,8 +112,8 @@ Libmacrun/clean: Libmacrun/CMakeFiles/Libmacrun.dir/clean
 # Target rules for target CMakeFiles/IMACRun.dir
 
 # All Build rule for target.
-CMakeFiles/IMACRun.dir/all: Libmacrun/CMakeFiles/Libmacrun.dir/all
 CMakeFiles/IMACRun.dir/all: INTERFACE/CMakeFiles/Lib.dir/all
+CMakeFiles/IMACRun.dir/all: Libmacrun/CMakeFiles/Libmacrun.dir/all
 	$(MAKE) -f CMakeFiles/IMACRun.dir/build.make CMakeFiles/IMACRun.dir/depend
 	$(MAKE) -f CMakeFiles/IMACRun.dir/build.make CMakeFiles/IMACRun.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/theo/VroomRun/build/CMakeFiles --progress-num=1,2 "Built target IMACRun"
@@ -143,12 +143,12 @@ CMakeFiles/IMACRun.dir/clean:
 INTERFACE/CMakeFiles/Lib.dir/all:
 	$(MAKE) -f INTERFACE/CMakeFiles/Lib.dir/build.make INTERFACE/CMakeFiles/Lib.dir/depend
 	$(MAKE) -f INTERFACE/CMakeFiles/Lib.dir/build.make INTERFACE/CMakeFiles/Lib.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/theo/VroomRun/build/CMakeFiles --progress-num=3,4,5,6,7,8 "Built target Lib"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/theo/VroomRun/build/CMakeFiles --progress-num=3,4,5,6,7 "Built target Lib"
 .PHONY : INTERFACE/CMakeFiles/Lib.dir/all
 
 # Build rule for subdir invocation for target.
 INTERFACE/CMakeFiles/Lib.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/theo/VroomRun/build/CMakeFiles 6
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/theo/VroomRun/build/CMakeFiles 5
 	$(MAKE) -f CMakeFiles/Makefile2 INTERFACE/CMakeFiles/Lib.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/theo/VroomRun/build/CMakeFiles 0
 .PHONY : INTERFACE/CMakeFiles/Lib.dir/rule
@@ -170,12 +170,12 @@ INTERFACE/CMakeFiles/Lib.dir/clean:
 Libmacrun/CMakeFiles/Libmacrun.dir/all:
 	$(MAKE) -f Libmacrun/CMakeFiles/Libmacrun.dir/build.make Libmacrun/CMakeFiles/Libmacrun.dir/depend
 	$(MAKE) -f Libmacrun/CMakeFiles/Libmacrun.dir/build.make Libmacrun/CMakeFiles/Libmacrun.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/theo/VroomRun/build/CMakeFiles --progress-num=9,10,11,12 "Built target Libmacrun"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/theo/VroomRun/build/CMakeFiles --progress-num=8,9,10,11,12 "Built target Libmacrun"
 .PHONY : Libmacrun/CMakeFiles/Libmacrun.dir/all
 
 # Build rule for subdir invocation for target.
 Libmacrun/CMakeFiles/Libmacrun.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/theo/VroomRun/build/CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/theo/VroomRun/build/CMakeFiles 5
 	$(MAKE) -f CMakeFiles/Makefile2 Libmacrun/CMakeFiles/Libmacrun.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/theo/VroomRun/build/CMakeFiles 0
 .PHONY : Libmacrun/CMakeFiles/Libmacrun.dir/rule

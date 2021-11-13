@@ -1,1 +1,1 @@
-/usr/bin/c++     CMakeFiles/IMACRun.dir/main.cpp.o  -o bin/IMACRun  Libmacrun/libLibmacrun.a INTERFACE/libLib.a -lSDL2 
+/usr/bin/c++     CMakeFiles/IMACRun.dir/main.cpp.o  -o bin/IMACRun  Libmacrun/libLibmacrun.a INTERFACE/libLib.a -lSDL2 -lSDL2_ttf -lSDL2 -lSDL2_ttf 

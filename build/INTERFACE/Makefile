@@ -225,33 +225,6 @@ src/Program.cpp.s:
 	cd /home/theo/VroomRun/build && $(MAKE) -f INTERFACE/CMakeFiles/Lib.dir/build.make INTERFACE/CMakeFiles/Lib.dir/src/Program.cpp.s
 .PHONY : src/Program.cpp.s
 
-src/SDLTtfManager.o: src/SDLTtfManager.cpp.o
-
-.PHONY : src/SDLTtfManager.o
-
-# target to build an object file
-src/SDLTtfManager.cpp.o:
-	cd /home/theo/VroomRun/build && $(MAKE) -f INTERFACE/CMakeFiles/Lib.dir/build.make INTERFACE/CMakeFiles/Lib.dir/src/SDLTtfManager.cpp.o
-.PHONY : src/SDLTtfManager.cpp.o
-
-src/SDLTtfManager.i: src/SDLTtfManager.cpp.i
-
-.PHONY : src/SDLTtfManager.i
-
-# target to preprocess a source file
-src/SDLTtfManager.cpp.i:
-	cd /home/theo/VroomRun/build && $(MAKE) -f INTERFACE/CMakeFiles/Lib.dir/build.make INTERFACE/CMakeFiles/Lib.dir/src/SDLTtfManager.cpp.i
-.PHONY : src/SDLTtfManager.cpp.i
-
-src/SDLTtfManager.s: src/SDLTtfManager.cpp.s
-
-.PHONY : src/SDLTtfManager.s
-
-# target to generate assembly for a file
-src/SDLTtfManager.cpp.s:
-	cd /home/theo/VroomRun/build && $(MAKE) -f INTERFACE/CMakeFiles/Lib.dir/build.make INTERFACE/CMakeFiles/Lib.dir/src/SDLTtfManager.cpp.s
-.PHONY : src/SDLTtfManager.cpp.s
-
 src/SDLWindowManager.o: src/SDLWindowManager.cpp.o
 
 .PHONY : src/SDLWindowManager.o
@@ -325,9 +298,6 @@ help:
 	@echo "... src/Program.o"
 	@echo "... src/Program.i"
 	@echo "... src/Program.s"
-	@echo "... src/SDLTtfManager.o"
-	@echo "... src/SDLTtfManager.i"
-	@echo "... src/SDLTtfManager.s"
 	@echo "... src/SDLWindowManager.o"
 	@echo "... src/SDLWindowManager.i"
 	@echo "... src/SDLWindowManager.s"
