@@ -1,5 +1,7 @@
 cmake_minimum_required(VERSION 3.13)
 
+INCLUDE(FindPkgConfig)
+
 
 # give a name to the project
 project(IMACRun)
@@ -40,6 +42,7 @@ include_directories(${CMAKE_SOURCE_DIR}/Lib/include)
 # add myCode2
 message(STATUS "Libmacrun cmake part ..." )
 add_subdirectory(Libmacrun)
+include_directories(${CMAKE_SOURCE_DIR}/Libmacrun/include)
 
 # collect all cpp files (sometimes considered as bad practice)
 file(GLOB_RECURSE src_files_list src/*.cpp)
@@ -47,17 +50,29 @@ file(GLOB_RECURSE src_files_list src/*.cpp)
 # files to compile
 add_executable(IMACRun main.cpp)
 
-find_package(SDL2 REQUIRED)
+pkg_check_modules(SDL2 REQUIRED sdl2)
+pkg_check_modules(SDL2_TTF REQUIRED SDL2_ttf)
+#pkg_check_modules(SDL2_MIX REQUIRED SDL2_mixer)
+
+include_directories(${SDL2_INCLUDE_DIRS}
+    ${SDL2_TTF_INCLUDE_DIRS})
+    #    ${SDL2_MIX_INCLUDE_DIRS}
+
+link_directories (${SDL2_LIBRARY_DIRS}
+    ${SDL2_TTF_LIBRARY_DIRS})
+    #    ${SDL2_MIX_LIBRARY_DIRS}
 
 # lib include path
 target_include_directories(IMACRun PRIVATE Libmacrun)
 target_include_directories(IMACRun PRIVATE Lib)
 target_include_directories(IMACRun PRIVATE "${SDL2_INCLUDE_DIRS}")
+target_include_directories(IMACRun PRIVATE "${SDL2_TTF_INCLUDE_DIRS}")
 
 # specify the library lib path
 target_link_libraries(IMACRun PRIVATE Libmacrun)
 target_link_libraries(IMACRun PRIVATE Lib)
 target_link_libraries(IMACRun PRIVATE ${SDL2_LIBRARIES})
+target_link_libraries(IMACRun PRIVATE ${SDL2_TTF_LIBRARIES})
 
 # compilation flags
 target_compile_features(IMACRun PRIVATE cxx_std_11) # use at least c++ 11
