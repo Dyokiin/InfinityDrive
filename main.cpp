@@ -7,6 +7,7 @@
 int main(int argc, char* argv[]){
 
 	SDLWindowManager wndwManager(1000, 800, "IMACrun");
+	TTF_Font* font = TTFManagerInit();
 
 	
 	bool quit = false;
@@ -61,6 +62,7 @@ int main(int argc, char* argv[]){
 
 	}
 
+	TTFManagerQuit(font);
 	//Quit SDL subsystems
 	SDL_Quit();
 

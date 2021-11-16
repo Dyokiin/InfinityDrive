@@ -15,6 +15,7 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "/usr/include/SDL2"
   "../Libmacrun"
   "../Lib"
+  "../"
   )
 
 # Targets to which this target links.

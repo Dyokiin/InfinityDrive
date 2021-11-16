@@ -52,6 +52,7 @@ add_executable(IMACRun main.cpp)
 
 pkg_check_modules(SDL2 REQUIRED sdl2)
 pkg_check_modules(SDL2_TTF REQUIRED SDL2_ttf)
+pkg_check_modules(OpenGL REQUIRED gl)
 #pkg_check_modules(SDL2_MIX REQUIRED SDL2_mixer)
 
 include_directories(${SDL2_INCLUDE_DIRS}
@@ -67,12 +68,14 @@ target_include_directories(IMACRun PRIVATE Libmacrun)
 target_include_directories(IMACRun PRIVATE Lib)
 target_include_directories(IMACRun PRIVATE "${SDL2_INCLUDE_DIRS}")
 target_include_directories(IMACRun PRIVATE "${SDL2_TTF_INCLUDE_DIRS}")
+target_include_directories(IMACRun PRIVATE "${OpenGL_INCLUDE_DIRS}")
 
 # specify the library lib path
 target_link_libraries(IMACRun PRIVATE Libmacrun)
 target_link_libraries(IMACRun PRIVATE Lib)
 target_link_libraries(IMACRun PRIVATE ${SDL2_LIBRARIES})
 target_link_libraries(IMACRun PRIVATE ${SDL2_TTF_LIBRARIES})
+target_link_libraries(IMACRun PRIVATE ${OpenGL_LIBRARIES})
 
 # compilation flags
 target_compile_features(IMACRun PRIVATE cxx_std_11) # use at least c++ 11

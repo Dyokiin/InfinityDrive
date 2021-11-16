@@ -4,7 +4,7 @@
 
 #include <functional>
 
-enum EFFECTS { FALL, SLOW, CAUTGH, BURST, LTURN, RTURN};
+enum EFFECTS { FALL, SLOW, CAUTGH, BURST, LTURN, RTURN, NONE};
 
 class HitBox {
 
