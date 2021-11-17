@@ -66,6 +66,7 @@ link_directories (${SDL2_LIBRARY_DIRS}
 # lib include path
 target_include_directories(IMACRun PRIVATE Libmacrun)
 target_include_directories(IMACRun PRIVATE Lib)
+target_include_directories(IMACRun PRIVATE LibQueue)
 target_include_directories(IMACRun PRIVATE "${SDL2_INCLUDE_DIRS}")
 target_include_directories(IMACRun PRIVATE "${SDL2_TTF_INCLUDE_DIRS}")
 target_include_directories(IMACRun PRIVATE "${OpenGL_INCLUDE_DIRS}")
@@ -73,6 +74,7 @@ target_include_directories(IMACRun PRIVATE "${OpenGL_INCLUDE_DIRS}")
 # specify the library lib path
 target_link_libraries(IMACRun PRIVATE Libmacrun)
 target_link_libraries(IMACRun PRIVATE Lib)
+target_link_libraries(IMACRun PRIVATE LibQueue)
 target_link_libraries(IMACRun PRIVATE ${SDL2_LIBRARIES})
 target_link_libraries(IMACRun PRIVATE ${SDL2_TTF_LIBRARIES})
 target_link_libraries(IMACRun PRIVATE ${OpenGL_LIBRARIES})
