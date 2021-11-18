@@ -44,6 +44,10 @@ message(STATUS "Libmacrun cmake part ..." )
 add_subdirectory(Libmacrun)
 include_directories(${CMAKE_SOURCE_DIR}/Libmacrun/include)
 
+message(STATUS "LibQueue cmake part ...")
+add_subdirectory(LibQueue)
+include_directories(${CMAKE_SOURCE_DIR}/LibQueue/include)
+
 # collect all cpp files (sometimes considered as bad practice)
 file(GLOB_RECURSE src_files_list src/*.cpp)
 
