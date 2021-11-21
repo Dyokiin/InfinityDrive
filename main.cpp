@@ -1,5 +1,7 @@
 #include "SDLTtfManager.hpp"
 #include "SDLWindowManager.hpp"
+#include "FileBrowse.hpp"
+#include "Object.hpp"
 
 #include <SDL2/SDL.h>
 #include <GL/gl.h>
@@ -14,6 +16,8 @@ int main(int argc, char* argv[]){
 	Uint32 lastUpdate = SDL_GetTicks();
 	SDL_Event e;
 
+	// std::vector<ShapeVertexTex> vectest = testFunc();
+	// Object voiture(vectest, HitBox(Box(glm::vec3(1, 0, -1), glm::vec3(-1, 1, 1)), NONE), 0);
 
 	while(!quit){
 
@@ -28,6 +32,7 @@ int main(int argc, char* argv[]){
 				quit=true;
 				break;
 			case SDL_MOUSEBUTTONDOWN: {
+				quit=true;
 				break;
 				}
 			default:
@@ -53,7 +58,7 @@ int main(int argc, char* argv[]){
 		/******************
 		 * RENDERING CODE *
 		 *****************/
-
+		//voiture.render();
 
 		wndwManager.swapBuffers();
 

@@ -12,7 +12,7 @@ TTF_Font* TTFManagerInit(){
     TTF_Font *police = NULL;
 
     std::string path = SDL_GetBasePath();
-    path += "../../ressources/MajorMonoDisplay-Regular.ttf";
+    path += "/ressources/MajorMonoDisplay-Regular.ttf";
 
     police = TTF_OpenFont(path.c_str(), 65);
 

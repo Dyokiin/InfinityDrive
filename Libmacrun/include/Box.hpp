@@ -19,7 +19,7 @@ public:
     Box() = default; 
 
     // Copy constructor
-    Box(const Box&);
+    //Box(const Box&);
 
     Box(const glm::vec3 iVec1, const glm::vec3 iVec2)
     : _corner1(iVec1), _corner2(iVec2){}

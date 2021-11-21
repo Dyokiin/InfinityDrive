@@ -48,6 +48,10 @@ message(STATUS "LibQueue cmake part ...")
 add_subdirectory(LibQueue)
 include_directories(${CMAKE_SOURCE_DIR}/LibQueue/include)
 
+message(STATUS "FileBrowse cmake part ...")
+add_subdirectory(FileBrowse)
+include_directories(${CMAKE_SOURCE_DIR}/FileBrowse/include)
+
 # collect all cpp files (sometimes considered as bad practice)
 file(GLOB_RECURSE src_files_list src/*.cpp)
 
@@ -57,6 +61,7 @@ add_executable(IMACRun main.cpp)
 pkg_check_modules(SDL2 REQUIRED sdl2)
 pkg_check_modules(SDL2_TTF REQUIRED SDL2_ttf)
 pkg_check_modules(OpenGL REQUIRED gl)
+pkg_check_modules(GLEW REQUIRED glew)
 #pkg_check_modules(SDL2_MIX REQUIRED SDL2_mixer)
 
 include_directories(${SDL2_INCLUDE_DIRS}
@@ -71,18 +76,24 @@ link_directories (${SDL2_LIBRARY_DIRS}
 target_include_directories(IMACRun PRIVATE Libmacrun)
 target_include_directories(IMACRun PRIVATE Lib)
 target_include_directories(IMACRun PRIVATE LibQueue)
+target_include_directories(IMACRun PRIVATE FileBrowse)
 target_include_directories(IMACRun PRIVATE "${SDL2_INCLUDE_DIRS}")
 target_include_directories(IMACRun PRIVATE "${SDL2_TTF_INCLUDE_DIRS}")
 target_include_directories(IMACRun PRIVATE "${OpenGL_INCLUDE_DIRS}")
+target_include_directories(IMACRun PRIVATE "${GLEW_INCLUDE_DIRS}")
 
 # specify the library lib path
 target_link_libraries(IMACRun PRIVATE Libmacrun)
 target_link_libraries(IMACRun PRIVATE Lib)
 target_link_libraries(IMACRun PRIVATE LibQueue)
+target_link_libraries(IMACRun PRIVATE FileBrowse)
 target_link_libraries(IMACRun PRIVATE ${SDL2_LIBRARIES})
 target_link_libraries(IMACRun PRIVATE ${SDL2_TTF_LIBRARIES})
 target_link_libraries(IMACRun PRIVATE ${OpenGL_LIBRARIES})
+target_link_libraries(IMACRun PRIVATE ${GLEW_LIBRARIES})
 
 # compilation flags
 target_compile_features(IMACRun PRIVATE cxx_std_11) # use at least c++ 11
-target_compile_options(IMACRun PRIVATE -Wall -O2)   # specify some compilation flags
+target_compile_options(IMACRun PRIVATE -Wall -O2 -w)   # specify some compilation flags
+
+file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/ressources DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/bin)
