@@ -2,10 +2,22 @@
 
 
 SceneNode::SceneNode(){
-    //TODO
+    _roadElem = nullptr;
+    _modelMatrix = glm::mat4(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
+    _next = nullptr;
+}
+
+SceneNode::SceneNode(const Object* obj){
+    _roadElem = obj;
+    _modelMatrix = glm::mat4(1, 0, 0, 0,
+                             0, 1, 0, 0,
+                             0, 0, 1, 0,
+                             0, 0, 0, 1);
+    _next = nullptr;
 }
 
 SceneNode::~SceneNode(){
+//    if(_next != nullptr){delete _next;} 
 }
 
 void SceneNode::translate(const float tx, const float ty, const float tz){

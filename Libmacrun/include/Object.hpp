@@ -24,24 +24,26 @@ protected :
     std::vector<ShapeVertexTex> _vertice;
     HitBox _hitBox;
     int _objId;
+    glm::mat4 _forNextObj;
 
 public :
 
     Object() = default;
-    Object(const std::vector<ShapeVertexTex> vertices, const HitBox hb, const int id) 
-    : _vertice(vertices), _hitBox(hb), _objId(id) {};
+    Object(const std::vector<ShapeVertexTex> vertices, const HitBox hb, const int id, glm::mat4 fno) 
+    : _vertice(vertices), _hitBox(hb), _objId(id), _forNextObj(fno) {};
 
     ~Object() = default;
 
 
     inline bool collide(const Object obj) const {return _hitBox.intersect(obj._hitBox);};
-    inline EFFECTS hit() const {return _hitBox.effect();};
+    inline EFFECTS hit() const {return _hitBox.effect();}
 
     inline GLsizei getNbVertex() const {return _vertice.size();}
     inline const ShapeVertexTex* getDataPointer() const {return &_vertice[0];}
-    inline std::vector<ShapeVertexTex> getVertice() const {return _vertice;};
+    inline std::vector<ShapeVertexTex> getVertice() const {return _vertice;}
+    inline glm::mat4 getMatFNO() const {return _forNextObj;}
 
-    inline int getId() const {return _objId;};
+    inline int getId() const {return _objId;}
 
 
 };

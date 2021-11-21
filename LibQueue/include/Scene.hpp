@@ -3,6 +3,8 @@
 #include "Object.hpp"
 #include "SceneNode.hpp"
 
+#define MAX_NODE_IN_SCENE 10
+
 class Scene {
 private:
     SceneNode* _cars;
@@ -17,6 +19,5 @@ public:
     std::vector<ShapeVertexTex> meshify() const;
     void add(const Object* obj);
     void init();
-    Object* pop();
-
+    void pop();
 };

@@ -1,6 +1,5 @@
 #include "SDLTtfManager.hpp"
 #include "SDLWindowManager.hpp"
-#include "FileBrowse.hpp"
 #include "Object.hpp"
 
 #include <SDL2/SDL.h>
