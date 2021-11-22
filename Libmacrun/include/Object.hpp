@@ -25,7 +25,8 @@ protected :
     HitBox _hitBox;
     int _objId;
     glm::mat4 _forNextObj;
-const std::vector<ShapeVertexTex> vertices, const HitBox hb, const int id, glm::mat4 fno
+
+public :
 
     Object() = default;
     Object(const std::vector<ShapeVertexTex> vertices, const HitBox hb, const int id, glm::mat4 fno) 
