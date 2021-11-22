@@ -25,8 +25,7 @@ protected :
     HitBox _hitBox;
     int _objId;
     glm::mat4 _forNextObj;
-
-public :
+const std::vector<ShapeVertexTex> vertices, const HitBox hb, const int id, glm::mat4 fno
 
     Object() = default;
     Object(const std::vector<ShapeVertexTex> vertices, const HitBox hb, const int id, glm::mat4 fno) 
@@ -55,7 +54,11 @@ private:
 
 public:
     PermanentObject();
+    PermanentObject(const std::vector<ShapeVertexTex> vertices, const HitBox hb, const int id, glm::mat4 fno)
+    : Object(vertices, hb, id, fno), _speed(0,0,0), _distGarbageColl(0) {};
     ~PermanentObject();
-
-
+    
+    inline void spdUpdate(const glm::vec3 accel) {_speed *= accel;}
+    inline void distUptade(const double ddist) {if(_distGarbageColl<3){_distGarbageColl+=ddist;}}
+    inline bool distUpdate(EFFECTS slow) {_distGarbageColl-=1; return(_distGarbageColl<=0);}
 };
