@@ -1,13 +1,13 @@
 #pragma once
 
-#include "Scene.hpp"
+#include "../../../CORE/Scene/include/Scene.hpp"
 #include <list>
 
 class Mesh {
 private :
     std::list<ShapeVertexTex> _vertice;
     std::vector<int> _nbVertexMat;
-    std::list<glm::mat4> _modelMats;
+    std::vector<glm::mat4> _modelMats;
 
 public :
 

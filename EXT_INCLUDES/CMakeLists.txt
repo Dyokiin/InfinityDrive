@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.13)
 
 # give a name to the project
-project(Box LANGUAGES C CXX)
+project(EXT_INCLUDES LANGUAGES C CXX)
 
 # automatic get all files in a directory
 file(GLOB_RECURSE source_files src/*.cpp)
@@ -19,18 +19,18 @@ endif()
 # default STATIC ??
 # SHARED to make a .so instead of a .a
 # add_library(ganQ SHARED ${source_files} ${header_files})
-add_library(Box ${source_files} ${header_files})
+add_library(EXT_INCLUDES ${source_files} ${header_files})
 
 # compilation flags
-target_compile_features(Box PRIVATE cxx_std_11) # use at least c++ 11
-target_compile_options(Box PRIVATE -Wall -O2)   # specify some compilation flags
+target_compile_features(EXT_INCLUDES PRIVATE cxx_std_11) # use at least c++ 11
+target_compile_options(EXT_INCLUDES PRIVATE -Wall -O2)   # specify some compilation flags
 
 # include directory
-target_include_directories(Box PRIVATE "include")
+target_include_directories(EXT_INCLUDES PRIVATE "include")
 
 # install (optional, install a lib is not mandatory)
-install(FILES ${header_files} DESTINATION /usr/local/include/Box)
-install(TARGETS Box
+install(FILES ${header_files} DESTINATION /usr/local/include/EXT_INCLUDES)
+install(TARGETS EXT_INCLUDES
         RUNTIME DESTINATION /usr/local/lib
         LIBRARY DESTINATION /usr/local/lib
         ARCHIVE DESTINATION /usr/local/lib)

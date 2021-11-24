@@ -26,7 +26,7 @@ target_compile_features(Object PRIVATE cxx_std_11) # use at least c++ 11
 target_compile_options(Object PRIVATE -Wall -O2)   # specify some compilation flags
 
 # include directory
-target_include_directories(Object PRIVATE "include")
+target_include_directories(Object PUBLIC "include")
 
 # install (optional, install a lib is not mandatory)
 install(FILES ${header_files} DESTINATION /usr/local/include/Object)

@@ -2,8 +2,6 @@
 
 #include <string>
 
-namespace glimac {
-
 class FilePath {
 public:
 #ifdef _WIN32
@@ -108,12 +106,10 @@ private:
     std::string m_FilePath;
 };
 
-}
-
 namespace std {
   template <>
-  struct hash<glimac::FilePath> {
-    std::size_t operator()(const glimac::FilePath& k) const {
+  struct hash<FilePath> {
+    std::size_t operator()(const FilePath& k) const {
         return std::hash<std::string>()(k.str());
     }
   };

@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.13)
 
 # give a name to the project
-project(Mesh LANGUAGES C CXX)
+project(Scene LANGUAGES C CXX)
 
 # automatic get all files in a directory
 file(GLOB_RECURSE source_files src/*.cpp)
@@ -19,18 +19,18 @@ endif()
 # default STATIC ??
 # SHARED to make a .so instead of a .a
 # add_library(ganQ SHARED ${source_files} ${header_files})
-add_library(Mesh ${source_files} ${header_files})
+add_library(Scene ${source_files} ${header_files})
 
 # compilation flags
-target_compile_features(Mesh PRIVATE cxx_std_11) # use at least c++ 11
-target_compile_options(Mesh PRIVATE -Wall -O2)   # specify some compilation flags
+target_compile_features(Scene PRIVATE cxx_std_11) # use at least c++ 11
+target_compile_options(Scene PRIVATE -Wall -O2)   # specify some compilation flags
 
 # include directory
-target_include_directories(Mesh PRIVATE "include")
+target_include_directories(Scene PRIVATE "include")
 
 # install (optional, install a lib is not mandatory)
-install(FILES ${header_files} DESTINATION /usr/local/include/Mesh)
-install(TARGETS Mesh
+install(FILES ${header_files} DESTINATION /usr/local/include/Scene)
+install(TARGETS Scene
         RUNTIME DESTINATION /usr/local/lib
         LIBRARY DESTINATION /usr/local/lib
         ARCHIVE DESTINATION /usr/local/lib)

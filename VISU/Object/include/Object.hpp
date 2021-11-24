@@ -1,19 +1,22 @@
 #pragma once
 
 #include <vector>
-#include "HitBox.hpp"
+#include "../../../CORE/Box/include/HitBox.hpp"
 #include <GL/glew.h>
 #include <GL/gl.h>
 #include <glm/glm.hpp>
 #include <iostream>
 
-#include "HitBox.hpp"
-
-typedef struct ShapeVertexTex {
+class ShapeVertexTex {
+public:
     glm::vec3 _position;
     glm::vec3 _normal;
     glm::vec2 _texCoords;
-} VertexPNT;
+
+    ShapeVertexTex(glm::vec3 pos, glm::vec3 nor, glm::vec2 tex)
+    : _position(pos), _normal(nor), _texCoords(tex) {};
+    ~ShapeVertexTex();
+};
 
 
 class Object {
@@ -25,7 +28,8 @@ protected :
     HitBox _hitBox;
     int _objId;
     glm::mat4 _forNextObj;
-const std::vector<ShapeVertexTex> vertices, const HitBox hb, const int id, glm::mat4 fno
+
+public :
 
     Object() = default;
     Object(const std::vector<ShapeVertexTex> vertices, const HitBox hb, const int id, glm::mat4 fno) 

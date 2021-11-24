@@ -3,9 +3,8 @@
 #include <stb/stb_image.h>
 #include <iostream>
 
-namespace glimac {
 
-std::unique_ptr<Image> loadImage(const FilePath& filepath) {
+std::unique_ptr<Image> pLoadImage(const FilePath& filepath) {
     int x, y, n;
     unsigned char *data = stbi_load(filepath.c_str(), &x, &y, &n, 4);
     if(!data) {
@@ -35,12 +34,10 @@ const Image* ImageManager::loadImage(const FilePath& filepath) {
     if(it != std::end(m_ImageMap)) {
         return (*it).second.get();
     }
-    auto pImage = glimac::loadImage(filepath);
+    auto pImage = pLoadImage(filepath);
     if(!pImage) {
         return nullptr;
     }
     auto& img = m_ImageMap[filepath] = std::move(pImage);
     return img.get();
-}
-
 }

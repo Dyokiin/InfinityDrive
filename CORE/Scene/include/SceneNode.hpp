@@ -1,7 +1,6 @@
 #pragma once
 
-#include "Object.hpp"
-#include "../../FileBrowse/include/FileBrowse.hpp"
+#include "../../../VISU/Object/include/Object.hpp"
 
 class SceneNode{
 private:

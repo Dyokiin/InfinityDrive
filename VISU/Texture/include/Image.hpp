@@ -5,9 +5,7 @@
 #include <unordered_map>
 
 #include <glm/glm.hpp>
-#include "FilePath.hpp"
-
-namespace glimac {
+#include "../../../EXT_INCLUDES/include/FilePath.hpp"
 
 class Image {
 private:
@@ -44,5 +42,3 @@ private:
 public:
     static const Image* loadImage(const FilePath& filepath);
 };
-
-}

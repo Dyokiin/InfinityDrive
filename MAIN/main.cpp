@@ -1,6 +1,5 @@
-#include "SDLTtfManager.hpp"
 #include "SDLWindowManager.hpp"
-#include "Object.hpp"
+#include "Skybox.hpp"
 
 #include <SDL2/SDL.h>
 #include <GL/gl.h>
@@ -8,15 +7,13 @@
 int main(int argc, char* argv[]){
 
 	SDLWindowManager wndwManager(1000, 800, "IMACrun");
-	TTF_Font* font = TTFManagerInit();
 
 	
 	bool quit = false;
 	Uint32 lastUpdate = SDL_GetTicks();
 	SDL_Event e;
 
-	// std::vector<ShapeVertexTex> vectest = testFunc();
-	// Object voiture(vectest, HitBox(Box(glm::vec3(1, 0, -1), glm::vec3(-1, 1, 1)), NONE), 0);
+	Skybox moonlight;
 
 	while(!quit){
 
@@ -66,7 +63,6 @@ int main(int argc, char* argv[]){
 
 	}
 
-	TTFManagerQuit(font);
 	//Quit SDL subsystems
 	SDL_Quit();
 

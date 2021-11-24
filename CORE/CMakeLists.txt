@@ -4,13 +4,13 @@ project(CORE)
 add_library(${PROJECT_NAME} INTERFACE)
 
 add_subdirectory(Box)
-target_include_directories(Box PUBLIC Box/include)
+target_include_directories(Box PUBLIC "Box/include")
 target_link_libraries(${PROJECT_NAME} INTERFACE Box)
 
 add_subdirectory(File)
-target_include_directories(File PUBLIC File/include)
+target_include_directories(File PUBLIC "File/include")
 target_link_libraries(${PROJECT_NAME} INTERFACE File)
 
 add_subdirectory(Scene)
-target_include_directories(Scene PUBLIC Scene/include)
+target_include_directories(Scene PUBLIC "Scene/include")
 target_link_libraries(${PROJECT_NAME} INTERFACE Scene)
