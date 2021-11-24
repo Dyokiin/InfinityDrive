@@ -16,4 +16,4 @@ public:
     void rotateLeft(const float alpha);
     void rotateUp(const float gamma);
 
-}
+};

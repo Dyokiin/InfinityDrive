@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.13)
 
 # give a name to the project
-project(Libmacrun LANGUAGES C CXX)
+project(Object LANGUAGES C CXX)
 
 # automatic get all files in a directory
 file(GLOB_RECURSE source_files src/*.cpp)
@@ -19,18 +19,18 @@ endif()
 # default STATIC ??
 # SHARED to make a .so instead of a .a
 # add_library(ganQ SHARED ${source_files} ${header_files})
-add_library(Libmacrun ${source_files} ${header_files})
+add_library(Object ${source_files} ${header_files})
 
 # compilation flags
-target_compile_features(Libmacrun PRIVATE cxx_std_11) # use at least c++ 11
-target_compile_options(Libmacrun PRIVATE -Wall -O2)   # specify some compilation flags
+target_compile_features(Object PRIVATE cxx_std_11) # use at least c++ 11
+target_compile_options(Object PRIVATE -Wall -O2)   # specify some compilation flags
 
 # include directory
-target_include_directories(Libmacrun PRIVATE "include")
+target_include_directories(Object PRIVATE "include")
 
 # install (optional, install a lib is not mandatory)
-install(FILES ${header_files} DESTINATION /usr/local/include/Libmacrun)
-install(TARGETS Libmacrun
+install(FILES ${header_files} DESTINATION /usr/local/include/Object)
+install(TARGETS Object
         RUNTIME DESTINATION /usr/local/lib
         LIBRARY DESTINATION /usr/local/lib
         ARCHIVE DESTINATION /usr/local/lib)

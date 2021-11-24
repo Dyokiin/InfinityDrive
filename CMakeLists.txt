@@ -1,99 +1,51 @@
-cmake_minimum_required(VERSION 3.13)
+cmake_minimum_required(VERSION 3.8)
+cmake_policy(SET CMP0112 NEW) # Required by copy_folder_to_output()
 
-INCLUDE(FindPkgConfig)
+project(VroomRun)
+add_executable(${PROJECT_NAME})
+target_compile_features(${PROJECT_NAME} PRIVATE cxx_std_11)
 
+# Enable many good warnings
+if (MSVC)
+    target_compile_options(${PROJECT_NAME} PRIVATE /WX /W4)
+else()
+    target_compile_options(${PROJECT_NAME} PRIVATE -Wall -Wextra -Wpedantic -pedantic-errors -Wconversion -Wsign-conversion)
+endif()
 
-# give a name to the project
-project(IMACRun)
+# Set the folder where the executable is created
+set(EXECUTABLE_OUTPUT_PATH ${CMAKE_SOURCE_DIR}/bin/${CMAKE_BUILD_TYPE})
 
-# display VERBOSE messages : cmake --log-level=VERBOSE ..
-
-# specify the system
-message(VERBOSE "CMAKE_VERSION           : " ${CMAKE_VERSION})
-message(VERBOSE "CMAKE_SYSTEM_NAME       : " ${CMAKE_SYSTEM_NAME})
-message(VERBOSE "CMAKE_SYSTEM            : " ${CMAKE_SYSTEM})
-message(VERBOSE "CMAKE_SYSTEM_PROCESSOR  : " ${CMAKE_SYSTEM_PROCESSOR} "\n")
-
-# specify the directories
-message(VERBOSE "CMAKE_BINARY_DIR        : " ${CMAKE_BINARY_DIR})
-message(VERBOSE "CMAKE_SOURCE_DIR        : " ${CMAKE_SOURCE_DIR})
-message(VERBOSE "CMAKE_HOME_DIRECTORY    : " ${CMAKE_HOME_DIRECTORY})
-message(VERBOSE "PROJECT_BINARY_DIR      : " ${PROJECT_BINARY_DIR})
-message(VERBOSE "PROJECT_SOURCE_DIR      : " ${PROJECT_SOURCE_DIR} "\n")
-
-# compile flags
-message(VERBOSE "CMAKE_CXX_FLAGS         : " ${CMAKE_CXX_FLAG})
-message(VERBOSE "CMAKE_CXX_FLAGS_DEBUG   : " ${CMAKE_CXX_FLAGS_DEBUG})
-message(VERBOSE "CMAKE_CXX_FLAGS_RELEASE : " ${CMAKE_CXX_FLAGS_RELEASE})
-message(VERBOSE "CMAKE_CXX_COMPILER      : " ${CMAKE_CXX_COMPILER} "\n")
-
-# (optional) add a "output" directory in the project binary directory
-file(MAKE_DIRECTORY ${PROJECT_BINARY_DIR}/output)
-
-# (optional) put the binary files in this directory
-set(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin)
+# Add all the files
+file(GLOB_RECURSE MY_SOURCES CONFIGURE_DEPENDS MAIN/*)
+target_sources(${PROJECT_NAME} PRIVATE ${MY_SOURCES})
+target_include_directories(${PROJECT_NAME} PRIVATE src)
 
 
+# --- Include libs
 
-message(STATUS "Lib cmake part ..." )
-add_subdirectory(Lib INTERFACE)
-include_directories(${CMAKE_SOURCE_DIR}/Lib/include)
+add_subdirectory(CORE)
+target_link_libraries(${PROJECT_NAME} PUBLIC CORE)
 
-# add myCode2
-message(STATUS "Libmacrun cmake part ..." )
-add_subdirectory(Libmacrun)
-include_directories(${CMAKE_SOURCE_DIR}/Libmacrun/include)
+add_subdirectory(VISU)
+target_link_libraries(${PROJECT_NAME} PUBLIC VISU)
 
-message(STATUS "LibQueue cmake part ...")
-add_subdirectory(LibQueue)
-include_directories(${CMAKE_SOURCE_DIR}/LibQueue/include)
+add_subdirectory(EXT_INCLUDES)
+target_link_libraries(${PROJECT_NAME} PUBLIC EXT_INCLUDES)
 
-message(STATUS "FileBrowse cmake part ...")
-add_subdirectory(FileBrowse)
-include_directories(${CMAKE_SOURCE_DIR}/FileBrowse/include)
 
-# collect all cpp files (sometimes considered as bad practice)
-file(GLOB_RECURSE src_files_list src/*.cpp)
 
-# files to compile
-add_executable(IMACRun main.cpp)
 
-pkg_check_modules(SDL2 REQUIRED sdl2)
-pkg_check_modules(SDL2_TTF REQUIRED SDL2_ttf)
-pkg_check_modules(OpenGL REQUIRED gl)
-pkg_check_modules(GLEW REQUIRED glew)
-#pkg_check_modules(SDL2_MIX REQUIRED SDL2_mixer)
 
-include_directories(${SDL2_INCLUDE_DIRS}
-    ${SDL2_TTF_INCLUDE_DIRS})
-    #    ${SDL2_MIX_INCLUDE_DIRS}
-
-link_directories (${SDL2_LIBRARY_DIRS}
-    ${SDL2_TTF_LIBRARY_DIRS})
-    #    ${SDL2_MIX_LIBRARY_DIRS}
-
-# lib include path
-target_include_directories(IMACRun PRIVATE Libmacrun)
-target_include_directories(IMACRun PRIVATE Lib)
-target_include_directories(IMACRun PRIVATE LibQueue)
-target_include_directories(IMACRun PRIVATE FileBrowse)
-target_include_directories(IMACRun PRIVATE "${SDL2_INCLUDE_DIRS}")
-target_include_directories(IMACRun PRIVATE "${SDL2_TTF_INCLUDE_DIRS}")
-target_include_directories(IMACRun PRIVATE "${OpenGL_INCLUDE_DIRS}")
-target_include_directories(IMACRun PRIVATE "${GLEW_INCLUDE_DIRS}")
-
-# specify the library lib path
-target_link_libraries(IMACRun PRIVATE Libmacrun)
-target_link_libraries(IMACRun PRIVATE Lib)
-target_link_libraries(IMACRun PRIVATE LibQueue)
-target_link_libraries(IMACRun PRIVATE FileBrowse)
-target_link_libraries(IMACRun PRIVATE ${SDL2_LIBRARIES})
-target_link_libraries(IMACRun PRIVATE ${SDL2_TTF_LIBRARIES})
-target_link_libraries(IMACRun PRIVATE ${OpenGL_LIBRARIES})
-target_link_libraries(IMACRun PRIVATE ${GLEW_LIBRARIES})
-
-# compilation flags
-target_compile_features(IMACRun PRIVATE cxx_std_11) # use at least c++ 11
-target_compile_options(IMACRun PRIVATE -Wall -O2 -w)   # specify some compilation flags
-
-file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/ressources DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/bin)
+# Copy the assets to the output folder (where the executable is created)
+function(copy_folder_to_output DIR)
+    string(SHA1 TARGET_HASH ${DIR})              # Create a unique name for our custom target. We can't use ${DIR} directly because it could contain invalid characters like spaces
+    set(TARGET_NAME CopyToOutput_${TARGET_HASH}) #
+    add_custom_target(${TARGET_NAME}
+        COMMENT "Copying \"${DIR}\""
+        COMMAND ${CMAKE_COMMAND} -E copy_directory
+            ${CMAKE_SOURCE_DIR}/${DIR}
+            $<TARGET_FILE_DIR:${PROJECT_NAME}>/${DIR}
+    )
+    add_dependencies(${PROJECT_NAME} ${TARGET_NAME}) # Mark our custom target as a dependency of the main project, so that whenever the main project is launched our custom target is triggered and files are copied
+endfunction()
+copy_folder_to_output("assets")
