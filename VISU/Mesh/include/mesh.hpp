@@ -20,7 +20,4 @@ public :
     void render() const;
 
     inline void setModelMat(const int wichMat, const glm::mat4 &newModelMat) {_modelMats[wichMat] = newModelMat;}
-
-    //TODO
-
 };

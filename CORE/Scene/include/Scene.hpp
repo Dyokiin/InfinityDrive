@@ -16,6 +16,8 @@ public:
     Scene();
     ~Scene();
 
+    inline const int getNbObject() const {return _nbObject;} 
+
     std::vector<ShapeVertexTex> meshify() const;
     void add(const Object* obj);
     void init();

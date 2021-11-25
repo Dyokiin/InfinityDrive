@@ -1,19 +1,41 @@
 #include "SDLWindowManager.hpp"
 #include "Skybox.hpp"
+#include "Camera.hpp"
+#include "Scene.hpp"
 
 #include <SDL2/SDL.h>
 #include <GL/gl.h>
 
+#define WINDOW_WIDTH 1000
+#define WINDOW_HEIGHT 800
+
+
 int main(int argc, char* argv[]){
 
-	SDLWindowManager wndwManager(1000, 800, "IMACrun");
+	/* INITIALISATION */
 
+	//Window init : fixed size
+	SDLWindowManager wndwManager(WINDOW_WIDTH, WINDOW_HEIGHT, "VroomRun");
+
+	//Projection Matrix : fixed window size
+	glm::mat4 projectionMatrix = glm::perspective(glm::radians(60.f),
+												  float(WINDOW_WIDTH)/WINDOW_HEIGHT,
+												  0.1f, 100.f);
 	
+	//Scene Init
+	Scene mainScene;
+	mainScene.init();
+
+	//SkyBox init
+	Skybox moonlight;
+
+	//Several variables useful to the main loop
 	bool quit = false;
 	Uint32 lastUpdate = SDL_GetTicks();
 	SDL_Event e;
 
-	Skybox moonlight;
+
+	/* MAIN LOOP */
 
 	while(!quit){
 
