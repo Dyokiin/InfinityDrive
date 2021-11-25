@@ -1,7 +1,7 @@
 #pragma once
 
 #include <vector>
-#include "../../../CORE/Box/include/HitBox.hpp"
+#include "../../../1_CORE/Box/include/HitBox.hpp"
 #include <GL/glew.h>
 #include <GL/gl.h>
 #include <glm/glm.hpp>
@@ -15,7 +15,7 @@ public:
 
     ShapeVertexTex(glm::vec3 pos, glm::vec3 nor, glm::vec2 tex)
     : _position(pos), _normal(nor), _texCoords(tex) {};
-    ~ShapeVertexTex();
+    ~ShapeVertexTex() = default;
 };
 
 
@@ -23,7 +23,6 @@ class Object {
 
 protected :
 
-    //Shape _vertice;*
     std::vector<ShapeVertexTex> _vertice;
     HitBox _hitBox;
     int _objId;

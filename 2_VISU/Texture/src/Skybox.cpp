@@ -31,7 +31,6 @@ Skybox::Skybox() {
     glGenVertexArrays(1, &_skyVAO);
     glBindVertexArray(_skyVAO);
 
-    
     glGenBuffers(1, &_skyEBO);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _skyEBO);
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, cubeVertex.size()*sizeof(GLuint), &cubeEBO[0], GL_STATIC_DRAW);

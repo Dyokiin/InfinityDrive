@@ -2,7 +2,7 @@
 
 #include <GL/glew.h>
 #include "Shader.hpp"
-#include "../../../EXT_INCLUDES/include/FilePath.hpp"
+#include "../../../3_EXT_INCLUDES/include/FilePath.hpp"
 
 namespace glimac {
 

@@ -4,16 +4,16 @@
 #include <GL/glew.h>
 #include <vector>
 #include <string>
-#include "../include/Image.hpp"
-#include "../../Object/include/Object.hpp"
+#include "Image.hpp"
+#include "../../../1_CORE/Scene/include/Scene.hpp"
 
 
 class Skybox {
 private :
-    GLuint _skyVAO;
-    GLuint _skyVBO;
-    GLuint _skyEBO;
-    GLuint _texture;
+    unsigned int _skyVAO;
+    unsigned int _skyVBO;
+    unsigned int _skyEBO;
+    unsigned int _texture;
     std::vector<std::string> _faces;
 
 public:

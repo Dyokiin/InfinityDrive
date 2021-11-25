@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../../../CORE/Scene/include/Scene.hpp"
+#include "../../../1_CORE/Scene/include/Scene.hpp"
 #include <list>
 
 class Mesh {

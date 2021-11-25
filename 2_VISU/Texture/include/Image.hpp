@@ -5,7 +5,7 @@
 #include <unordered_map>
 
 #include <glm/glm.hpp>
-#include "../../../EXT_INCLUDES/include/FilePath.hpp"
+#include "../../../3_EXT_INCLUDES/include/FilePath.hpp"
 
 class Image {
 private:

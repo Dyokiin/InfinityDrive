@@ -14,14 +14,14 @@ void Camera::moveFront(const float delta){
 }
 
 void Camera::rotateLeft(const double a){
-    double b = (a * M_PI)/180;
+    double b = glm::radians(a);
     _transforms[1] += b;
 
     this->calcPos();
 }
 
 void Camera::rotateUp(const double a){
-    double b = (a * M_PI)/180;
+    double b = glm::radians(a);
     _transforms[2] += b;
 
     this->calcPos();

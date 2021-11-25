@@ -16,6 +16,7 @@ int main(int argc, char* argv[]){
 
 	//Window init : fixed size
 	SDLWindowManager wndwManager(WINDOW_WIDTH, WINDOW_HEIGHT, "VroomRun");
+	glewInit();
 
 	//Projection Matrix : fixed window size
 	glm::mat4 projectionMatrix = glm::perspective(glm::radians(60.f),
@@ -29,10 +30,15 @@ int main(int argc, char* argv[]){
 	//SkyBox init
 	Skybox moonlight;
 
+	//Camera Init
+	Camera super8;
+
 	//Several variables useful to the main loop
 	bool quit = false;
 	Uint32 lastUpdate = SDL_GetTicks();
 	SDL_Event e;
+	float deltaX = 0;
+	float deltaY = 0;
 
 
 	/* MAIN LOOP */
