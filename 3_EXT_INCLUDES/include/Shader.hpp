@@ -6,8 +6,6 @@
 
 #define GLIMAC_SHADER_SRC(str) #str
 
-namespace glimac {
-
 class Shader {
 public:
 	Shader(GLenum type): m_nGLId(glCreateShader(type)) {
@@ -48,5 +46,3 @@ private:
 
 // Load a shader (but does not compile it)
 Shader loadShader(GLenum type, const FilePath& filepath);
-
-}

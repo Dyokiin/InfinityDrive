@@ -1,9 +1,9 @@
 #include "SDLWindowManager.hpp"
 #include "Skybox.hpp"
-#include "Camera.hpp"
 #include "Scene.hpp"
+#include "CamControl.hpp"
+#include "GameControl.hpp"
 
-#include <SDL2/SDL.h>
 #include <GL/gl.h>
 
 #define WINDOW_WIDTH 1000
@@ -12,7 +12,7 @@
 
 int main(int argc, char* argv[]){
 
-	/* INITIALISATION */
+	/********************* INITIALISATION ********************/
 
 	//Window init : fixed size
 	SDLWindowManager wndwManager(WINDOW_WIDTH, WINDOW_HEIGHT, "VroomRun");
@@ -35,13 +35,13 @@ int main(int argc, char* argv[]){
 
 	//Several variables useful to the main loop
 	bool quit = false;
+	bool camSetUp = true;
+
 	Uint32 lastUpdate = SDL_GetTicks();
 	SDL_Event e;
-	float deltaX = 0;
-	float deltaY = 0;
 
 
-	/* MAIN LOOP */
+	/************************ MAIN LOOP **********************/
 
 	while(!quit){
 
@@ -49,18 +49,21 @@ int main(int argc, char* argv[]){
 
 
 		/* INPUT LOOP */
-
-		while(SDL_PollEvent(&e) != 0){
-			switch(e.type){
-			case SDL_QUIT:
-				quit=true;
-				break;
-			case SDL_MOUSEBUTTONDOWN: {
-				quit=true;
-				break;
+		if(camSetUp){
+			while(SDL_PollEvent(&e) != 0){
+				if(e.type == SDL_QUIT){
+					quit = true;
+				} else {
+					camSetUp = camUpdate(super8, e);
 				}
-			default:
-				break;
+			}
+		} else {
+			while(SDL_PollEvent(&e) != 0){
+				if(e.type == SDL_QUIT){
+					quit = true;
+				} else {
+					GameUpdate(e);
+				}
 			}
 		}
 
@@ -82,7 +85,10 @@ int main(int argc, char* argv[]){
 		/******************
 		 * RENDERING CODE *
 		 *****************/
-		//voiture.render();
+		
+		
+		
+		moonlight.display();
 
 		wndwManager.swapBuffers();
 

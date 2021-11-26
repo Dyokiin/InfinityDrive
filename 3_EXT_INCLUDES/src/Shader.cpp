@@ -5,8 +5,6 @@
 #include <string>
 #include <sstream>
 
-namespace glimac {
-
 bool Shader::compile() {
 	glCompileShader(m_nGLId);
 	GLint status;
@@ -37,6 +35,4 @@ Shader loadShader(GLenum type, const FilePath& filepath) {
     shader.setSource(buffer.str().c_str());
 
     return shader;
-}
-
 }

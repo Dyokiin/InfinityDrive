@@ -43,12 +43,12 @@ Skybox::Skybox() {
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 
 
-    _faces.push_back("tex1"); //placeholders
-    _faces.push_back("tex2");
-    _faces.push_back("tex3");
-    _faces.push_back("tex4");
-    _faces.push_back("tex5");
-    _faces.push_back("tex6");
+    _faces.push_back("../ressources/noir.jpg"); //placeholders
+    _faces.push_back("../ressources/noir.jpg");
+    _faces.push_back("../ressources/noir.jpg");
+    _faces.push_back("../ressources/noir.jpg");
+    _faces.push_back("../ressources/noir.jpg");
+    _faces.push_back("../ressources/noir.jpg");
 
     glGenTextures(1, &_texture);
     glBindTexture(GL_TEXTURE_CUBE_MAP, _texture);
@@ -86,10 +86,14 @@ void Skybox::display() const {
     glBindVertexArray(_skyVAO);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _skyEBO);
 
+    glActiveTexture(GL_TEXTURE0);
+    glBindTexture(GL_TEXTURE_CUBE_MAP, _texture);
+
     glDrawElements(GL_TRIANGLES, cubeEBO.size(), GL_UNSIGNED_INT, 0);
 
     glBindBuffer(GL_ARRAY_BUFFER, 0);
     glBindVertexArray(0);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 
+    glDepthFunc(GL_LESS);
 }

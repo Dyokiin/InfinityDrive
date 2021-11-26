@@ -2,9 +2,7 @@
 
 #include <GL/glew.h>
 #include "Shader.hpp"
-#include "../../../3_EXT_INCLUDES/include/FilePath.hpp"
-
-namespace glimac {
+#include "FilePath.hpp"
 
 class Program {
 public:
@@ -53,6 +51,3 @@ Program buildProgram(const GLchar* vsSrc, const GLchar* fsSrc);
 
 // Load source code from files and build a GLSL program
 Program loadProgram(const FilePath& vsFile, const FilePath& fsFile);
-
-
-}

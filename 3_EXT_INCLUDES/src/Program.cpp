@@ -1,8 +1,6 @@
 #include "../include/Program.hpp"
 #include <stdexcept>
 
-namespace glimac {
-
 bool Program::link() {
 	glLinkProgram(m_nGLId);
 	GLint status;
@@ -69,6 +67,4 @@ Program loadProgram(const FilePath& vsFile, const FilePath& fsFile) {
 	}
 
 	return program;
-}
-
 }
