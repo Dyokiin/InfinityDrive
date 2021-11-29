@@ -1,5 +1,6 @@
 #include "../include/Camera.hpp"
 #include <math.h>
+#include <iostream>
 
 void Camera::calcPos(){
     _camPos[0] = _transforms[0] * sin(_transforms[2]) * sin(_transforms[1]);

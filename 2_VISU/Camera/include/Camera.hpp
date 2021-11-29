@@ -15,7 +15,7 @@ private:
 public:
 
     Camera()
-    : _lookAt(glm::vec3(0)), _upVect(0,1,0), _transforms(1,0,0) {
+    : _lookAt(glm::vec3(0)), _upVect(0,1,0), _transforms(0.5,0,0) {
         this->calcPos();
     };
     Camera(glm::vec3 lookat, glm::vec3 tranzform)

@@ -3,6 +3,8 @@
 #include "Scene.hpp"
 #include "CamControl.hpp"
 #include "GameControl.hpp"
+#include "MyShader.hpp"
+
 
 #include <GL/gl.h>
 
@@ -33,6 +35,10 @@ int main(int argc, char* argv[]){
 	//Camera Init
 	Camera super8;
 
+	//Sader Init
+	MyShader shader;
+	//shader.sendProjMat(projectionMatrix);
+
 	//Several variables useful to the main loop
 	bool quit = false;
 	bool camSetUp = true;
@@ -40,13 +46,32 @@ int main(int argc, char* argv[]){
 	Uint32 lastUpdate = SDL_GetTicks();
 	SDL_Event e;
 
+	/*************TEST CODE : JUST SOMETHING PLEASE***********/
+
+	GLuint vbo;
+	glGenBuffers(1, &vbo);
+	glBindBuffer(GL_ARRAY_BUFFER, vbo);
+    GLfloat vertices[] = {-0.5f, -0.5f, 1.f, 0.f, 0.f,
+                           0.5f, -0.5f, 0.f, 1.f, 0.f,
+                           0.0f,  0.5f, 0.f, 0.f, 1.f};
+    glBufferData(GL_ARRAY_BUFFER, 15*sizeof(GLfloat), vertices, GL_STATIC_DRAW);
+    glBindBuffer(GL_ARRAY_BUFFER, 0);
+    GLuint vao;
+    glGenVertexArrays(1, &vao);
+    glBindVertexArray(vao);
+    const GLuint VERTEX_ATTR_POSITION = 3;
+    glEnableVertexAttribArray(VERTEX_ATTR_POSITION);
+    const GLuint VERTEX_ATTR_COLOR = 8;
+    glEnableVertexAttribArray(VERTEX_ATTR_COLOR);
+    glBindBuffer(GL_ARRAY_BUFFER, vbo);
+    glVertexAttribPointer(VERTEX_ATTR_POSITION, 2, GL_FLOAT, GL_FALSE, 5*sizeof(float), 0);
+    glVertexAttribPointer(VERTEX_ATTR_COLOR, 3, GL_FLOAT, GL_FALSE, 5*sizeof(float), (const GLvoid*)(2*(sizeof(GLfloat))));   
+    glBindVertexArray(0);
+    glBindBuffer(GL_ARRAY_BUFFER, 0);
 
 	/************************ MAIN LOOP **********************/
 
 	while(!quit){
-
-		Uint64 start = SDL_GetPerformanceCounter();
-
 
 		/* INPUT LOOP */
 		if(camSetUp){
@@ -66,8 +91,8 @@ int main(int argc, char* argv[]){
 				}
 			}
 		}
+		//shader.sendViewMat(super8.getViewMatrix());
 
-		Uint64 event = SDL_GetPerformanceCounter();
 
 		/* ENGINE LOOP */
 
@@ -77,7 +102,6 @@ int main(int argc, char* argv[]){
 		//
 
 		lastUpdate = current;
-		Uint64 phys = SDL_GetPerformanceCounter();
 
 
 		/* RENDERING LOOP */
@@ -85,16 +109,18 @@ int main(int argc, char* argv[]){
 		/******************
 		 * RENDERING CODE *
 		 *****************/
+		glClear(GL_COLOR_BUFFER_BIT);
+
+		glBindVertexArray(vao);
+		glDrawArrays(GL_TRIANGLES, 0, 3);
+		glBindVertexArray(0);
+
 		
 		
 		
 		moonlight.display();
 
 		wndwManager.swapBuffers();
-
-		Uint64 rend = SDL_GetPerformanceCounter();
-
-
 	}
 
 	//Quit SDL subsystems

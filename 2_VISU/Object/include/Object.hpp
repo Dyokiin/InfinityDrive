@@ -7,14 +7,17 @@
 #include <glm/glm.hpp>
 #include <iostream>
 
-class ShapeVertexTex {
-public:
+struct ShapeVertexTex {
     glm::vec3 _position;
     glm::vec3 _normal;
     glm::vec2 _texCoords;
 
+    ShapeVertexTex()
+    : _position(), _normal(), _texCoords() {}
+
     ShapeVertexTex(glm::vec3 pos, glm::vec3 nor, glm::vec2 tex)
-    : _position(pos), _normal(nor), _texCoords(tex) {};
+    : _position(pos), _normal(nor), _texCoords(tex) {}
+    
     ~ShapeVertexTex() = default;
 };
 

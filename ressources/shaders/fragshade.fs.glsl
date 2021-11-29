@@ -10,4 +10,5 @@ out vec3 fFragColor;
 
 void main() {
     fFragColor = texture(uTexture, vTexCoord).xyz;
+    fFragColor = vec3(1,1,1);
 }

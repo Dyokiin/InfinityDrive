@@ -2,7 +2,7 @@
 
 #include <GL/glew.h>
 #include <string>
-#include "../../../3_EXT_INCLUDES/include/FilePath.hpp"
+#include "FilePath.hpp"
 
 #define GLIMAC_SHADER_SRC(str) #str
 

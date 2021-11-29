@@ -24,6 +24,7 @@ target_include_directories(${PROJECT_NAME} PRIVATE MAIN)
 
 # --- Include libs
 add_subdirectory(3_EXT_INCLUDES)
+add_library(3_EXT_INCLUDES INTERFACE)
 target_include_directories(${PROJECT_NAME} PUBLIC "3_EXT_INCLUDES/include")
 target_link_libraries(${PROJECT_NAME} PUBLIC EXT_INCLUDES)
 
