@@ -9,11 +9,10 @@ class MyShader{
 private:
     
     Program _Shader1;
+    Program _Shader2;
+    Program _Shader3;
 
-    GLint _uniformViewMat;
-    GLint _uniformProjMat;
-    GLint _uniformNormMat;
-    //Program _Shader2;
+    int _inUse;
 
 public:
     
@@ -23,13 +22,17 @@ public:
     void init();
     void use() const;
 
-    inline void sendViewMat(const glm::mat4 viewMat) const {glUniformMatrix4fv(_uniformViewMat, 1, false, glm::value_ptr(viewMat));}
-    inline void sendProjMat(const glm::mat4 projMat) const {glUniformMatrix4fv(_uniformProjMat, 1, false, glm::value_ptr(projMat));}
-    inline void sendNormMat(const glm::mat4 normMat) const {glUniformMatrix4fv(_uniformNormMat, 1, false, glm::value_ptr(normMat));}
+    void sendViewMat(const glm::mat4 viewMat) const; 
+    void sendProjMat(const glm::mat4 projMat) const; 
+    void sendNormMat(const glm::mat4 normMat) const; 
     inline void sendMatrixs(const glm::mat4 viewMat, const glm::mat4 projMat, const glm::mat4 normMat) const {
         sendViewMat(viewMat);
         sendProjMat(projMat);
         sendNormMat(normMat);
     }
+
+    inline void skyShader() {_Shader3.use(); _inUse = 3;}
+    inline void triShader() {_Shader2.use(); _inUse = 2;}
+    inline void plnShader() {_Shader1.use(); _inUse = 1;}
 
 };

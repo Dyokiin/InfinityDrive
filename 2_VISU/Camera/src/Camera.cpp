@@ -10,25 +10,21 @@ void Camera::calcPos(){
 
 void Camera::moveFront(const float delta){
     _transforms[0] += delta;
-
-    this->calcPos();
 }
 
 void Camera::rotateLeft(const double a){
     double b = glm::radians(a);
     _transforms[1] += b;
-
-    this->calcPos();
 }
 
 void Camera::rotateUp(const double a){
     double b = glm::radians(a);
     _transforms[2] += b;
-
-    this->calcPos();
 }
 
-glm::mat4 const Camera::getViewMatrix() const {
+glm::mat4 const Camera::getViewMatrix() {
+
+    this->calcPos();
 
     return glm::lookAt(_camPos,
                        _lookAt,

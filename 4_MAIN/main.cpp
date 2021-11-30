@@ -22,7 +22,7 @@ int main(int argc, char* argv[]){
 
 	//Projection Matrix : fixed window size
 	glm::mat4 projectionMatrix = glm::perspective(glm::radians(60.f),
-												  float(WINDOW_WIDTH)/WINDOW_HEIGHT,
+												  (float)WINDOW_WIDTH/WINDOW_HEIGHT,
 												  0.1f, 100.f);
 	
 	//Scene Init
@@ -37,7 +37,6 @@ int main(int argc, char* argv[]){
 
 	//Sader Init
 	MyShader shader;
-	//shader.sendProjMat(projectionMatrix);
 
 	//Several variables useful to the main loop
 	bool quit = false;
@@ -51,10 +50,10 @@ int main(int argc, char* argv[]){
 	GLuint vbo;
 	glGenBuffers(1, &vbo);
 	glBindBuffer(GL_ARRAY_BUFFER, vbo);
-    GLfloat vertices[] = {-0.5f, -0.5f, 1.f, 0.f, 0.f,
-                           0.5f, -0.5f, 0.f, 1.f, 0.f,
-                           0.0f,  0.5f, 0.f, 0.f, 1.f};
-    glBufferData(GL_ARRAY_BUFFER, 15*sizeof(GLfloat), vertices, GL_STATIC_DRAW);
+	std::vector<ShapeVertexTex> vertices = {ShapeVertexTex(glm::vec3(-0.5,-0.5,0.), glm::vec3(1.,0.,0.), glm::vec2(0)),
+											ShapeVertexTex(glm::vec3( 0.5,-0.5,0.), glm::vec3(0.,1.,0.), glm::vec2(0)),
+											ShapeVertexTex(glm::vec3( 0. , 0.5,0.), glm::vec3(0.,0.,1.), glm::vec2(0))};
+    glBufferData(GL_ARRAY_BUFFER, 3*sizeof(ShapeVertexTex), &vertices[0], GL_STATIC_DRAW);
     glBindBuffer(GL_ARRAY_BUFFER, 0);
     GLuint vao;
     glGenVertexArrays(1, &vao);
@@ -64,10 +63,17 @@ int main(int argc, char* argv[]){
     const GLuint VERTEX_ATTR_COLOR = 8;
     glEnableVertexAttribArray(VERTEX_ATTR_COLOR);
     glBindBuffer(GL_ARRAY_BUFFER, vbo);
-    glVertexAttribPointer(VERTEX_ATTR_POSITION, 2, GL_FLOAT, GL_FALSE, 5*sizeof(float), 0);
-    glVertexAttribPointer(VERTEX_ATTR_COLOR, 3, GL_FLOAT, GL_FALSE, 5*sizeof(float), (const GLvoid*)(2*(sizeof(GLfloat))));   
+    glVertexAttribPointer(VERTEX_ATTR_POSITION, 3, GL_FLOAT, GL_FALSE, sizeof(ShapeVertexTex), 0);
+    glVertexAttribPointer(VERTEX_ATTR_COLOR, 3, GL_FLOAT, GL_FALSE, sizeof(ShapeVertexTex), (const GLvoid*)(sizeof(glm::vec3)));   
     glBindVertexArray(0);
     glBindBuffer(GL_ARRAY_BUFFER, 0);
+
+	// glm::mat4 view = glm::mat4(1.0f);
+    // view = glm::mat4(glm::mat3(glm::lookAt(_camera._position, _camera._position + _camera._orientation, _camera._up)));
+    // glm::mat4 projection = glm::mat4(1.0f);
+    // projection = glm::perspective(glm::radians(45.0f), (float)_width / _height, 0.1f, 100.0f);
+    // glUniformMatrix4fv(glGetUniformLocation(_skyboxShader._id, "view"), 1, GL_FALSE, glm::value_ptr(view));
+    // glUniformMatrix4fv(glGetUniformLocation(_skyboxShader._id, "projection"), 1, GL_FALSE, glm::value_ptr(projection));
 
 	/************************ MAIN LOOP **********************/
 
@@ -91,8 +97,6 @@ int main(int argc, char* argv[]){
 				}
 			}
 		}
-		//shader.sendViewMat(super8.getViewMatrix());
-
 
 		/* ENGINE LOOP */
 
@@ -109,16 +113,28 @@ int main(int argc, char* argv[]){
 		/******************
 		 * RENDERING CODE *
 		 *****************/
-		glClear(GL_COLOR_BUFFER_BIT);
+		glEnable(GL_DEPTH_TEST);
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+		shader.plnShader();
+		shader.sendViewMat(super8.getViewMatrix());
+		shader.sendProjMat(projectionMatrix);
+
+		shader.triShader();
+		shader.sendViewMat(super8.getViewMatrix());
+		shader.sendProjMat(projectionMatrix);
+		shader.sendNormMat(glm::mat4(2.f));
 
 		glBindVertexArray(vao);
 		glDrawArrays(GL_TRIANGLES, 0, 3);
 		glBindVertexArray(0);
 
 		
-		
-		
-		moonlight.display();
+		// shader.skyShader() ;
+		// shader.sendViewMat(glm::mat4(glm::mat3(super8.getViewMatrix())));
+		// shader.sendProjMat(projectionMatrix);
+
+		// moonlight.display();
 
 		wndwManager.swapBuffers();
 	}

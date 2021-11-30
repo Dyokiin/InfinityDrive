@@ -15,7 +15,7 @@ private:
 public:
 
     Camera()
-    : _lookAt(glm::vec3(0)), _upVect(0,1,0), _transforms(0.5,0,0) {
+    : _lookAt(glm::vec3(0)), _upVect(0,1,0), _transforms(3,0,0) {
         this->calcPos();
     };
     Camera(glm::vec3 lookat, glm::vec3 tranzform)
@@ -32,5 +32,5 @@ public:
 
     inline void setLookAt(glm::vec3 const lookat) {_lookAt = lookat;}
 
-    glm::mat4 const getViewMatrix() const;
+    glm::mat4 const getViewMatrix();
 };

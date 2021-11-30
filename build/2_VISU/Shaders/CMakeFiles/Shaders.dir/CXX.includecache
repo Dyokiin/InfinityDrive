@@ -1,0 +1,42 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/media/theo/Stockage Ubuntu/VroomRun/2_VISU/Shaders/include/FilePath.hpp
+string
+-
+
+/media/theo/Stockage Ubuntu/VroomRun/2_VISU/Shaders/include/MyShader.hpp
+../include/Program.hpp
+/media/theo/Stockage Ubuntu/VroomRun/2_VISU/Shaders/include/Program.hpp
+glm/glm.hpp
+-
+glm/gtc/type_ptr.hpp
+-
+SDL2/SDL.h
+-
+
+/media/theo/Stockage Ubuntu/VroomRun/2_VISU/Shaders/include/Program.hpp
+GL/glew.h
+-
+Shader.hpp
+/media/theo/Stockage Ubuntu/VroomRun/2_VISU/Shaders/include/Shader.hpp
+FilePath.hpp
+/media/theo/Stockage Ubuntu/VroomRun/2_VISU/Shaders/include/FilePath.hpp
+
+/media/theo/Stockage Ubuntu/VroomRun/2_VISU/Shaders/include/Shader.hpp
+GL/glew.h
+-
+string
+-
+FilePath.hpp
+/media/theo/Stockage Ubuntu/VroomRun/2_VISU/Shaders/include/FilePath.hpp
+
+/media/theo/Stockage Ubuntu/VroomRun/2_VISU/Shaders/src/MyShader.cpp
+../include/MyShader.hpp
+/media/theo/Stockage Ubuntu/VroomRun/2_VISU/Shaders/include/MyShader.hpp
+

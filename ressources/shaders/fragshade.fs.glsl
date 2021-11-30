@@ -1,14 +1,23 @@
-#version 330
+#version 450 core
 
-in vec3 vPosition_vs;
-in vec3 vNormal_vs;
-in vec2 vTexCoord;
+in vec4 point;  // in view space
+in vec4 uhat;
+in vec4 vhat;
+in vec4 ndc;
 
-uniform sampler2D uTexture;
+out vec4 frag_color;
 
-out vec3 fFragColor;
+void main()
+{
+    // simple but expensive 2: discard pixels not on the plane
+    if (point.w > 0)
+        discard;
 
-void main() {
-    fFragColor = texture(uTexture, vTexCoord).xyz;
-    fFragColor = vec3(1,1,1);
+    float u = dot(uhat.xyz, point.xyz/point.w) + uhat.w;
+    float v = dot(vhat.xyz, point.xyz/point.w) + vhat.w;
+
+    // Simple procedural texture test
+    frag_color = vec4(fract(u), fract(v), 0.2, 1);
+
+    gl_FragDepth = (ndc.z / ndc.w + 1.0) / 2.0;
 }

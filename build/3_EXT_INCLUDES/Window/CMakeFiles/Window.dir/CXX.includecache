@@ -1,0 +1,42 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/media/theo/Stockage Ubuntu/VroomRun/3_EXT_INCLUDES/Window/include/SDLTtfManager.hpp
+SDL2/SDL.h
+-
+SDL2/SDL_ttf.h
+-
+GL/glew.h
+-
+glm/glm.hpp
+-
+iostream
+-
+string
+-
+
+/media/theo/Stockage Ubuntu/VroomRun/3_EXT_INCLUDES/Window/include/SDLWindowManager.hpp
+cstdint
+-
+SDL2/SDL.h
+-
+glm/glm.hpp
+-
+
+/media/theo/Stockage Ubuntu/VroomRun/3_EXT_INCLUDES/Window/src/SDLTtfManager.cpp
+../include/SDLTtfManager.hpp
+/media/theo/Stockage Ubuntu/VroomRun/3_EXT_INCLUDES/Window/include/SDLTtfManager.hpp
+assert.h
+-
+
+/media/theo/Stockage Ubuntu/VroomRun/3_EXT_INCLUDES/Window/src/SDLWindowManager.cpp
+../include/SDLWindowManager.hpp
+/media/theo/Stockage Ubuntu/VroomRun/3_EXT_INCLUDES/Window/include/SDLWindowManager.hpp
+iostream
+-
+

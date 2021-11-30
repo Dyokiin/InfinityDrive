@@ -24,23 +24,19 @@ const std::vector<GLuint> cubeEBO = {1, 2, 6, 6, 5, 1,
 
 Skybox::Skybox() {
 
+    glGenVertexArrays(1, &_skyVAO);
     glGenBuffers(1, &_skyVBO);
+    glGenBuffers(1, &_skyEBO);
+
+    glBindVertexArray(_skyVAO);
     glBindBuffer(GL_ARRAY_BUFFER, _skyVBO);
     glBufferData(GL_ARRAY_BUFFER, cubeVertex.size()*sizeof(ShapeVertexTex), &cubeVertex[0], GL_STATIC_DRAW);
 
-    glGenVertexArrays(1, &_skyVAO);
-    glBindVertexArray(_skyVAO);
-
-    glGenBuffers(1, &_skyEBO);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _skyEBO);
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER, cubeVertex.size()*sizeof(GLuint), &cubeEBO[0], GL_STATIC_DRAW);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, cubeEBO.size()*sizeof(GLuint), &cubeEBO[0], GL_STATIC_DRAW);
 
-    glVertexAttribPointer(0, 1, GL_FLOAT, GL_FALSE, 3*sizeof(float), 0);
     glEnableVertexAttribArray(0);
-    glVertexAttribPointer(1, 1, GL_FLOAT, GL_FALSE, 3*sizeof(float), (const void*)sizeof(ShapeVertexTex));
-    glEnableVertexAttribArray(1);
-    glVertexAttribPointer(2, 1, GL_FLOAT, GL_FALSE, 2*sizeof(float), (const void*)(2*sizeof(ShapeVertexTex)));
-    glEnableVertexAttribArray(2);
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(ShapeVertexTex), (void*)0);
 
     glBindBuffer(GL_ARRAY_BUFFER, 0);
     glBindVertexArray(0);
@@ -85,19 +81,14 @@ Skybox::~Skybox() {
 void Skybox::display() const {
 
     glDepthFunc(GL_EQUAL);
-
-    glBindBuffer(GL_ARRAY_BUFFER, _skyVBO);
     glBindVertexArray(_skyVAO);
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _skyEBO);
+
 
     glActiveTexture(GL_TEXTURE0);
     glBindTexture(GL_TEXTURE_CUBE_MAP, _texture);
-
     glDrawElements(GL_TRIANGLES, cubeEBO.size(), GL_UNSIGNED_INT, 0);
-
-    glBindBuffer(GL_ARRAY_BUFFER, 0);
     glBindVertexArray(0);
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+
 
     glDepthFunc(GL_LESS);
 }

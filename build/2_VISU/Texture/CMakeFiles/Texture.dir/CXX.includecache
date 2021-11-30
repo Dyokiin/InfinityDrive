@@ -1,0 +1,76 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/media/theo/Stockage Ubuntu/VroomRun/1_CORE/Box/include/Box.hpp
+glm/glm.hpp
+-
+
+/media/theo/Stockage Ubuntu/VroomRun/1_CORE/Box/include/HitBox.hpp
+Box.hpp
+/media/theo/Stockage Ubuntu/VroomRun/1_CORE/Box/include/Box.hpp
+functional
+-
+
+/media/theo/Stockage Ubuntu/VroomRun/1_CORE/Scene/include/Scene.hpp
+../../../2_VISU/Object/include/Object.hpp
+/media/theo/Stockage Ubuntu/VroomRun/2_VISU/Object/include/Object.hpp
+SceneNode.hpp
+/media/theo/Stockage Ubuntu/VroomRun/1_CORE/Scene/include/SceneNode.hpp
+
+/media/theo/Stockage Ubuntu/VroomRun/1_CORE/Scene/include/SceneNode.hpp
+../../../2_VISU/Object/include/Object.hpp
+/media/theo/Stockage Ubuntu/VroomRun/2_VISU/Object/include/Object.hpp
+
+/media/theo/Stockage Ubuntu/VroomRun/2_VISU/Object/include/Object.hpp
+vector
+-
+../../../1_CORE/Box/include/HitBox.hpp
+/media/theo/Stockage Ubuntu/VroomRun/1_CORE/Box/include/HitBox.hpp
+GL/glew.h
+-
+GL/gl.h
+-
+glm/glm.hpp
+-
+iostream
+-
+
+/media/theo/Stockage Ubuntu/VroomRun/2_VISU/Shaders/include/FilePath.hpp
+string
+-
+
+/media/theo/Stockage Ubuntu/VroomRun/2_VISU/Texture/include/Image.hpp
+vector
+-
+memory
+-
+unordered_map
+-
+glm/glm.hpp
+-
+../../../2_VISU/Shaders/include/FilePath.hpp
+/media/theo/Stockage Ubuntu/VroomRun/2_VISU/Shaders/include/FilePath.hpp
+
+/media/theo/Stockage Ubuntu/VroomRun/2_VISU/Texture/include/Skybox.hpp
+glm/glm.hpp
+-
+GL/glew.h
+-
+vector
+-
+string
+-
+Image.hpp
+/media/theo/Stockage Ubuntu/VroomRun/2_VISU/Texture/include/Image.hpp
+../../../1_CORE/Scene/include/Scene.hpp
+/media/theo/Stockage Ubuntu/VroomRun/1_CORE/Scene/include/Scene.hpp
+
+/media/theo/Stockage Ubuntu/VroomRun/2_VISU/Texture/src/Skybox.cpp
+../include/Skybox.hpp
+/media/theo/Stockage Ubuntu/VroomRun/2_VISU/Texture/include/Skybox.hpp
+
