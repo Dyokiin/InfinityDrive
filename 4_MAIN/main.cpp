@@ -23,14 +23,14 @@ int main(int argc, char* argv[]){
 	//Projection Matrix : fixed window size
 	glm::mat4 projectionMatrix = glm::perspective(glm::radians(60.f),
 												  (float)WINDOW_WIDTH/(float)WINDOW_HEIGHT,
-												  0.1f, 100.f);
+												  0.001f, 200.f);
 	
 	//Scene Init
 	Scene mainScene;
 	mainScene.init();
 
 	//SkyBox init
-	Skybox moonlight;
+	Skybox* moonlight = new Skybox();
 
 	//Camera Init
 	Camera super8;
@@ -116,12 +116,16 @@ int main(int argc, char* argv[]){
 		/******************
 		 * RENDERING CODE *
 		 *****************/
-		glEnable(GL_DEPTH_TEST);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+		glEnable(GL_DEPTH_TEST);
+		glDepthFunc(GL_LEQUAL);
+
 
 		shader.plnShader();
 		shader.sendViewMat(super8.getViewMatrix());
 		shader.sendProjMat(projectionMatrix);
+		glDrawArrays(GL_POINTS, 0, 1);
 
 		shader.triShader();
 		shader.sendViewMat(super8.getViewMatrix());
@@ -134,10 +138,10 @@ int main(int argc, char* argv[]){
 
 		
 		shader.skyShader() ;
-		shader.sendViewMat(glm::mat4(glm::mat3(super8.getViewMatrix())));
+		shader.sendViewMat(super8.getViewMatrix());
 		shader.sendProjMat(projectionMatrix);
 
-		moonlight.display();
+		moonlight->display();
 
 		wndwManager.swapBuffers();
 

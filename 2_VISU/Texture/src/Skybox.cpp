@@ -42,33 +42,40 @@ Skybox::Skybox() {
     glBindVertexArray(0);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 
-
-    _faces.push_back("../ressources/noir.png"); //placeholders
-    _faces.push_back("../ressources/noir.png");
-    _faces.push_back("../ressources/noir.png");
-    _faces.push_back("../ressources/noir.png");
-    _faces.push_back("../ressources/noir.png");
-    _faces.push_back("../ressources/noir.png");
+    std::string path = SDL_GetBasePath();
+    _faces.push_back(path + "../ressources/noir.png"); //placeholders
+    _faces.push_back(path + "../ressources/noir.png");
+    _faces.push_back(path + "../ressources/noir.png");
+    _faces.push_back(path + "../ressources/noir.png");
+    _faces.push_back(path + "../ressources/noir.png");
+    _faces.push_back(path + "../ressources/noir.png");
 
     glGenTextures(1, &_texture);
     glBindTexture(GL_TEXTURE_CUBE_MAP, _texture);
+
+    int width, height, nbChannels;
+    unsigned char* img;
+
+    for(int i=0; i<6; i++){
+
+        img = stbi_load(_faces[1].c_str(), &width, &height, &nbChannels, 0);
+
+        if(img){
+            glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X + i,
+                         0, GL_RGB, width, height,
+                         0, GL_RGB, GL_UNSIGNED_BYTE, img);
+            stbi_image_free(img);
+
+        } else {
+            std::cout << "Skybox Texture Load Failed" << _faces[i] << std::endl;
+            stbi_image_free(img);
+        }
+    }
     glTexParameteri(GL_TEXTURE_CUBE_MAP,GL_TEXTURE_MAG_FILTER,GL_LINEAR);
     glTexParameteri(GL_TEXTURE_CUBE_MAP,GL_TEXTURE_MIN_FILTER,GL_LINEAR);
     glTexParameteri(GL_TEXTURE_CUBE_MAP,GL_TEXTURE_WRAP_S,GL_CLAMP_TO_EDGE);
     glTexParameteri(GL_TEXTURE_CUBE_MAP,GL_TEXTURE_WRAP_T,GL_CLAMP_TO_EDGE);
     glTexParameteri(GL_TEXTURE_CUBE_MAP,GL_TEXTURE_WRAP_R,GL_CLAMP_TO_EDGE);
-
-    for(int i=0; i<6; i++){
-        const Image* img = ImageManager::loadImage(_faces[i].c_str());
-
-        if(img){
-            glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X + i,
-                         0, GL_RGB, img->getWidth(), img->getHeight(),
-                         0, GL_RGB, GL_UNSIGNED_BYTE, img->getPixels());
-        } else {
-            std::cerr << "Skybox Texture Load Failed" << _faces[i] << std::endl;
-        }
-    }
 }
 
 Skybox::~Skybox() {
@@ -79,16 +86,15 @@ Skybox::~Skybox() {
 }
 
 void Skybox::display() const {
+    glDepthMask(GL_FALSE);
 
-    glDepthFunc(GL_EQUAL);
     glBindVertexArray(_skyVAO);
 
 
-    glActiveTexture(GL_TEXTURE0);
+    // glActiveTexture(GL_TEXTURE0);
     glBindTexture(GL_TEXTURE_CUBE_MAP, _texture);
     glDrawElements(GL_TRIANGLES, cubeEBO.size(), GL_UNSIGNED_INT, 0);
     glBindVertexArray(0);
 
-
-    glDepthFunc(GL_LESS);
+    glDepthMask(GL_TRUE);
 }
