@@ -38,7 +38,7 @@ void MyShader::sendProjMat(const glm::mat4 projMat) const {
         GLint uniformProjMat = glGetUniformLocation(_Shader2.getGLId(), (const GLchar*)uProjMat);
         glUniformMatrix4fv(uniformProjMat, 1, GL_FALSE, glm::value_ptr(projMat));
     } else {
-        char uProjMat[] = "uVProjMatrix";
+        char uProjMat[] = "uProjMatrix";
         GLint uniformProjMat = glGetUniformLocation(_Shader3.getGLId(), (const GLchar*)uProjMat);
         glUniformMatrix4fv(uniformProjMat, 1, GL_FALSE, glm::value_ptr(projMat));
     }
@@ -54,7 +54,7 @@ void MyShader::sendNormMat(const glm::mat4 normMat) const {
         GLint uniformNormMat = glGetUniformLocation(_Shader2.getGLId(), (const GLchar*)uNormMat);
         glUniformMatrix4fv(uniformNormMat, 1, GL_FALSE, glm::value_ptr(normMat));
     } else {
-        char uNormMat[] = "uVNormMatrix";
+        char uNormMat[] = "uNormMatrix";
         GLint uniformNormMat = glGetUniformLocation(_Shader3.getGLId(), (const GLchar*)uNormMat);
         glUniformMatrix4fv(uniformNormMat, 1, GL_FALSE, glm::value_ptr(normMat));
     }

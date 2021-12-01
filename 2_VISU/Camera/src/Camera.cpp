@@ -3,28 +3,29 @@
 #include <iostream>
 
 void Camera::calcPos(){
-    _camPos[0] = _transforms[0] * sin(_transforms[2]) * sin(_transforms[1]);
-    _camPos[1] = _transforms[0] * cos(_transforms[1]);
-    _camPos[2] = _transforms[0] * cos(_transforms[2]) * sin(_transforms[1]);
+    _camPos.x = (double)_transforms.x * sinf(_transforms.z) * sinf(_transforms.y);
+    _camPos.y = (double)_transforms.x * cosf(_transforms.y);
+    _camPos.z = (double)_transforms.x * cosf(_transforms.z) * sinf(_transforms.y);
 }
 
 void Camera::moveFront(const float delta){
-    _transforms[0] += delta;
+    _transforms.x += delta;
+    this->calcPos();
 }
 
 void Camera::rotateLeft(const double a){
     double b = glm::radians(a);
-    _transforms[1] += b;
+    _transforms.y += b;
+    this->calcPos();
 }
 
 void Camera::rotateUp(const double a){
     double b = glm::radians(a);
-    _transforms[2] += b;
+    _transforms.z += b;
+    this->calcPos();
 }
 
-glm::mat4 const Camera::getViewMatrix() {
-
-    this->calcPos();
+glm::mat4 Camera::getViewMatrix() {
 
     return glm::lookAt(_camPos,
                        _lookAt,

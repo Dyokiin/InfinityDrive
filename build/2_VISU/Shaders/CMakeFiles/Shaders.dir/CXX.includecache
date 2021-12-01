@@ -1,0 +1,42 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/6ima2/arnaulddeslion/VroomRun/2_VISU/Shaders/include/FilePath.hpp
+string
+-
+
+/home/6ima2/arnaulddeslion/VroomRun/2_VISU/Shaders/include/MyShader.hpp
+../include/Program.hpp
+/home/6ima2/arnaulddeslion/VroomRun/2_VISU/Shaders/include/Program.hpp
+glm/glm.hpp
+-
+glm/gtc/type_ptr.hpp
+-
+SDL2/SDL.h
+-
+
+/home/6ima2/arnaulddeslion/VroomRun/2_VISU/Shaders/include/Program.hpp
+GL/glew.h
+-
+Shader.hpp
+/home/6ima2/arnaulddeslion/VroomRun/2_VISU/Shaders/include/Shader.hpp
+FilePath.hpp
+/home/6ima2/arnaulddeslion/VroomRun/2_VISU/Shaders/include/FilePath.hpp
+
+/home/6ima2/arnaulddeslion/VroomRun/2_VISU/Shaders/include/Shader.hpp
+GL/glew.h
+-
+string
+-
+FilePath.hpp
+/home/6ima2/arnaulddeslion/VroomRun/2_VISU/Shaders/include/FilePath.hpp
+
+/home/6ima2/arnaulddeslion/VroomRun/2_VISU/Shaders/src/MyShader.cpp
+../include/MyShader.hpp
+/home/6ima2/arnaulddeslion/VroomRun/2_VISU/Shaders/include/MyShader.hpp
+

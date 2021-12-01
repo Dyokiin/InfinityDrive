@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/6ima2/arnaulddeslion/VroomRun/1_CORE/Box/include/Box.hpp
+glm/glm.hpp
+-
+
+/home/6ima2/arnaulddeslion/VroomRun/1_CORE/Box/include/HitBox.hpp
+Box.hpp
+/home/6ima2/arnaulddeslion/VroomRun/1_CORE/Box/include/Box.hpp
+functional
+-
+
+/home/6ima2/arnaulddeslion/VroomRun/1_CORE/Box/src/Box.cpp
+../include/Box.hpp
+/home/6ima2/arnaulddeslion/VroomRun/1_CORE/Box/include/Box.hpp
+
+/home/6ima2/arnaulddeslion/VroomRun/1_CORE/Box/src/HitBox.cpp
+../include/HitBox.hpp
+/home/6ima2/arnaulddeslion/VroomRun/1_CORE/Box/include/HitBox.hpp
+

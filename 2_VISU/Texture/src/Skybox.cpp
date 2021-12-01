@@ -43,12 +43,12 @@ Skybox::Skybox() {
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 
 
-    _faces.push_back("../ressources/noir.jpg"); //placeholders
-    _faces.push_back("../ressources/noir.jpg");
-    _faces.push_back("../ressources/noir.jpg");
-    _faces.push_back("../ressources/noir.jpg");
-    _faces.push_back("../ressources/noir.jpg");
-    _faces.push_back("../ressources/noir.jpg");
+    _faces.push_back("../ressources/noir.png"); //placeholders
+    _faces.push_back("../ressources/noir.png");
+    _faces.push_back("../ressources/noir.png");
+    _faces.push_back("../ressources/noir.png");
+    _faces.push_back("../ressources/noir.png");
+    _faces.push_back("../ressources/noir.png");
 
     glGenTextures(1, &_texture);
     glBindTexture(GL_TEXTURE_CUBE_MAP, _texture);

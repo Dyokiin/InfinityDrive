@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/6ima2/arnaulddeslion/VroomRun/2_VISU/Camera/include/Camera.hpp
+math.h
+-
+glm/glm.hpp
+-
+glm/gtc/matrix_transform.hpp
+-
+
+/home/6ima2/arnaulddeslion/VroomRun/2_VISU/Camera/src/Camera.cpp
+../include/Camera.hpp
+/home/6ima2/arnaulddeslion/VroomRun/2_VISU/Camera/include/Camera.hpp
+math.h
+-
+iostream
+-
+

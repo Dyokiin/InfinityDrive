@@ -3,8 +3,8 @@
 
 
 // Allows camera mouvements troughtout mouse and toggle cam edit mode
-bool camUpdate(Camera cam, SDL_Event e);
+bool camUpdate(Camera &cam, SDL_Event e, const int x,const int y);
 
 
 // Allows camera mouvements with arrow keys and toggle first person cam
-void camControl(Camera cam, SDL_Keycode code);
+void camControl(Camera &cam, SDL_Keycode code);

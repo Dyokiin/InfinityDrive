@@ -22,7 +22,7 @@ int main(int argc, char* argv[]){
 
 	//Projection Matrix : fixed window size
 	glm::mat4 projectionMatrix = glm::perspective(glm::radians(60.f),
-												  (float)WINDOW_WIDTH/WINDOW_HEIGHT,
+												  (float)WINDOW_WIDTH/(float)WINDOW_HEIGHT,
 												  0.1f, 100.f);
 	
 	//Scene Init
@@ -44,6 +44,9 @@ int main(int argc, char* argv[]){
 
 	Uint32 lastUpdate = SDL_GetTicks();
 	SDL_Event e;
+
+	//Mouse state 
+	int mouseX, mouseY;
 
 	/*************TEST CODE : JUST SOMETHING PLEASE***********/
 
@@ -85,7 +88,7 @@ int main(int argc, char* argv[]){
 				if(e.type == SDL_QUIT){
 					quit = true;
 				} else {
-					camSetUp = camUpdate(super8, e);
+					camSetUp = camUpdate(super8, e, mouseX, mouseY);
 				}
 			}
 		} else {
@@ -130,13 +133,15 @@ int main(int argc, char* argv[]){
 		glBindVertexArray(0);
 
 		
-		// shader.skyShader() ;
-		// shader.sendViewMat(glm::mat4(glm::mat3(super8.getViewMatrix())));
-		// shader.sendProjMat(projectionMatrix);
+		shader.skyShader() ;
+		shader.sendViewMat(glm::mat4(glm::mat3(super8.getViewMatrix())));
+		shader.sendProjMat(projectionMatrix);
 
-		// moonlight.display();
+		moonlight.display();
 
 		wndwManager.swapBuffers();
+
+		SDL_GetMouseState(&mouseX, &mouseY);
 	}
 
 	//Quit SDL subsystems

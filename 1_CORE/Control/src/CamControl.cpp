@@ -1,9 +1,7 @@
 #include "../include/CamControl.hpp"
+#include <iostream>
 
-bool camUpdate(Camera cam, SDL_Event e){
-
-    float deltaX = 0;
-    float deltaY = 0;
+bool camUpdate(Camera &cam, SDL_Event e, const int x, const int y){
 
     bool returnValue = true;
 
@@ -15,17 +13,18 @@ bool camUpdate(Camera cam, SDL_Event e){
                 returnValue = false;
 
             } else {
-                camControl(cam, e.key.keysym.sym);
+                //camControl(cam, e.key.keysym.sym);
             }
             break;
 
         case SDL_MOUSEMOTION :
 
-            deltaX += e.motion.x;
-            deltaY += e.motion.y;
+            int mx,my;
+            SDL_GetMouseState(&mx, &my);
 
-            cam.rotateLeft(deltaY);
-            cam.rotateUp(deltaX);
+            cam.rotateLeft((float)(y - my)/(float)10);
+            cam.rotateUp((float)(x - mx)/(float)10);
+
             break;
 
         case SDL_MOUSEWHEEL :

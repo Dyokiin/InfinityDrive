@@ -37,16 +37,13 @@ target_include_directories(${PROJECT_NAME} PUBLIC "1_CORE/*/include")
 target_link_libraries(${PROJECT_NAME} PUBLIC CORE)
 
 pkg_check_modules(SDL2 REQUIRED sdl2)
-pkg_check_modules(SDL2_TTF REQUIRED SDL2_ttf)
 pkg_check_modules(OpenGL REQUIRED gl)
 pkg_check_modules(GLEW REQUIRED glew)
 
 target_include_directories(VroomRun PRIVATE "${SDL2_INCLUDE_DIRS}")
-target_include_directories(VroomRun PRIVATE "${SDL2_TTF_INCLUDE_DIRS}")
 target_include_directories(VroomRun PRIVATE "${OpenGL_INCLUDE_DIRS}")
 target_include_directories(VroomRun PRIVATE "${GLEW_INCLUDE_DIRS}")
 
 target_link_libraries(VroomRun PRIVATE ${SDL2_LIBRARIES})
-target_link_libraries(VroomRun PRIVATE ${SDL2_TTF_LIBRARIES})
 target_link_libraries(VroomRun PRIVATE ${OpenGL_LIBRARIES})
 target_link_libraries(VroomRun PRIVATE ${GLEW_LIBRARIES})

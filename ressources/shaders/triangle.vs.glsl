@@ -11,5 +11,5 @@ out vec3 vColor;
 
 void main() {
     vColor = aVertexColor;
-    gl_Position = uNormMatrix * vec4(aVertexPosition, 1);
+    gl_Position =  uProjMatrix * uViewMatrix * vec4(aVertexPosition, 1);
 }
