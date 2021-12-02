@@ -8,7 +8,7 @@
 
 class InfPlane {
 private :
-    std::vector<ShapeVertexTex> _quad;
+    std::vector<glm::vec3> _quad;
     glm::vec3 _color;
 
     GLuint _vao;
@@ -19,6 +19,6 @@ public :
     InfPlane();
     ~InfPlane() = default;
 
-    void const render();
+    void render() const;
 
 };

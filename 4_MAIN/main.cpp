@@ -4,6 +4,7 @@
 #include "CamControl.hpp"
 #include "GameControl.hpp"
 #include "MyShader.hpp"
+#include "InfPlane.hpp"
 
 
 #include <GL/gl.h>
@@ -19,24 +20,21 @@ int main(int argc, char* argv[]){
 	//Window init : fixed size
 	SDLWindowManager wndwManager(WINDOW_WIDTH, WINDOW_HEIGHT, "VroomRun");
 	glewInit();
-
 	//Projection Matrix : fixed window size
 	glm::mat4 projectionMatrix = glm::perspective(glm::radians(60.f),
 												  (float)WINDOW_WIDTH/(float)WINDOW_HEIGHT,
 												  0.001f, 200.f);
-	
 	//Scene Init
 	Scene mainScene;
 	mainScene.init();
-
 	//SkyBox init
-	Skybox* moonlight = new Skybox();
-
+	Skybox moonlight;
 	//Camera Init
 	Camera super8;
-
 	//Sader Init
 	MyShader shader;
+	//Ground Init
+	InfPlane grid;
 
 	//Several variables useful to the main loop
 	bool quit = false;
@@ -53,9 +51,9 @@ int main(int argc, char* argv[]){
 	GLuint vbo;
 	glGenBuffers(1, &vbo);
 	glBindBuffer(GL_ARRAY_BUFFER, vbo);
-	std::vector<ShapeVertexTex> vertices = {ShapeVertexTex(glm::vec3(-0.5,-0.5,0.), glm::vec3(1.,0.,0.), glm::vec2(0)),
-											ShapeVertexTex(glm::vec3( 0.5,-0.5,0.), glm::vec3(0.,1.,0.), glm::vec2(0)),
-											ShapeVertexTex(glm::vec3( 0. , 0.5,0.), glm::vec3(0.,0.,1.), glm::vec2(0))};
+	std::vector<ShapeVertexTex> vertices = {ShapeVertexTex(glm::vec3(-0.5,0,0.), glm::vec3(1.,0.,0.), glm::vec2(0)),
+											ShapeVertexTex(glm::vec3( 0.5,0,0.), glm::vec3(0.,1.,0.), glm::vec2(0)),
+											ShapeVertexTex(glm::vec3( 0. ,1,0.), glm::vec3(0.,0.,1.), glm::vec2(0))};
     glBufferData(GL_ARRAY_BUFFER, 3*sizeof(ShapeVertexTex), &vertices[0], GL_STATIC_DRAW);
     glBindBuffer(GL_ARRAY_BUFFER, 0);
     GLuint vao;
@@ -125,12 +123,11 @@ int main(int argc, char* argv[]){
 		shader.plnShader();
 		shader.sendViewMat(super8.getViewMatrix());
 		shader.sendProjMat(projectionMatrix);
-		glDrawArrays(GL_POINTS, 0, 1);
+		grid.render();
 
 		shader.triShader();
 		shader.sendViewMat(super8.getViewMatrix());
 		shader.sendProjMat(projectionMatrix);
-		shader.sendNormMat(glm::mat4(2.f));
 
 		glBindVertexArray(vao);
 		glDrawArrays(GL_TRIANGLES, 0, 3);
@@ -141,7 +138,7 @@ int main(int argc, char* argv[]){
 		shader.sendViewMat(super8.getViewMatrix());
 		shader.sendProjMat(projectionMatrix);
 
-		moonlight->display();
+		moonlight.display();
 
 		wndwManager.swapBuffers();
 
