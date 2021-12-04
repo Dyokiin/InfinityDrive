@@ -17,6 +17,8 @@ private:
 public:
     
     MyShader();
+    MyShader(const MyShader &shader)
+    : _Shader1(shader._Shader1), _Shader2(shader._Shader2), _Shader3(shader._Shader3), _inUse(shader._inUse) {}
     ~MyShader() = default;
 
     void init();

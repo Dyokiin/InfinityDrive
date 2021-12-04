@@ -21,7 +21,7 @@ int main(int argc, char* argv[]){
 	SDLWindowManager wndwManager(WINDOW_WIDTH, WINDOW_HEIGHT, "VroomRun");
 	glewInit();
 	//Projection Matrix : fixed window size
-	glm::mat4 projectionMatrix = glm::perspective(glm::radians(60.f),
+	glm::mat4 projectionMatrix = glm::perspective(glm::radians(90.f),
 												  (float)WINDOW_WIDTH/(float)WINDOW_HEIGHT,
 												  0.001f, 200.f);
 	//Scene Init
@@ -51,9 +51,9 @@ int main(int argc, char* argv[]){
 	GLuint vbo;
 	glGenBuffers(1, &vbo);
 	glBindBuffer(GL_ARRAY_BUFFER, vbo);
-	std::vector<ShapeVertexTex> vertices = {ShapeVertexTex(glm::vec3(-0.5,0,0.), glm::vec3(1.,0.,0.), glm::vec2(0)),
-											ShapeVertexTex(glm::vec3( 0.5,0,0.), glm::vec3(0.,1.,0.), glm::vec2(0)),
-											ShapeVertexTex(glm::vec3( 0. ,1,0.), glm::vec3(0.,0.,1.), glm::vec2(0))};
+	std::vector<ShapeVertexTex> vertices = {ShapeVertexTex(glm::vec3(-0.5,0.5,0. ), glm::vec3(1.,0.,0.), glm::vec2(0)),
+											ShapeVertexTex(glm::vec3( 0.5,0.5,0. ), glm::vec3(0.,1.,0.), glm::vec2(0)),
+											ShapeVertexTex(glm::vec3( 0. ,0.5,0.5), glm::vec3(0.,0.,1.), glm::vec2(0))};
     glBufferData(GL_ARRAY_BUFFER, 3*sizeof(ShapeVertexTex), &vertices[0], GL_STATIC_DRAW);
     glBindBuffer(GL_ARRAY_BUFFER, 0);
     GLuint vao;
@@ -135,7 +135,7 @@ int main(int argc, char* argv[]){
 
 		
 		shader.skyShader() ;
-		shader.sendViewMat(super8.getViewMatrix());
+		shader.sendViewMat(glm::mat4(glm::mat3(super8.getViewMatrix())));
 		shader.sendProjMat(projectionMatrix);
 
 		moonlight.display();

@@ -9,6 +9,8 @@ public:
 	Program(): m_nGLId(glCreateProgram()) {
 	}
 
+	Program(const Program&);
+
 	~Program() {
 		glDeleteProgram(m_nGLId);
 	}
@@ -40,7 +42,7 @@ public:
 	}
 
 private:
-	Program(const Program&);
+
 	Program& operator =(const Program&);
 
 	GLuint m_nGLId;

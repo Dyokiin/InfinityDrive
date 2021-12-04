@@ -8,11 +8,12 @@
 
 class InfPlane {
 private :
-    std::vector<glm::vec3> _quad;
+    std::vector<glm::vec4> _quad;
     glm::vec3 _color;
 
     GLuint _vao;
     GLuint _vbo;
+    GLuint _ibo;
 
 public :
 

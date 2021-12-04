@@ -1,6 +1,5 @@
 #pragma once
 
-#include "../../../2_VISU/Object/include/Object.hpp"
 #include "SceneNode.hpp"
 
 #define MAX_NODE_IN_SCENE 10

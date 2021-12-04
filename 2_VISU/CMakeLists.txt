@@ -11,10 +11,6 @@ add_subdirectory(Mesh)
 target_include_directories(Mesh PUBLIC "Mesh/include")
 target_link_libraries(${PROJECT_NAME} INTERFACE Mesh)
 
-add_subdirectory(Object)
-target_include_directories(Object PUBLIC "Object/include")
-target_link_libraries(${PROJECT_NAME} INTERFACE Object)
-
 add_subdirectory(Shaders)
 target_include_directories(Shaders PUBLIC "Shaders/include")
 target_link_libraries(${PROJECT_NAME} INTERFACE Shaders)

@@ -14,7 +14,7 @@ else()
 endif()
 
 # Set the folder where the executable is created
-set(EXECUTABLE_OUTPUT_PATH ${CMAKE_SOURCE_DIR}/bin/${CMAKE_BUILD_TYPE})
+set(EXECUTABLE_OUTPUT_PATH ${CMAKE_SOURCE_DIR}/bin/)
 
 # Add all the files
 file(GLOB_RECURSE MY_SOURCES CONFIGURE_DEPENDS 4_MAIN/*)
@@ -39,11 +39,14 @@ target_link_libraries(${PROJECT_NAME} PUBLIC CORE)
 pkg_check_modules(SDL2 REQUIRED sdl2)
 pkg_check_modules(OpenGL REQUIRED gl)
 pkg_check_modules(GLEW REQUIRED glew)
+pkg_check_modules(assimp REQUIRED)
 
 target_include_directories(VroomRun PRIVATE "${SDL2_INCLUDE_DIRS}")
 target_include_directories(VroomRun PRIVATE "${OpenGL_INCLUDE_DIRS}")
 target_include_directories(VroomRun PRIVATE "${GLEW_INCLUDE_DIRS}")
+target_include_directories(VroomRun PRIVATE "${ASSIMP_INCLUDE_DIRS}")
 
 target_link_libraries(VroomRun PRIVATE ${SDL2_LIBRARIES})
 target_link_libraries(VroomRun PRIVATE ${OpenGL_LIBRARIES})
 target_link_libraries(VroomRun PRIVATE ${GLEW_LIBRARIES})
+target_link_libraries(VroomRun PRIVATE ${assimp_LIBRARIES})
