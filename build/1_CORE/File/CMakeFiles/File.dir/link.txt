@@ -1,0 +1,2 @@
+/usr/bin/ar qc libFile.a  CMakeFiles/File.dir/src/FileBrowse.cpp.o
+/usr/bin/ranlib libFile.a
