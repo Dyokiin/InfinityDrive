@@ -5,6 +5,7 @@
 #include <assimp/scene.h>
 #include <assimp/postprocess.h>
 #include <iostream>
+#include <vector>
 
 class Model {
 private :
@@ -21,5 +22,5 @@ public :
     void processNode(aiNode *node, const aiScene *scene);
     Mesh processMesh(aiMesh *mesh, const aiScene *scene);
 
-    void Draw(const MyShader shader) const;
+    void Draw(const MyShader shader,  const glm::mat4 MVmatrix, const glm::mat4 MVPmatrix) const;
 };

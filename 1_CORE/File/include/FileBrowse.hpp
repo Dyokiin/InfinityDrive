@@ -1,5 +1,5 @@
 #pragma once 
 
-#include "../../../2_VISU/Object/include/Object.hpp"
+#include "../../../2_VISU/Mesh/include/mesh.hpp"
 
-std::vector<ShapeVertexTex> testFunc();
+std::vector<Vertex> testFunc();

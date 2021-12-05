@@ -1,9 +1,8 @@
 #include "../include/Model.hpp"
 
-void Model::Draw(const MyShader shader) const {
-    for(auto i : _mesh) {
-        i.Draw(shader);
-    }
+void Model::Draw(const MyShader shader, const glm::mat4 MVmatrix, const glm::mat4 MVPmatrix) const {
+    for(auto i : _mesh)
+        i.Draw(shader, MVmatrix, MVPmatrix);
 }
 
 void Model::loadModel(std::string path) {

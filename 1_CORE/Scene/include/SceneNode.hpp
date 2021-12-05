@@ -1,5 +1,8 @@
 #pragma once
 
+#include <vector>
+#include <glm/glm.hpp>
+#include "Object.hpp"
 
 class SceneNode{
 private:
@@ -12,11 +15,9 @@ public:
     SceneNode(const Object* obj);
     ~SceneNode();
 
-    inline std::vector<ShapeVertexTex> getVertex() const {return _roadElem->getVertice();}
     inline glm::mat4 getModelMatrix() const {return _modelMatrix;}
     inline SceneNode* next() const {return _next;}
     inline void next(SceneNode* newNext) {_next = newNext;}
-    inline glm::mat4 getFNO() const {return _roadElem->getMatFNO();}
 
     inline void multiMat(glm::mat4 mat) {_modelMatrix *= mat;}
 

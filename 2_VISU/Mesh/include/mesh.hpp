@@ -1,8 +1,8 @@
 #pragma once
 
-#include "../../../1_CORE/Scene/include/Scene.hpp"
 #include "../../Shaders/include/MyShader.hpp"
 #include <list>
+#include <vector>
 
 
 typedef struct ShapeVertexTex {
@@ -19,7 +19,7 @@ typedef struct ShapeVertexTex {
     ~ShapeVertexTex() = default;
 } Vertex;
 
-typedef struct Texture {
+struct Texture {
     unsigned int _id;
     std::string _type;
 
@@ -47,6 +47,6 @@ public :
     : _vertices(vertices), _indices(indices), _texture(texture) {setupMesh();}
     ~Mesh() = default;
 
-    void Draw(const MyShader shader) const;
+    void Draw(const MyShader shader, const glm::mat4 MVmatrix, const glm::mat4 MVPmatrix) const;
     void setupMesh();
 };

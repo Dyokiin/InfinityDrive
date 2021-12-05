@@ -1,6 +1,7 @@
 #pragma once 
 
 #include <glm/glm.hpp>
+#include <iostream>
 #include <GL/glew.h>
 #include <SDL2/SDL.h>
 #include <vector>
@@ -8,6 +9,7 @@
 #include "Image.hpp"
 #include "stb_image.h"
 #include "../../../1_CORE/Scene/include/Scene.hpp"
+#include "../../Mesh/include/mesh.hpp"
 
 
 class Skybox {

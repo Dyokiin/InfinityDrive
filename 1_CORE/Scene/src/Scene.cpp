@@ -16,7 +16,7 @@ void Scene::add(const Object* obj){
     
     SceneNode* newSNode =  new SceneNode(obj);
 
-    newSNode->multiMat(_last->getModelMatrix()*_last->getFNO());
+    //newSNode->multiMat(_last->getModelMatrix()*_last->getFNO());
 
     _last->next(newSNode);
     _last = newSNode;
@@ -41,6 +41,6 @@ void Scene::init(){
     //TODO
 }
 
-std::vector<ShapeVertexTex> Scene::meshify() const {
+std::vector<Vertex> Scene::meshify() const {
     //TODO
 }

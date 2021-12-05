@@ -4,7 +4,6 @@
 #include <GL/glew.h>
 #include <iostream>
 #include <vector>
-#include "../../Object/include/Object.hpp"
 
 class InfPlane {
 private :

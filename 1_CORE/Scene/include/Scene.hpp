@@ -1,6 +1,7 @@
 #pragma once
 
 #include "SceneNode.hpp"
+#include "../../../2_VISU/Mesh/include/mesh.hpp"
 
 #define MAX_NODE_IN_SCENE 10
 
@@ -17,7 +18,7 @@ public:
 
     inline const int getNbObject() const {return _nbObject;} 
 
-    std::vector<ShapeVertexTex> meshify() const;
+    std::vector<Vertex> meshify() const;
     void add(const Object* obj);
     void init();
     void pop();

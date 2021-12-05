@@ -16,7 +16,7 @@ private:
 public:
 
     // Default construcor
-    Box() = default; 
+    Box(); 
 
     // Copy constructor
     //Box(const Box&);
