@@ -1,20 +1,21 @@
 #include "../include/Model.hpp"
 
-void Model::Draw(const MyShader shader, const glm::mat4 MVmatrix, const glm::mat4 MVPmatrix) const {
-    for(auto i : _mesh)
-        i.Draw(shader, MVmatrix, MVPmatrix);
+void Model::Draw() const {
+    _mesh[0].Draw();
 }
 
 void Model::loadModel(std::string path) {
+    std::string AbsPath = SDL_GetBasePath();
+    AbsPath += path; 
     Assimp::Importer import;
-    const aiScene *scene = import.ReadFile(path, aiProcess_Triangulate | aiProcess_FlipUVs);
+    const aiScene *scene = import.ReadFile(AbsPath, aiProcess_Triangulate | aiProcess_FlipUVs);
 
     if(!scene || scene->mFlags & AI_SCENE_FLAGS_INCOMPLETE || !scene->mRootNode) {
         std::cerr << "ERROR::ASSIMP::" << import.GetErrorString() << std::endl;
         return;
     }
 
-    _path = path.substr(0, path.find_last_of('/'));
+    _path = AbsPath.substr(0, AbsPath.find_last_of('/'));
 
     processNode(scene->mRootNode, scene);
 }
@@ -64,5 +65,9 @@ Mesh Model::processMesh(aiMesh *mesh, const aiScene *scene) {
             indices.push_back(face.mIndices[j]);
     } 
     //TODO TEX
+    // for(auto i : vertices) {
+    //     std::cout << "Position : {" << i._position.x << ", " << i._position.y << ", " <<  i._position.z << "}" << std::endl;
+    //     std::cout << "Normal   : {" << i._normal.x << ", " << i._normal.y << ", " <<  i._normal.z << "}" << std::endl;
+    // }
     return Mesh(vertices, indices, tex);
 }

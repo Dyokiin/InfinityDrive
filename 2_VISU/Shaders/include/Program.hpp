@@ -9,7 +9,8 @@ public:
 	Program(): m_nGLId(glCreateProgram()) {
 	}
 
-	Program(const Program&);
+	Program(const Program& prog)
+	: m_nGLId(prog.m_nGLId) {}
 
 	~Program() {
 		glDeleteProgram(m_nGLId);

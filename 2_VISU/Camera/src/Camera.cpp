@@ -9,13 +9,15 @@ void Camera::calcPos(){
 }
 
 void Camera::moveFront(const float delta){
-    _transforms.x += delta;
+    if((_transforms.x - delta) > CAMERA_MAX_ZOOM && (_transforms.x - delta) < CAMERA_MIN_ZOOM)
+        {_transforms.x -= delta;}
     this->calcPos();
 }
 
 void Camera::rotateLeft(const double a){
     double b = glm::radians(a);
-    _transforms.y += b;
+    if((_transforms.y + a) > CAMERA_MIN_Y && (_transforms.y + a) < CAMERA_MAX_Y)
+         {_transforms.y += b;}
     this->calcPos();
 }
 

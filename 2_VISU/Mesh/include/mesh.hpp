@@ -19,16 +19,17 @@ typedef struct ShapeVertexTex {
     ~ShapeVertexTex() = default;
 } Vertex;
 
-struct Texture {
+typedef struct Texture {
     unsigned int _id;
     std::string _type;
 
-    Texture();
+    Texture()
+    : _id(), _type() {}
     Texture(const unsigned int id,const std::string type)
     : _id(id), _type(type) {}
 
     ~Texture() = default;
-};
+} Texture;
 
 
 
@@ -47,6 +48,6 @@ public :
     : _vertices(vertices), _indices(indices), _texture(texture) {setupMesh();}
     ~Mesh() = default;
 
-    void Draw(const MyShader shader, const glm::mat4 MVmatrix, const glm::mat4 MVPmatrix) const;
+    void Draw() const;
     void setupMesh();
 };

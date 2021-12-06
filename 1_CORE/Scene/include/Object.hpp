@@ -7,15 +7,16 @@
 class Object{
 protected:
     Model _model;
+    glm::mat4 _modelMatrix;
     HitBox _hitBox;
 
 public:
     Object();
     Object(Model model,  HitBox hitbox)
-    : _model(model), _hitBox(hitbox) {}
+    : _model(model), _modelMatrix(1.f), _hitBox(hitbox) {}
     ~Object() = default;
 
-    void Draw(MyShader shader, const glm::mat4 MVmatrix, const glm::mat4 MVPmatrix) const;
+    void Draw() const;
 };
 
 class Road : public Object {
@@ -30,7 +31,7 @@ public:
     : Object(model, hitbox), _boundingBox(bndbox), _endPath(endpth), _coins(coins) {}
     ~Road() = default;
 
-    void Draw(MyShader shader, const glm::mat4 MVmatrix, const glm::mat4 MVPmatrix) const;
+    void Draw() const;
 };
 
 class Car : public Object {
@@ -42,6 +43,6 @@ private :
     Car(Model model, HitBox hitbox) 
     : Object(model, hitbox), _speed(0.f) {}
 
-    void Draw(MyShader shader, const glm::mat4 MVmatrix, const glm::mat4 MVPmatrix) const;
+    void Draw() const;
     
 };

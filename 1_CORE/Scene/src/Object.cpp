@@ -13,16 +13,16 @@
 // }
 
 
-void Object::Draw(MyShader shader, const glm::mat4 MVmatrix, const glm::mat4 MVPmatrix) const {
-    _model.Draw(shader, MVmatrix, MVPmatrix);
+void Object::Draw() const {
+    _model.Draw();
 }
 
-void Road::Draw(MyShader shader, const glm::mat4 MVmatrix, const glm::mat4 MVPmatrix) const {
-    this->Object::Draw(shader, MVmatrix, MVPmatrix);
+void Road::Draw() const {
+    this->Object::Draw();
     for(auto c : _coins)
-        c.Draw(shader, MVmatrix, MVPmatrix);
+        c.Draw();
 }
 
-void Car::Draw(MyShader shader, const glm::mat4 MVmatrix, const glm::mat4 MVPmatrix) const {
-    this->Object::Draw(shader, MVmatrix, MVPmatrix);
+void Car::Draw() const {
+    this->Object::Draw();
 }

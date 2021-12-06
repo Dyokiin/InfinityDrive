@@ -1,11 +1,13 @@
 #pragma once
 
-#include "mesh.hpp"
+#include <SDL2/SDL.h>
 #include <assimp/Importer.hpp>
 #include <assimp/scene.h>
 #include <assimp/postprocess.h>
 #include <iostream>
 #include <vector>
+
+#include "mesh.hpp"
 
 class Model {
 private :
@@ -22,5 +24,5 @@ public :
     void processNode(aiNode *node, const aiScene *scene);
     Mesh processMesh(aiMesh *mesh, const aiScene *scene);
 
-    void Draw(const MyShader shader,  const glm::mat4 MVmatrix, const glm::mat4 MVPmatrix) const;
+    void Draw() const;
 };

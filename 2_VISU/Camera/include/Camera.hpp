@@ -4,18 +4,25 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 
+#define CAMERA_MAX_Y 3.1415/2
+#define CAMERA_MIN_Y 0
+#define CAMERA_MAX_ZOOM 0.2
+#define CAMERA_MIN_ZOOM 10
+
 class Camera {
 private:
     glm::vec3 _lookAt;
     glm::vec3 _camPos;
     glm::vec3 _upVect;
 
+    bool _firstPerson;
+
     glm::vec3 _transforms; //[0] : distance | [1] : angleX | [2] : angleY
 
 public:
 
     Camera()
-    : _lookAt(glm::vec3(0)), _upVect(0,1,0), _transforms(3.f,1.f,1.f) {
+    : _lookAt(glm::vec3(0,0.5,0)), _upVect(0,1,0),_firstPerson(false), _transforms(3.f,1.f,1.f)  {
         this->calcPos();
     };
     Camera(glm::vec3 lookat, glm::vec3 tranzform)

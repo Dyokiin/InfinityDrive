@@ -29,11 +29,15 @@ void Mesh::setupMesh() {
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 }
 
-void Mesh::Draw(const MyShader shader, const glm::mat4 MVmatrix, const glm::mat4 MVPmatrix) const {
+void Mesh::Draw() const {
     glBindTexture(GL_TEXTURE_2D, _texture._id);
     glActiveTexture(GL_TEXTURE0);
 
     glBindVertexArray(_vao);
+
     glDrawElements(GL_TRIANGLES, _indices.size(), GL_UNSIGNED_INT, 0);
+
     glBindVertexArray(0);
+    glDisable(GL_TEXTURE0);
+    glBindTexture(GL_TEXTURE_2D, 0);
 }

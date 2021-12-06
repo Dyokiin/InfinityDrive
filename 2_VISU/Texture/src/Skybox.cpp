@@ -43,11 +43,11 @@ Skybox::Skybox() {
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 
     std::string path = SDL_GetBasePath();
-    _faces.push_back(path + "../ressources/Front.png"); 
+    _faces.push_back(path + "../ressources/Sides.png"); 
     _faces.push_back(path + "../ressources/Sides.png");
     _faces.push_back(path + "../ressources/Sides.png");
     _faces.push_back(path + "../ressources/Sides.png");
-    _faces.push_back(path + "../ressources/Sides.png");
+    _faces.push_back(path + "../ressources/Front.png");
     _faces.push_back(path + "../ressources/Back.png");
 
     glGenTextures(1, &_texture);
@@ -58,7 +58,7 @@ Skybox::Skybox() {
 
     for(int i=0; i<6; i++){
 
-        img = stbi_load(_faces[1].c_str(), &width, &height, &nbChannels, 0);
+        img = stbi_load(_faces[i].c_str(), &width, &height, &nbChannels, 0);
 
         if(img){
             glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X + i,
@@ -71,8 +71,8 @@ Skybox::Skybox() {
             stbi_image_free(img);
         }
     }
-    glTexParameteri(GL_TEXTURE_CUBE_MAP,GL_TEXTURE_MAG_FILTER,GL_LINEAR);
-    glTexParameteri(GL_TEXTURE_CUBE_MAP,GL_TEXTURE_MIN_FILTER,GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_CUBE_MAP,GL_TEXTURE_MAG_FILTER,GL_NEAREST);
+    glTexParameteri(GL_TEXTURE_CUBE_MAP,GL_TEXTURE_MIN_FILTER,GL_NEAREST);
     glTexParameteri(GL_TEXTURE_CUBE_MAP,GL_TEXTURE_WRAP_S,GL_CLAMP_TO_EDGE);
     glTexParameteri(GL_TEXTURE_CUBE_MAP,GL_TEXTURE_WRAP_T,GL_CLAMP_TO_EDGE);
     glTexParameteri(GL_TEXTURE_CUBE_MAP,GL_TEXTURE_WRAP_R,GL_CLAMP_TO_EDGE);
