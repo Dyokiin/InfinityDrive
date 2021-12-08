@@ -1,5 +1,7 @@
 #pragma once
 
+#include <vector>
+#include <queue>
 #include "SceneNode.hpp"
 #include "../../../2_VISU/Mesh/include/mesh.hpp"
 
@@ -7,19 +9,14 @@
 
 class Scene {
 private:
-    SceneNode* _cars;
-    SceneNode* _first;
-    SceneNode* _last;
-    int _nbObject;
+    std::queue<SceneNode*> _road;
+    std::vector<Car*> _cars;
 
 public:
     Scene();
-    ~Scene();
-
-    inline const int getNbObject() const {return _nbObject;} 
+    ~Scene() = default;
 
     std::vector<Vertex> meshify() const;
     void add(const Object* obj);
     void init();
-    void pop();
 };

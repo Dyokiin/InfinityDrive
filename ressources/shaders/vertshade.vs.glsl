@@ -10,7 +10,7 @@ out vec3 aPos;
 
 void main() 
 {
-    vColor = vec3(0.3,0.3,0.3);
-    aPos = (uProjMatrix * uViewMatrix * aVertexPosition).xyz;
+    vColor = vec3(0.8,0.1,0.7);
+    aPos = aVertexPosition.xyz;
     gl_Position = uProjMatrix* uViewMatrix * aVertexPosition;
 }

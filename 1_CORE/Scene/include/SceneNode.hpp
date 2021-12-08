@@ -8,17 +8,14 @@ class SceneNode{
 private:
     const Object* _roadElem;
     glm::mat4 _modelMatrix;
-    SceneNode* _next;
+    Box _boundingBox;
 
 public:
     SceneNode();
     SceneNode(const Object* obj);
-    ~SceneNode();
+    ~SceneNode() = default;
 
     inline glm::mat4 getModelMatrix() const {return _modelMatrix;}
-    inline SceneNode* next() const {return _next;}
-    inline void next(SceneNode* newNext) {_next = newNext;}
-
     inline void multiMat(glm::mat4 mat) {_modelMatrix *= mat;}
 
     void translate(const float tx, const float ty, const float tz);

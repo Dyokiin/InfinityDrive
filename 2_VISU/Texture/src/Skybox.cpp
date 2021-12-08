@@ -90,7 +90,6 @@ void Skybox::display() const {
 
     glBindVertexArray(_skyVAO);
 
-
     glActiveTexture(GL_TEXTURE0);
     glBindTexture(GL_TEXTURE_CUBE_MAP, _texture);
     glDrawElements(GL_TRIANGLES, cubeEBO.size(), GL_UNSIGNED_INT, 0);

@@ -1,5 +1,7 @@
 #include "../../../2_VISU/Mesh/include/Model.hpp"
 #include "../../Box/include/HitBox.hpp"
+
+#define GLM_ENABLE_EXPERIMENTAL
 #include <glm/gtx/transform.hpp>
 
 
@@ -7,13 +9,12 @@
 class Object{
 protected:
     Model _model;
-    glm::mat4 _modelMatrix;
     HitBox _hitBox;
 
 public:
     Object();
     Object(Model model,  HitBox hitbox)
-    : _model(model), _modelMatrix(1.f), _hitBox(hitbox) {}
+    : _model(model), _hitBox(hitbox) {}
     ~Object() = default;
 
     void Draw() const;
@@ -37,6 +38,7 @@ public:
 class Car : public Object {
 public :
     float _speed;
+    glm::mat4 _modelMatrix;
 
 private :
     Car() : Object() {}
