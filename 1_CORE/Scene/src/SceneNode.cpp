@@ -1,14 +1,6 @@
 #include "../include/SceneNode.hpp"
 
 
-SceneNode::SceneNode(){
-
-}
-
-SceneNode::SceneNode(const Object* obj){
-
-}
-
 void SceneNode::translate(const float tx, const float ty, const float tz){
     glm::mat4 transmat = glm::mat4(1, 0, 0, 0,
                                    0, 1, 0, 0,

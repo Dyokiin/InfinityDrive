@@ -1,0 +1,97 @@
+[
+{
+  "directory": "/media/theo/Stockage Ubuntu/VroomRun/build",
+  "command": "/usr/bin/c++   -I\"/media/theo/Stockage Ubuntu/VroomRun/MAIN\" -I\"/media/theo/Stockage Ubuntu/VroomRun/3_EXT_INCLUDES/include\" -I\"/media/theo/Stockage Ubuntu/VroomRun/2_VISU/*/include\" -I\"/media/theo/Stockage Ubuntu/VroomRun/1_CORE/*/include\" -I/usr/include/SDL2 -I\"/media/theo/Stockage Ubuntu/VroomRun\" -I\"/media/theo/Stockage Ubuntu/VroomRun/3_EXT_INCLUDES/Window/include\" -I\"/media/theo/Stockage Ubuntu/VroomRun/2_VISU/Camera/include\" -I\"/media/theo/Stockage Ubuntu/VroomRun/2_VISU/Mesh/include\" -I\"/media/theo/Stockage Ubuntu/VroomRun/2_VISU/Shaders/include\" -I\"/media/theo/Stockage Ubuntu/VroomRun/2_VISU/Texture/include\" -I\"/media/theo/Stockage Ubuntu/VroomRun/1_CORE/Box/include\" -I\"/media/theo/Stockage Ubuntu/VroomRun/1_CORE/File/include\" -I\"/media/theo/Stockage Ubuntu/VroomRun/1_CORE/Scene/include\" -I\"/media/theo/Stockage Ubuntu/VroomRun/1_CORE/Control/include\"  -g   -Wall -O2 -w -o CMakeFiles/VroomRun.dir/4_MAIN/main.cpp.o -c \"/media/theo/Stockage Ubuntu/VroomRun/4_MAIN/main.cpp\"",
+  "file": "/media/theo/Stockage Ubuntu/VroomRun/4_MAIN/main.cpp"
+},
+{
+  "directory": "/media/theo/Stockage Ubuntu/VroomRun/build/3_EXT_INCLUDES/Window",
+  "command": "/usr/bin/c++   -I\"/media/theo/Stockage Ubuntu/VroomRun/3_EXT_INCLUDES/Window/include\"  -g   -Wall -O2 -o CMakeFiles/Window.dir/src/SDLWindowManager.cpp.o -c \"/media/theo/Stockage Ubuntu/VroomRun/3_EXT_INCLUDES/Window/src/SDLWindowManager.cpp\"",
+  "file": "/media/theo/Stockage Ubuntu/VroomRun/3_EXT_INCLUDES/Window/src/SDLWindowManager.cpp"
+},
+{
+  "directory": "/media/theo/Stockage Ubuntu/VroomRun/build/2_VISU/Camera",
+  "command": "/usr/bin/c++   -I\"/media/theo/Stockage Ubuntu/VroomRun/2_VISU/Camera/include\"  -g   -Wall -O2 -o CMakeFiles/Camera.dir/src/Camera.cpp.o -c \"/media/theo/Stockage Ubuntu/VroomRun/2_VISU/Camera/src/Camera.cpp\"",
+  "file": "/media/theo/Stockage Ubuntu/VroomRun/2_VISU/Camera/src/Camera.cpp"
+},
+{
+  "directory": "/media/theo/Stockage Ubuntu/VroomRun/build/2_VISU/Mesh",
+  "command": "/usr/bin/c++   -I\"/media/theo/Stockage Ubuntu/VroomRun/2_VISU/Mesh/include\"  -g   -Wall -O2 -o CMakeFiles/Mesh.dir/src/Model.cpp.o -c \"/media/theo/Stockage Ubuntu/VroomRun/2_VISU/Mesh/src/Model.cpp\"",
+  "file": "/media/theo/Stockage Ubuntu/VroomRun/2_VISU/Mesh/src/Model.cpp"
+},
+{
+  "directory": "/media/theo/Stockage Ubuntu/VroomRun/build/2_VISU/Mesh",
+  "command": "/usr/bin/c++   -I\"/media/theo/Stockage Ubuntu/VroomRun/2_VISU/Mesh/include\"  -g   -Wall -O2 -o CMakeFiles/Mesh.dir/src/mesh.cpp.o -c \"/media/theo/Stockage Ubuntu/VroomRun/2_VISU/Mesh/src/mesh.cpp\"",
+  "file": "/media/theo/Stockage Ubuntu/VroomRun/2_VISU/Mesh/src/mesh.cpp"
+},
+{
+  "directory": "/media/theo/Stockage Ubuntu/VroomRun/build/2_VISU/Shaders",
+  "command": "/usr/bin/c++   -I\"/media/theo/Stockage Ubuntu/VroomRun/2_VISU/Shaders/include\"  -g   -Wall -O2 -o CMakeFiles/Shaders.dir/src/MyShader.cpp.o -c \"/media/theo/Stockage Ubuntu/VroomRun/2_VISU/Shaders/src/MyShader.cpp\"",
+  "file": "/media/theo/Stockage Ubuntu/VroomRun/2_VISU/Shaders/src/MyShader.cpp"
+},
+{
+  "directory": "/media/theo/Stockage Ubuntu/VroomRun/build/2_VISU/Shaders",
+  "command": "/usr/bin/c++   -I\"/media/theo/Stockage Ubuntu/VroomRun/2_VISU/Shaders/include\"  -g   -Wall -O2 -o CMakeFiles/Shaders.dir/src/Program.cpp.o -c \"/media/theo/Stockage Ubuntu/VroomRun/2_VISU/Shaders/src/Program.cpp\"",
+  "file": "/media/theo/Stockage Ubuntu/VroomRun/2_VISU/Shaders/src/Program.cpp"
+},
+{
+  "directory": "/media/theo/Stockage Ubuntu/VroomRun/build/2_VISU/Shaders",
+  "command": "/usr/bin/c++   -I\"/media/theo/Stockage Ubuntu/VroomRun/2_VISU/Shaders/include\"  -g   -Wall -O2 -o CMakeFiles/Shaders.dir/src/Shader.cpp.o -c \"/media/theo/Stockage Ubuntu/VroomRun/2_VISU/Shaders/src/Shader.cpp\"",
+  "file": "/media/theo/Stockage Ubuntu/VroomRun/2_VISU/Shaders/src/Shader.cpp"
+},
+{
+  "directory": "/media/theo/Stockage Ubuntu/VroomRun/build/2_VISU/Texture",
+  "command": "/usr/bin/c++   -I\"/media/theo/Stockage Ubuntu/VroomRun/2_VISU/Texture/include\"  -g   -Wall -O2 -o CMakeFiles/Texture.dir/src/Image.cpp.o -c \"/media/theo/Stockage Ubuntu/VroomRun/2_VISU/Texture/src/Image.cpp\"",
+  "file": "/media/theo/Stockage Ubuntu/VroomRun/2_VISU/Texture/src/Image.cpp"
+},
+{
+  "directory": "/media/theo/Stockage Ubuntu/VroomRun/build/2_VISU/Texture",
+  "command": "/usr/bin/c++   -I\"/media/theo/Stockage Ubuntu/VroomRun/2_VISU/Texture/include\"  -g   -Wall -O2 -o CMakeFiles/Texture.dir/src/InfPlane.cpp.o -c \"/media/theo/Stockage Ubuntu/VroomRun/2_VISU/Texture/src/InfPlane.cpp\"",
+  "file": "/media/theo/Stockage Ubuntu/VroomRun/2_VISU/Texture/src/InfPlane.cpp"
+},
+{
+  "directory": "/media/theo/Stockage Ubuntu/VroomRun/build/2_VISU/Texture",
+  "command": "/usr/bin/c++   -I\"/media/theo/Stockage Ubuntu/VroomRun/2_VISU/Texture/include\"  -g   -Wall -O2 -o CMakeFiles/Texture.dir/src/Skybox.cpp.o -c \"/media/theo/Stockage Ubuntu/VroomRun/2_VISU/Texture/src/Skybox.cpp\"",
+  "file": "/media/theo/Stockage Ubuntu/VroomRun/2_VISU/Texture/src/Skybox.cpp"
+},
+{
+  "directory": "/media/theo/Stockage Ubuntu/VroomRun/build/1_CORE/Box",
+  "command": "/usr/bin/c++   -I\"/media/theo/Stockage Ubuntu/VroomRun/1_CORE/Box/include\"  -g   -Wall -O2 -o CMakeFiles/Box.dir/src/Box.cpp.o -c \"/media/theo/Stockage Ubuntu/VroomRun/1_CORE/Box/src/Box.cpp\"",
+  "file": "/media/theo/Stockage Ubuntu/VroomRun/1_CORE/Box/src/Box.cpp"
+},
+{
+  "directory": "/media/theo/Stockage Ubuntu/VroomRun/build/1_CORE/Box",
+  "command": "/usr/bin/c++   -I\"/media/theo/Stockage Ubuntu/VroomRun/1_CORE/Box/include\"  -g   -Wall -O2 -o CMakeFiles/Box.dir/src/HitBox.cpp.o -c \"/media/theo/Stockage Ubuntu/VroomRun/1_CORE/Box/src/HitBox.cpp\"",
+  "file": "/media/theo/Stockage Ubuntu/VroomRun/1_CORE/Box/src/HitBox.cpp"
+},
+{
+  "directory": "/media/theo/Stockage Ubuntu/VroomRun/build/1_CORE/File",
+  "command": "/usr/bin/c++   -I\"/media/theo/Stockage Ubuntu/VroomRun/1_CORE/File/include\"  -g   -Wall -O2 -o CMakeFiles/File.dir/src/FileBrowse.cpp.o -c \"/media/theo/Stockage Ubuntu/VroomRun/1_CORE/File/src/FileBrowse.cpp\"",
+  "file": "/media/theo/Stockage Ubuntu/VroomRun/1_CORE/File/src/FileBrowse.cpp"
+},
+{
+  "directory": "/media/theo/Stockage Ubuntu/VroomRun/build/1_CORE/Scene",
+  "command": "/usr/bin/c++   -I\"/media/theo/Stockage Ubuntu/VroomRun/1_CORE/Scene/include\"  -g   -Wall -O2 -o CMakeFiles/Scene.dir/src/Object.cpp.o -c \"/media/theo/Stockage Ubuntu/VroomRun/1_CORE/Scene/src/Object.cpp\"",
+  "file": "/media/theo/Stockage Ubuntu/VroomRun/1_CORE/Scene/src/Object.cpp"
+},
+{
+  "directory": "/media/theo/Stockage Ubuntu/VroomRun/build/1_CORE/Scene",
+  "command": "/usr/bin/c++   -I\"/media/theo/Stockage Ubuntu/VroomRun/1_CORE/Scene/include\"  -g   -Wall -O2 -o CMakeFiles/Scene.dir/src/Scene.cpp.o -c \"/media/theo/Stockage Ubuntu/VroomRun/1_CORE/Scene/src/Scene.cpp\"",
+  "file": "/media/theo/Stockage Ubuntu/VroomRun/1_CORE/Scene/src/Scene.cpp"
+},
+{
+  "directory": "/media/theo/Stockage Ubuntu/VroomRun/build/1_CORE/Scene",
+  "command": "/usr/bin/c++   -I\"/media/theo/Stockage Ubuntu/VroomRun/1_CORE/Scene/include\"  -g   -Wall -O2 -o CMakeFiles/Scene.dir/src/SceneNode.cpp.o -c \"/media/theo/Stockage Ubuntu/VroomRun/1_CORE/Scene/src/SceneNode.cpp\"",
+  "file": "/media/theo/Stockage Ubuntu/VroomRun/1_CORE/Scene/src/SceneNode.cpp"
+},
+{
+  "directory": "/media/theo/Stockage Ubuntu/VroomRun/build/1_CORE/Control",
+  "command": "/usr/bin/c++   -I\"/media/theo/Stockage Ubuntu/VroomRun/1_CORE/Control/include\"  -g   -Wall -O2 -o CMakeFiles/Control.dir/src/CamControl.cpp.o -c \"/media/theo/Stockage Ubuntu/VroomRun/1_CORE/Control/src/CamControl.cpp\"",
+  "file": "/media/theo/Stockage Ubuntu/VroomRun/1_CORE/Control/src/CamControl.cpp"
+},
+{
+  "directory": "/media/theo/Stockage Ubuntu/VroomRun/build/1_CORE/Control",
+  "command": "/usr/bin/c++   -I\"/media/theo/Stockage Ubuntu/VroomRun/1_CORE/Control/include\"  -g   -Wall -O2 -o CMakeFiles/Control.dir/src/GameControl.cpp.o -c \"/media/theo/Stockage Ubuntu/VroomRun/1_CORE/Control/src/GameControl.cpp\"",
+  "file": "/media/theo/Stockage Ubuntu/VroomRun/1_CORE/Control/src/GameControl.cpp"
+}
+]

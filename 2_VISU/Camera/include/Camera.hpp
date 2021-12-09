@@ -18,11 +18,12 @@ private:
     bool _firstPerson;
 
     glm::vec3 _transforms; //[0] : distance | [1] : angleX | [2] : angleY
+    glm::mat4 _modelMatrix;
 
 public:
 
     Camera()
-    : _lookAt(glm::vec3(0,0.5,0)), _upVect(0,1,0),_firstPerson(false), _transforms(3.f,1.f,1.f)  {
+    : _lookAt(glm::vec3(0,0.5,0)), _upVect(0,1,0),_firstPerson(false), _transforms(3.f,1.f,1.f), _modelMatrix(1.f)  {
         this->calcPos();
     };
     Camera(glm::vec3 lookat, glm::vec3 tranzform)
@@ -37,7 +38,7 @@ public:
     void rotateLeft(const double alpha);
     void rotateUp(const double gamma);
 
-    inline void setLookAt(glm::vec3 const lookat) {_lookAt = lookat;}
+    inline void setModel(const glm::mat4 modelmat) {_modelMatrix = modelmat;}
 
     glm::mat4 getViewMatrix();
 };

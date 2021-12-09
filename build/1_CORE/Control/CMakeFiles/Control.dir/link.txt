@@ -1,0 +1,2 @@
+/usr/bin/ar qc libControl.a  CMakeFiles/Control.dir/src/CamControl.cpp.o CMakeFiles/Control.dir/src/GameControl.cpp.o
+/usr/bin/ranlib libControl.a
