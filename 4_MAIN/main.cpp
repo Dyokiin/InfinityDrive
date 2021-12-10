@@ -1,11 +1,10 @@
 #include "SDLWindowManager.hpp"
-#include "Skybox.hpp"
+#include "Model.hpp"
 #include "Scene.hpp"
-#include "mesh.hpp"
 #include "CamControl.hpp"
 #include "GameControl.hpp"
-#include "MyShader.hpp"
-#include "InfPlane.hpp"
+
+
 
 
 #include <GL/gl.h>
@@ -28,16 +27,10 @@ int main(int argc, char* argv[]){
 	//Scene Init
 	Scene mainScene;
 	mainScene.init();
-	//SkyBox init
-	Skybox moonlight;
+
 	//Camera Init
 	Camera super8;
-	//Sader Init
-	MyShader shader;
-	//Ground Init
-	InfPlane grid;
-	//Car Model
-	Model car2000("../ressources/assets/car.obj");
+
 
 	//Several variables useful to the main loop
 	bool quit = false;
@@ -77,12 +70,12 @@ int main(int argc, char* argv[]){
 		Uint32 current = SDL_GetTicks();
 		float dT = (current - lastUpdate) / 1000.0f;
 		
-		//
+		if(!camSetUp){
+			mainScene.update(super8);
 
-		lastUpdate = current;
+			lastUpdate = current;
+		}
 
-
-		/* RENDERING LOOP */
 
 		/******************
 		 * RENDERING CODE *
@@ -92,22 +85,7 @@ int main(int argc, char* argv[]){
 		glEnable(GL_DEPTH_TEST);
 		glDepthFunc(GL_LEQUAL);
 
-
-
-		shader.plnShader();
-		shader.sendViewMat(super8.getViewMatrix());
-		shader.sendProjMat(projectionMatrix);
-		grid.render();
-		
-		shader.skyShader() ;
-		shader.sendViewMat(glm::mat4(glm::mat3(super8.getViewMatrix())));
-		shader.sendProjMat(projectionMatrix);
-		moonlight.display();
-
-		shader.triShader();
-		shader.sendViewMat(super8.getViewMatrix());
-		shader.sendProjMat(projectionMatrix);
-		car2000.Draw();
+		mainScene.Draw(super8.getViewMatrix(), projectionMatrix);
 
 		wndwManager.swapBuffers();
 

@@ -8,8 +8,7 @@
 #include <string>
 #include "Image.hpp"
 #include "stb_image.h"
-#include "../../../1_CORE/Scene/include/Scene.hpp"
-#include "../../Mesh/include/mesh.hpp"
+#include "../../Scene/include/mesh.hpp"
 
 
 class Skybox {

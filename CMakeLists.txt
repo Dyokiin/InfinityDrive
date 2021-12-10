@@ -29,10 +29,12 @@ target_include_directories(${PROJECT_NAME} PUBLIC "3_EXT_INCLUDES/include")
 target_link_libraries(${PROJECT_NAME} PUBLIC EXT_INCLUDES)
 
 add_subdirectory(2_VISU)
+add_library(2_VISU_INCLUDES INTERFACE)
 target_include_directories(${PROJECT_NAME} PUBLIC "2_VISU/*/include")
 target_link_libraries(${PROJECT_NAME} PUBLIC VISU)
 
 add_subdirectory(1_CORE)
+add_library(1_CORE_INCLUDES INTERFACE)
 target_include_directories(${PROJECT_NAME} PUBLIC "1_CORE/*/include")
 target_link_libraries(${PROJECT_NAME} PUBLIC CORE)
 

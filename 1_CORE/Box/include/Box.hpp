@@ -10,13 +10,13 @@ private:
     //_corner1 : bottom right closer to cam
     //_corner2 : top left farther
 
-    const glm::vec3 _corner1;
-    const glm::vec3 _corner2;
+    glm::vec3 _corner1;
+    glm::vec3 _corner2;
 
 public:
 
     // Default construcor
-    Box(); 
+    Box() = default; 
 
     // Copy constructor
     //Box(const Box&);
@@ -43,4 +43,5 @@ public:
 
     bool intersect(const Box &wBox) const ;
     bool operator*(const Box &wBox) const ; 
+    Box& operator=(const Box &wBox);
 };

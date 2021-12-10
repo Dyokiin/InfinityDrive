@@ -2,6 +2,8 @@
 
 InfPlane::InfPlane(){
 
+    _modelMatrix = glm::mat4(1.f);
+
     _quad = {
         glm::vec4( 0, 0, 0, 1),
         glm::vec4( 1000, 0, 0, 0),

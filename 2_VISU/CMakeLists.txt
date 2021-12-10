@@ -7,10 +7,6 @@ add_subdirectory(Camera)
 target_include_directories(Camera PUBLIC "Camera/include")
 target_link_libraries(${PROJECT_NAME} INTERFACE Camera)
 
-add_subdirectory(Mesh)
-target_include_directories(Mesh PUBLIC "Mesh/include")
-target_link_libraries(${PROJECT_NAME} INTERFACE Mesh)
-
 add_subdirectory(Shaders)
 target_include_directories(Shaders PUBLIC "Shaders/include")
 target_link_libraries(${PROJECT_NAME} INTERFACE Shaders)
@@ -18,3 +14,7 @@ target_link_libraries(${PROJECT_NAME} INTERFACE Shaders)
 add_subdirectory(Texture)
 target_include_directories(Texture PUBLIC "Texture/include")
 target_link_libraries(${PROJECT_NAME} INTERFACE Texture)
+
+add_subdirectory(Scene)
+target_include_directories(Scene PUBLIC "Scene/include")
+target_link_libraries(${PROJECT_NAME} INTERFACE Scene)

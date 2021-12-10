@@ -3,6 +3,7 @@
 #include <math.h>
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
+#include <iostream>
 
 #define CAMERA_MAX_Y 3.1415/2
 #define CAMERA_MIN_Y 0

@@ -29,8 +29,8 @@ void Camera::rotateUp(const double a){
 
 glm::mat4 Camera::getViewMatrix() {
 
-    glm::vec4 modelVec = glm::vec4(_camPos, 1) * _modelMatrix;
-    glm::vec4 modelLookAt = glm::vec4(_lookAt, 1) * _modelMatrix;
+    glm::vec4 modelVec = _modelMatrix * glm::vec4(_camPos, 1) ;
+    glm::vec4 modelLookAt = _modelMatrix * glm::vec4(_lookAt, 1) ;
 
     return glm::lookAt(glm::vec3(modelVec),
                        glm::vec3(modelLookAt),

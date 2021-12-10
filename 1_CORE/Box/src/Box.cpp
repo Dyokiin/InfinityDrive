@@ -23,3 +23,13 @@ bool Box::intersect(const Box &wBox) const {
 bool Box::operator*(const Box &wBox) const {
     return this->intersect(wBox);
 }
+
+Box& Box::operator=(const Box &xBox) {
+    if(this == &xBox)
+        return *this;
+    
+    _corner1 = xBox._corner1;
+    _corner2 = xBox._corner2;
+
+    return *this;
+}

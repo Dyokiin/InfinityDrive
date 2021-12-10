@@ -11,10 +11,6 @@ add_subdirectory(File)
 target_include_directories(File PUBLIC "File/include")
 target_link_libraries(${PROJECT_NAME} INTERFACE File)
 
-add_subdirectory(Scene)
-target_include_directories(Scene PUBLIC "Scene/include")
-target_link_libraries(${PROJECT_NAME} INTERFACE Scene)
-
 add_subdirectory(Control)
 target_include_directories(Control PUBLIC "Control/include")
 target_link_libraries(${PROJECT_NAME} INTERFACE Control)

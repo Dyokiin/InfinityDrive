@@ -1,2 +1,0 @@
-/usr/bin/ar qc libTexture.a  CMakeFiles/Texture.dir/src/Image.cpp.o CMakeFiles/Texture.dir/src/InfPlane.cpp.o CMakeFiles/Texture.dir/src/Skybox.cpp.o
-/usr/bin/ranlib libTexture.a
