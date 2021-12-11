@@ -1,8 +1,10 @@
 #pragma once
 
 #include "../../Shaders/include/MyShader.hpp"
+#include "../../Texture/include/stb_image.h"
 #include <list>
 #include <vector>
+#include <iostream>
 
 
 typedef struct ShapeVertexTex {
@@ -19,6 +21,7 @@ typedef struct ShapeVertexTex {
     ~ShapeVertexTex() = default;
 } Vertex;
 
+
 typedef struct Texture {
     unsigned int _id;
     std::string _type;
@@ -30,7 +33,6 @@ typedef struct Texture {
 
     ~Texture() = default;
 } Texture;
-
 
 
 class Mesh {
@@ -50,3 +52,16 @@ public :
     void Draw() const;
     void setupMesh();
 };
+
+
+
+/**** Textured Plane be like :  *******
+              p1          p3
+                °--------°
+                |      / |
+                |    /   |
+                |  /     |
+                °--------°
+              p4          p2
+**************************************/
+const Mesh texturedPlane(const glm::vec3 p1, const glm::vec3 p2, std::string pathToText);

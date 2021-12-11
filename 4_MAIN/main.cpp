@@ -4,9 +4,6 @@
 #include "CamControl.hpp"
 #include "GameControl.hpp"
 
-
-
-
 #include <GL/gl.h>
 
 #define WINDOW_WIDTH 1500
@@ -48,6 +45,7 @@ int main(int argc, char* argv[]){
 
 		/* INPUT LOOP */
 		if(camSetUp){
+			SDL_GetMouseState(&mouseX, &mouseY);
 			while(SDL_PollEvent(&e) != 0){
 				if(e.type == SDL_QUIT){
 					quit = true;
@@ -89,7 +87,6 @@ int main(int argc, char* argv[]){
 
 		wndwManager.swapBuffers();
 
-		SDL_GetMouseState(&mouseX, &mouseY);
 	}
 
 	//Quit SDL subsystems

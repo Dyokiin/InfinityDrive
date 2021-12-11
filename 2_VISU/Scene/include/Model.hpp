@@ -12,10 +12,12 @@
 class Model {
 private :
     std::vector<Mesh> _mesh;
-    std::string _path;
+    std::string _textPath;
 
 public :
     Model(char * path) {loadModel(path);}
+    Model(std::vector<Mesh> mesh)
+    : _mesh(mesh) {}
     ~Model() = default;
 
     Texture loadTexture(const std::string path);

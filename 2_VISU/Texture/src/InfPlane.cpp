@@ -6,10 +6,10 @@ InfPlane::InfPlane(){
 
     _quad = {
         glm::vec4( 0, 0, 0, 1),
-        glm::vec4( 1000, 0, 0, 0),
-        glm::vec4( 0, 0, 1000, 0),
-        glm::vec4(-1000, 0, 0, 0),
-        glm::vec4( 0, 0,-1000, 0)
+        glm::vec4( 500, 0, 0, 1),
+        glm::vec4( 0, 0, 500, 1),
+        glm::vec4(-500, 0, 0, 1),
+        glm::vec4( 0, 0,-500, 1)
     };
 
     std::vector<int> pIbo = {0,1,2,  0,2,3,  0,3,4,  0,4,1};

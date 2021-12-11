@@ -15,7 +15,7 @@ void Model::loadModel(const char* path) {
         return;
     }
 
-    _path = AbsPath.substr(0, AbsPath.find_last_of('/'));
+    _textPath = AbsPath.substr(0, AbsPath.find_last_of('/'));
 
     processNode(scene->mRootNode, scene);
 }

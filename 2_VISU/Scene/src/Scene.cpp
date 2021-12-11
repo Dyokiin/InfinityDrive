@@ -2,12 +2,12 @@
 
 void Scene::init() {
 
-    // TODO :_stock(loadObject());
+    _stock = loadObject();
     _nbNode = 0;
 
     glm::mat4 modelMat(1.f);
     for(int i = 0; i < MAX_NODE_IN_SCENE; i++) {
-        //_road.push(new SceneNode(&_stock[0], modelMat));
+        _road.push(new SceneNode(&_stock[0], modelMat));
         modelMat *= _road.back()->getRoadTransf();
         _nbNode++;
     }
@@ -32,6 +32,7 @@ void Scene::Draw(glm::mat4 ViewMat, glm::mat4 ProjMat) {
     _shader.plnShader();
     _shader.sendProjMat(ProjMat);
     _shader.sendViewMat(ViewMat);
+    _shader.sendNormMat(_cars[0]->getModelMat());
     _grid.render();
 
     //TODO : Render SceneNodes with apropriate Shader

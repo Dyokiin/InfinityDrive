@@ -1,17 +1,5 @@
 #include "../include/Object.hpp"
 
-// void Object::translate(glm::vec3 tvec){
-//     glm::translate(_modelMatrix, tvec);
-// }
-
-// void Object::rotate(float angle, glm::vec3 axis){
-//     _modelMatrix *= glm::rotate(_modelMatrix, angle, axis.x, axis.y, axis.z);
-// }
-
-// void Object::scale(glm::vec3 svec){
-//     glm::scale(_modelMatrix, svec);
-// }
-
 
 void Object::Draw() const {
     _model.Draw();
@@ -40,7 +28,7 @@ void Car::update(EFFECTS e) {
     Car::update();
     switch (e) {
     case FALL:
-        /* code */
+        
         break;
     case SLOW:
 
@@ -60,4 +48,15 @@ void Car::update(EFFECTS e) {
     case NONE: default:
         break;
     }
+}
+
+std::vector<Road> loadObject() {
+
+    std::vector<Road> stock;
+    std::vector<Mesh> meshes;
+
+    meshes.push_back(texturedPlane(glm::vec3(-4,0,10), glm::vec3(4,0,0), "../ressources/noir.png"));
+    stock.push_back(Road(Model(meshes),HitBox(),Box(-4,5,10,4,-5,0),glm::translate(glm::vec3(0,0,10))));
+
+    return stock;
 }
