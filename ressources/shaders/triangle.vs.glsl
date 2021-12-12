@@ -4,13 +4,11 @@ layout(location = 0) in vec3 aVertexPosition;
 layout(location = 1) in vec3 aVertexNormal;
 layout(location = 2) in vec2 aVertexTexCoord;
 
-uniform mat4 uViewMatrix;
-uniform mat4 uProjMatrix;
-uniform mat4 uNormMatrix;
+uniform mat4 uMVPMatrix;
 
-out vec3 vColor;
+out vec2 texCoords;
 
 void main() {
-    vColor = aVertexNormal;
-    gl_Position =  uProjMatrix * uViewMatrix * uNormMatrix * vec4(aVertexPosition, 1);
+    texCoords = aVertexTexCoord;
+    gl_Position =  uMVPMatrix * vec4(aVertexPosition, 1);
 }

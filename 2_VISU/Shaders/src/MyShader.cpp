@@ -12,50 +12,26 @@ MyShader::MyShader(){
                            path + "../ressources/shaders/skybox.fs.glsl");
 }
 
-void MyShader::sendViewMat(const glm::mat4 viewMat) const {
-    if(_inUse == 1){
-        char uViewMat[] = "uViewMatrix";
-        GLint uniformViewMat = glGetUniformLocation(_Shader1.getGLId(), (const GLchar*)uViewMat);
-        glUniformMatrix4fv(uniformViewMat, 1, GL_FALSE, glm::value_ptr(viewMat));
-    } else if(_inUse == 2) {
-        char uViewMat[] = "uViewMatrix";
-        GLint uniformViewMat = glGetUniformLocation(_Shader2.getGLId(), (const GLchar*)uViewMat);
-        glUniformMatrix4fv(uniformViewMat, 1, GL_FALSE, glm::value_ptr(viewMat));
-    } else {
-        char uViewMat[] = "uViewMatrix";
-        GLint uniformViewMat = glGetUniformLocation(_Shader3.getGLId(), (const GLchar*)uViewMat);
-        glUniformMatrix4fv(uniformViewMat, 1, GL_FALSE, glm::value_ptr(viewMat));
-    }
+void MyShader::sendProjViewMat(const glm::mat4 projviewMat) const {
+    char uPVMat[] = "uProjViewMatrix";
+    GLint uniformPVMat = glGetUniformLocation(_Shader3.getGLId(), (const GLchar*)uPVMat);
+    glUniformMatrix4fv(uniformPVMat, 1, GL_FALSE, glm::value_ptr(projviewMat));
 }
 
-void MyShader::sendProjMat(const glm::mat4 projMat) const {
-    if(_inUse == 1){
-        char uProjMat[] = "uProjMatrix";
-        GLint uniformProjMat = glGetUniformLocation(_Shader1.getGLId(), (const GLchar*)uProjMat);
-        glUniformMatrix4fv(uniformProjMat, 1, GL_FALSE, glm::value_ptr(projMat));
-    } else if(_inUse == 2) {
-        char uProjMat[] = "uProjMatrix";
-        GLint uniformProjMat = glGetUniformLocation(_Shader2.getGLId(), (const GLchar*)uProjMat);
-        glUniformMatrix4fv(uniformProjMat, 1, GL_FALSE, glm::value_ptr(projMat));
-    } else {
-        char uProjMat[] = "uProjMatrix";
-        GLint uniformProjMat = glGetUniformLocation(_Shader3.getGLId(), (const GLchar*)uProjMat);
-        glUniformMatrix4fv(uniformProjMat, 1, GL_FALSE, glm::value_ptr(projMat));
-    }
+void MyShader::sendProjModelMat(const glm::mat4 projmodelMat) const {
+    char uPMMat[] = "uProjModelMatrix";
+    GLint uniformPMMat = glGetUniformLocation(_Shader1.getGLId(), (const GLchar*)uPMMat);
+    glUniformMatrix4fv(uniformPMMat, 1, GL_FALSE, glm::value_ptr(projmodelMat));
 }
 
-void MyShader::sendNormMat(const glm::mat4 normMat) const {
+void MyShader::sendMVPMat(const glm::mat4 MVPMat) const {
     if(_inUse == 1){
-        char uNormMat[] = "uNormMatrix";
-        GLint uniformNormMat = glGetUniformLocation(_Shader1.getGLId(), (const GLchar*)uNormMat);
-        glUniformMatrix4fv(uniformNormMat, 1, GL_FALSE, glm::value_ptr(normMat));
+        char uMVPMat[] = "uMVPMatrix";
+        GLint uniformMVPMat = glGetUniformLocation(_Shader1.getGLId(), (const GLchar*)uMVPMat);
+        glUniformMatrix4fv(uniformMVPMat, 1, GL_FALSE, glm::value_ptr(MVPMat));
     } else if(_inUse == 2) {
-        char uNormMat[] = "uNormMatrix";
-        GLint uniformNormMat = glGetUniformLocation(_Shader2.getGLId(), (const GLchar*)uNormMat);
-        glUniformMatrix4fv(uniformNormMat, 1, GL_FALSE, glm::value_ptr(normMat));
-    } else {
-        char uNormMat[] = "uNormMatrix";
-        GLint uniformNormMat = glGetUniformLocation(_Shader3.getGLId(), (const GLchar*)uNormMat);
-        glUniformMatrix4fv(uniformNormMat, 1, GL_FALSE, glm::value_ptr(normMat));
+        char uMVPMat[] = "uMVPMatrix";
+        GLint uniformMVPMat = glGetUniformLocation(_Shader2.getGLId(), (const GLchar*)uMVPMat);
+        glUniformMatrix4fv(uniformMVPMat, 1, GL_FALSE, glm::value_ptr(MVPMat));
     }
 }

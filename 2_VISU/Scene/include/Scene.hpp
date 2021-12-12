@@ -1,7 +1,7 @@
 #pragma once
 
 #include <vector>
-#include <queue>
+#include <deque>
 #include "SceneNode.hpp"
 #include "Model.hpp"
 #include "../../Camera/include/Camera.hpp"
@@ -16,7 +16,7 @@ class Scene {
 private:
     std::vector<Road> _stock;
 
-    std::queue<SceneNode*> _road;
+    std::deque<SceneNode*> _road;
     std::vector<Car*> _cars;
 
     InfPlane _grid;

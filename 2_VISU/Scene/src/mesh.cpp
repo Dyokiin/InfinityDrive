@@ -30,15 +30,12 @@ void Mesh::setupMesh() {
 }
 
 void Mesh::Draw() const {
+    
     glBindTexture(GL_TEXTURE_2D, _texture._id);
-    glActiveTexture(GL_TEXTURE0);
-
     glBindVertexArray(_vao);
-
     glDrawElements(GL_TRIANGLES, _indices.size(), GL_UNSIGNED_INT, 0);
 
     glBindVertexArray(0);
-    glDisable(GL_TEXTURE0);
     glBindTexture(GL_TEXTURE_2D, 0);
 }
 
@@ -56,7 +53,13 @@ const Mesh texturedPlane( glm::vec3 p1, glm::vec3 p2, std::string pathToText){
 
     Texture texture;
     glGenTextures(1, &texture._id);
+    glActiveTexture(GL_TEXTURE0);
     glBindTexture(GL_TEXTURE_2D, texture._id);
+
+    glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MAG_FILTER,GL_NEAREST);
+    glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_NEAREST);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
 
     int width, height, nbChannels;
     unsigned char* img;
@@ -66,14 +69,12 @@ const Mesh texturedPlane( glm::vec3 p1, glm::vec3 p2, std::string pathToText){
 
     if(img) {
         glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, img);
+        glGenerateMipmap(GL_TEXTURE_2D);
         stbi_image_free(img);
     } else {
         std::cerr << "Texture Load Failed : " << pathToText << std::endl;
         stbi_image_free(img);
     }
-
-    glTexParameteri(GL_TEXTURE_CUBE_MAP,GL_TEXTURE_MAG_FILTER,GL_NEAREST);
-    glTexParameteri(GL_TEXTURE_CUBE_MAP,GL_TEXTURE_MIN_FILTER,GL_NEAREST);
 
     glBindTexture(GL_TEXTURE_2D, 0);
 

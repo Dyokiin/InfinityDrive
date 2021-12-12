@@ -8,7 +8,7 @@
 #define CAMERA_MAX_Y 3.1415/2
 #define CAMERA_MIN_Y 0
 #define CAMERA_MAX_ZOOM 0.2
-#define CAMERA_MIN_ZOOM 10
+#define CAMERA_MIN_ZOOM 20
 
 class Camera {
 private:

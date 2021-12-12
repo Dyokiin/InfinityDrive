@@ -24,14 +24,10 @@ public:
     void init();
     void use() const;
 
-    void sendViewMat(const glm::mat4 viewMat) const; 
-    void sendProjMat(const glm::mat4 projMat) const; 
-    void sendNormMat(const glm::mat4 normMat) const; 
-    inline void sendMatrixs(const glm::mat4 viewMat, const glm::mat4 projMat, const glm::mat4 normMat) const {
-        sendViewMat(viewMat);
-        sendProjMat(projMat);
-        sendNormMat(normMat);
-    }
+    void sendProjViewMat(const glm::mat4 viewMat) const; 
+    void sendProjModelMat(const glm::mat4 projmodelMat) const; 
+    void sendMVPMat(const glm::mat4 MVPMat) const;
+    GLint getShdr2Id() const {return _Shader2.getGLId();}
 
     inline void skyShader() {_Shader3.use(); _inUse = 3;}
     inline void triShader() {_Shader2.use(); _inUse = 2;}

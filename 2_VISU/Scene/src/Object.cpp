@@ -55,8 +55,8 @@ std::vector<Road> loadObject() {
     std::vector<Road> stock;
     std::vector<Mesh> meshes;
 
-    meshes.push_back(texturedPlane(glm::vec3(-4,0,10), glm::vec3(4,0,0), "../ressources/noir.png"));
-    stock.push_back(Road(Model(meshes),HitBox(),Box(-4,5,10,4,-5,0),glm::translate(glm::vec3(0,0,10))));
+    meshes.push_back(texturedPlane(glm::vec3(-6,0.2,80), glm::vec3(6,0.2,0), "../ressources/noir.png"));
+    stock.push_back(Road(Model(meshes),HitBox(),Box(-4,5,10,4,-5,0),glm::translate(glm::vec3(0,0,80))));
 
     return stock;
 }

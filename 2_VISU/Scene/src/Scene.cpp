@@ -7,7 +7,7 @@ void Scene::init() {
 
     glm::mat4 modelMat(1.f);
     for(int i = 0; i < MAX_NODE_IN_SCENE; i++) {
-        _road.push(new SceneNode(&_stock[0], modelMat));
+        _road.push_back(new SceneNode(&_stock[0], modelMat));
         modelMat *= _road.back()->getRoadTransf();
         _nbNode++;
     }
@@ -20,34 +20,33 @@ void Scene::init() {
 
 void Scene::add() {
     //Get random Road Element form _stock
-    _road.push(new SceneNode(&_stock[0], _road.back()->getRoadTransf()));
+    _road.push_back(new SceneNode(&_stock[0], _road.back()->getRoadTransf()));
     _nbNode++;
     if(_nbNode > MAX_NODE_IN_SCENE) {
-        _road.pop();
+        _road.pop_front();
     }
 }
 
 void Scene::Draw(glm::mat4 ViewMat, glm::mat4 ProjMat) {
 
+    glm::mat4 VPmatrix = ProjMat * ViewMat;
+
     _shader.plnShader();
-    _shader.sendProjMat(ProjMat);
-    _shader.sendViewMat(ViewMat);
-    _shader.sendNormMat(_cars[0]->getModelMat());
+    _shader.sendProjModelMat(ProjMat * _cars[0]->getModelMat());
+    _shader.sendMVPMat(VPmatrix * _cars[0]->getModelMat());
     _grid.render();
 
-    //TODO : Render SceneNodes with apropriate Shader
-
     _shader.triShader();
-	_shader.sendViewMat(ViewMat);
-	_shader.sendProjMat(ProjMat);
-    _shader.sendNormMat(_cars[0]->getModelMat());
-    _cars[0]->Draw();
+    _shader.sendMVPMat(VPmatrix * _cars[0]->getModelMat());
+    for(auto i : _cars) i->Draw();
+    for(SceneNode* i : _road) {
+        _shader.sendMVPMat(VPmatrix * i->getModelMatrix());
+        i->Draw();
+    }
 
     _shader.skyShader();
-    _shader.sendProjMat(ProjMat);
-    _shader.sendViewMat(ViewMat);
+    _shader.sendProjViewMat(VPmatrix);
     _moonlight.display();
-
 }
 
 void Scene::update(Camera &cam) const {
@@ -55,7 +54,6 @@ void Scene::update(Camera &cam) const {
         s->update();
     
     cam.setModel(_cars[0]->getModelMat());
-    //_grid.setModel(_cars[0]->getModelMat()); //TODO
 }
 
 void Scene::update(EFFECTS e) {
