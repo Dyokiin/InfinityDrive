@@ -19,8 +19,8 @@ void Car::update() {
     if(glm::length(_speed) < CAR_MAX_SPEED) {
         _speed += _accel;
     }
-
     _modelMatrix *= glm::translate(_speed);
+    _hitBox.translate(_modelMatrix);
 }
 
 void Car::update(EFFECTS e) {
@@ -55,8 +55,8 @@ std::vector<Road> loadObject() {
     std::vector<Road> stock;
     std::vector<Mesh> meshes;
 
-    meshes.push_back(texturedPlane(glm::vec3(-6,0.2,80), glm::vec3(6,0.2,0), "../ressources/noir.png"));
-    stock.push_back(Road(Model(meshes),HitBox(),Box(-4,5,10,4,-5,0),glm::translate(glm::vec3(0,0,80))));
+    meshes.push_back(texturedPlane(glm::vec3(-6,0.2,48), glm::vec3(6,0.2,0), "../ressources/SRoad.png"));
+    stock.push_back(Road(Model(meshes),HitBox(),Box(-6,5,48,6,-5,0),glm::translate(glm::vec3(0,0,48))));
 
     return stock;
 }

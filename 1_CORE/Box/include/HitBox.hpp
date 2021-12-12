@@ -4,7 +4,7 @@
 
 #include <functional>
 
-enum EFFECTS { FALL, SLOW, CAUTGH, BURST, LTURN, RTURN, NONE};
+enum EFFECTS {FALL, SLOW, CAUTGH, BURST, LTURN, RTURN, NONE};
 
 class HitBox {
 
@@ -30,7 +30,9 @@ public:
 
     void render() const;
 
-
+    inline void translate(glm::mat4 transMat) {_border.translate(transMat);}
     inline bool intersect(const HitBox hb) const {return _border.intersect(hb._border);}
+    inline bool intersect(const Box box) const {return _border.intersect(box);}
+    inline std::string toString() const {return _border.toString();}
     inline EFFECTS effect() const {return _hit;}
 };

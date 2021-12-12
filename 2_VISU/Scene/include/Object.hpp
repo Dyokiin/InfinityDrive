@@ -24,6 +24,7 @@ public:
     ~Object() = default;
 
     void Draw() const;
+    inline const HitBox getHitBox() const {return _hitBox;}
 };
 
 class Road : public Object {
@@ -63,7 +64,6 @@ public :
     void update(EFFECTS e);
     void Draw() const;
     inline const glm::mat4 getModelMat() const {return _modelMatrix;}
-    
 };
 
 std::vector<Road> loadObject();

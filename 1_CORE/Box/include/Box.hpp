@@ -1,6 +1,8 @@
 #pragma once
 
 #include <glm/glm.hpp>
+#include <string>
+#include <iostream>
 
 class Box {
 
@@ -33,6 +35,7 @@ public:
     // Default destructor
     ~Box() = default;
 
+    void translate(glm::mat4 transMat);
 
     // Check if a point is in a box
 
@@ -40,6 +43,7 @@ public:
 
 
     // Check if two Boxes intersect : Method and Operator
+    std::string toString() const;
 
     bool intersect(const Box &wBox) const ;
     bool operator*(const Box &wBox) const ; 

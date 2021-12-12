@@ -14,9 +14,10 @@ private:
 public:
     SceneNode();
     SceneNode(const Road* obj, const glm::mat4 modelmat)
-    : _roadElem(obj), _modelMatrix(modelmat), _boundingBox(obj->getBnBox()) {}
+    : _roadElem(obj), _modelMatrix(modelmat), _boundingBox(obj->getBnBox()) {_boundingBox.translate(modelmat);}
     ~SceneNode() = default;
 
+    inline const Box getBndBox() const {return _boundingBox;} 
     inline glm::mat4 getModelMatrix() const {return _modelMatrix;}
     inline void multiMat(glm::mat4 mat) {_modelMatrix *= mat;}
     inline glm::mat4 getRoadTransf() const {return _roadElem->getEndPth();}

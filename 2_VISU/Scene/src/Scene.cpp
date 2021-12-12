@@ -13,7 +13,7 @@ void Scene::init() {
     }
 
     char pathToCar[] = "../ressources/assets/car.obj";
-    Car* car2000 = new Car(Model(pathToCar), HitBox());
+    Car* car2000 = new Car(Model(pathToCar), HitBox(Box(-0.5,0,0,0.5,0.5,0.5), NONE));
     //TODO : enemy model
     _cars.push_back(car2000);
 }
@@ -49,14 +49,23 @@ void Scene::Draw(glm::mat4 ViewMat, glm::mat4 ProjMat) {
     _moonlight.display();
 }
 
-void Scene::update(Camera &cam) const {
+void Scene::update(Camera &cam) {
+    int iter = 0;
+
+    for(SceneNode* i : _road) {
+        // Check if the car is in this Scene Node
+        std::cout << _cars[0]->getHitBox().toString() << std::endl;
+        std::cout << i->getBndBox().toString() << std::endl;
+        if(_cars[0]->getHitBox().intersect(i->getBndBox())) {
+            std::cout << "oui" << std::endl;
+            //TODO : if car in node check hitbox : update(effects) or not
+            if(iter > 2) {this->add();}
+        }
+        iter++;
+    }
+
     for(auto s : _cars)
         s->update();
-    
     cam.setModel(_cars[0]->getModelMat());
 }
 
-void Scene::update(EFFECTS e) {
-    for(auto s : _cars)
-        s->update(e);
-}

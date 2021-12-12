@@ -86,7 +86,6 @@ int main(int argc, char* argv[]){
 		mainScene.Draw(super8.getViewMatrix(), projectionMatrix);
 
 		wndwManager.swapBuffers();
-
 	}
 
 	//Quit SDL subsystems
