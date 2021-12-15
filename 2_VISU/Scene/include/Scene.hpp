@@ -34,5 +34,5 @@ public:
 
     void Draw(glm::mat4 ViewMat, glm::mat4 ProjMat);
     inline const glm::mat4 getCarModelMat() const {return _cars[0]->getModelMat();}
-    void update(Camera &cam);
+    void update(Camera &cam, const float dT, DIRECTION d);
 };

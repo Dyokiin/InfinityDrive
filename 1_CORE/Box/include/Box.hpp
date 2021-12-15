@@ -43,8 +43,6 @@ public:
 
 
     // Check if two Boxes intersect : Method and Operator
-    std::string toString() const;
-
     bool intersect(const Box &wBox) const ;
     bool operator*(const Box &wBox) const ; 
     Box& operator=(const Box &wBox);

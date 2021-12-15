@@ -20,7 +20,7 @@ int main(int argc, char* argv[]){
 	//Projection Matrix : fixed window size
 	glm::mat4 projectionMatrix = glm::perspective(glm::radians(90.f),
 												  (float)WINDOW_WIDTH/(float)WINDOW_HEIGHT,
-												  0.001f, 200.f);
+												  0.5f, 200.f);
 	//Scene Init
 	Scene mainScene;
 	mainScene.init();
@@ -32,6 +32,8 @@ int main(int argc, char* argv[]){
 	//Several variables useful to the main loop
 	bool quit = false;
 	bool camSetUp = true;
+
+	DIRECTION lastInput = KEEP;
 
 	Uint32 lastUpdate = SDL_GetTicks();
 	SDL_Event e;
@@ -57,8 +59,9 @@ int main(int argc, char* argv[]){
 			while(SDL_PollEvent(&e) != 0){
 				if(e.type == SDL_QUIT){
 					quit = true;
-				} else {
-					GameUpdate(e);
+				} else if(e.type == SDL_KEYDOWN){
+					lastInput = GameUpdate(e);
+					std::cout << lastInput << std::endl;
 				}
 			}
 		}
@@ -69,7 +72,7 @@ int main(int argc, char* argv[]){
 		float dT = (current - lastUpdate) / 1000.0f;
 		
 		if(!camSetUp){
-			mainScene.update(super8);
+			mainScene.update(super8, dT, lastInput);
 
 			lastUpdate = current;
 		}
@@ -86,6 +89,8 @@ int main(int argc, char* argv[]){
 		mainScene.Draw(super8.getViewMatrix(), projectionMatrix);
 
 		wndwManager.swapBuffers();
+
+		lastInput = KEEP;
 	}
 
 	//Quit SDL subsystems

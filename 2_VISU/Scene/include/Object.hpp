@@ -5,10 +5,13 @@
 
 #define GLM_ENABLE_EXPERIMENTAL
 #include <glm/gtx/transform.hpp>
+#include <glm/gtx/norm.hpp>
 
 
 #define CAR_MAX_SPEED 0.5
 #define CARS_MAX_DIST 2
+
+enum DIRECTION {JUMP, LEFT, RIGHT, KEEP};
 
 
 
@@ -50,20 +53,26 @@ public:
 
 class Car : public Object {
 private :
-    glm::vec3 _speed;
-    glm::vec3 _accel;
+    glm::vec3 _Cspeed;
+    glm::vec3 _Caccel;
+    glm::vec3 _aSpeed;
+    glm::vec3 _aAccel;
     glm::mat4 _modelMatrix;
+    glm::mat4 _rotMatrix;
 
 public :
     Car() : Object() {}
     Car(Model model, HitBox hitbox) 
-    : Object(model, hitbox), _speed(0,0,0.01), _accel(0.,0,0.0001), _modelMatrix(1.f) {}
+    : Object(model, hitbox), _Cspeed(0,0,0.01), _Caccel(0.,-0.1,0.0001),
+    _aSpeed(0.f), _aAccel(-0.01), _modelMatrix(1.f), _rotMatrix(1.f) {}
 
 
     void update();
     void update(EFFECTS e);
+    void update(DIRECTION d);
     void Draw() const;
     inline const glm::mat4 getModelMat() const {return _modelMatrix;}
+    inline const glm::mat4 getRotModelMat() const {return _modelMatrix * _rotMatrix;}
 };
 
 std::vector<Road> loadObject();

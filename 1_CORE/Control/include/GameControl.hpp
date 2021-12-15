@@ -1,3 +1,4 @@
 #include <SDL2/SDL.h>
+#include "../../../2_VISU/Scene/include/Object.hpp"
 
-void GameUpdate(SDL_Event e);
+DIRECTION GameUpdate(SDL_Event e);
