@@ -61,7 +61,6 @@ int main(int argc, char* argv[]){
 					quit = true;
 				} else if(e.type == SDL_KEYDOWN){
 					lastInput = GameUpdate(e);
-					std::cout << lastInput << std::endl;
 				}
 			}
 		}

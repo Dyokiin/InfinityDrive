@@ -16,23 +16,19 @@ void Car::Draw() const {
 }
 
 void Car::update() {
-    if((_Cspeed.y + _Caccel.y) < 0){
-        _Cspeed.y = 0;
-    } else {_Cspeed.y += _Caccel.y; std::cout << _Cspeed.y << std::endl;} 
-    if(glm::length(_Cspeed) < CAR_MAX_SPEED) {
-        _Cspeed.x += _Caccel.x;
-        _Cspeed.z += _Caccel.z;
-    }
-    if(!(((_aSpeed.x + _aAccel.x) < 0) && ((_aSpeed.y + _aAccel.y) < 0)) && ((_aSpeed.z + _aAccel.z) < 0)){
-        _aSpeed += _aAccel;
-        _rotMatrix = glm::rotate(glm::l1Norm(_aSpeed), glm::normalize(_aSpeed));
-    } else {
-        _aSpeed = glm::vec3(0);
-        _rotMatrix = glm::mat4(1.f);
-    }
-    _modelMatrix *= glm::translate(_Cspeed);
 
+    if((_pos.y + _Cspeed.y) > 1.) {
+        _Cspeed.y += _Caccel.y;
+    } else {
+        _Cspeed.y = 0.f;
+    }
+
+    if(_Cspeed.z < CAR_MAX_SPEED) { _Cspeed.z += _Caccel.z;}
+
+    _modelMatrix *= glm::translate(_Cspeed);
     _hitBox.translate(glm::translate(_Cspeed));
+
+    _pos = glm::vec3(_modelMatrix * glm::vec4(1));
 }
 
 void Car::update(EFFECTS e) {
@@ -66,15 +62,21 @@ void Car::update(DIRECTION d){
     switch (d)
     {
     case JUMP:
-        _Cspeed += glm::vec3(0,0.5,0);
+        if(_pos.y <= 1.){_Cspeed += glm::vec3(0,0.3,0);}
         break;
     case LEFT:
-
+        if(_pos.x > 2){_Cspeed += glm::vec3(0.1,0,0);
+        } else {
+            _Cspeed.x = 0;
+        }
         break;
     case RIGHT:
 
         break;
-    default: KEEP:
+    default:  case KEEP:
+        if(_pos.x < 0.1 || _pos.x > -0.1) {
+            //_Cspeed += (float)(_pos.x<=0) * glm::vec3(0.1,0,0) + (float)(_pos.x>=0) * glm::vec3(-0.1,0,0);
+        }
         break;
     }
     this->update();

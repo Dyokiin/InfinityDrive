@@ -8,7 +8,7 @@
 #include <glm/gtx/norm.hpp>
 
 
-#define CAR_MAX_SPEED 0.5
+#define CAR_MAX_SPEED 0.3
 #define CARS_MAX_DIST 2
 
 enum DIRECTION {JUMP, LEFT, RIGHT, KEEP};
@@ -53,6 +53,7 @@ public:
 
 class Car : public Object {
 private :
+    glm::vec3 _pos;
     glm::vec3 _Cspeed;
     glm::vec3 _Caccel;
     glm::vec3 _aSpeed;
@@ -63,7 +64,7 @@ private :
 public :
     Car() : Object() {}
     Car(Model model, HitBox hitbox) 
-    : Object(model, hitbox), _Cspeed(0,0,0.01), _Caccel(0.,-0.1,0.0001),
+    : Object(model, hitbox), _pos(0.f), _Cspeed(0,0,0.01), _Caccel(0.,-0.008,0.0001),
     _aSpeed(0.f), _aAccel(-0.01), _modelMatrix(1.f), _rotMatrix(1.f) {}
 
 
