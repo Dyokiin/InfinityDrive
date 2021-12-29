@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/dyokiin/VroomRun/1_CORE/Box/include/Box.hpp
+glm/glm.hpp
+-
+string
+-
+iostream
+-
+
+/home/dyokiin/VroomRun/1_CORE/Box/include/HitBox.hpp
+Box.hpp
+/home/dyokiin/VroomRun/1_CORE/Box/include/Box.hpp
+functional
+-
+
+/home/dyokiin/VroomRun/1_CORE/Box/src/HitBox.cpp
+../include/HitBox.hpp
+/home/dyokiin/VroomRun/1_CORE/Box/include/HitBox.hpp
+
