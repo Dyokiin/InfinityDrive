@@ -24,6 +24,19 @@ void MyShader::sendProjModelMat(const glm::mat4 projmodelMat) const {
     glUniformMatrix4fv(uniformPMMat, 1, GL_FALSE, glm::value_ptr(projmodelMat));
 }
 
+void MyShader::sendNormalMat(const glm::mat4 ModelMat, const glm::mat4 ViewMat) const{
+    glm::mat4 NormalMat = glm::transpose(glm::inverse(ViewMat*ModelMat));
+    if(_inUse == 1){
+        char uNormalMat[] = "uNormalMatrix";
+        GLint uniformNormalMat = glGetUniformLocation(_Shader1.getGLId(), (const GLchar*)uNormalMat);
+        glUniformMatrix4fv(uniformNormalMat, 1, GL_FALSE, glm::value_ptr(NormalMat));
+    } else if(_inUse == 2) {
+        char uNormalMat[] = "uNormalMatrix";
+        GLint uniformNormalMat = glGetUniformLocation(_Shader2.getGLId(), (const GLchar*)uNormalMat);
+        glUniformMatrix4fv(uniformNormalMat, 1, GL_FALSE, glm::value_ptr(NormalMat));
+    }
+}
+
 void MyShader::sendMVPMat(const glm::mat4 MVPMat) const {
     if(_inUse == 1){
         char uMVPMat[] = "uMVPMatrix";

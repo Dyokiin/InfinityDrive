@@ -44,11 +44,10 @@ Mesh Model::processMesh(aiMesh *mesh, const aiScene *scene) {
         vector.z = mesh->mVertices[i].z; 
         vertex._position = vector;
 
-        vertices.push_back(vertex);
         vector.x = mesh->mNormals[i].x;
         vector.y = mesh->mNormals[i].y;
         vector.z = mesh->mNormals[i].z;
-        vertex._normal = vector; 
+        vertex._normal = vector;
 
         if(mesh->mTextureCoords[0]) {
             glm::vec2 vec;
@@ -56,6 +55,8 @@ Mesh Model::processMesh(aiMesh *mesh, const aiScene *scene) {
             vec.y = mesh->mTextureCoords[0][i].y;
             vertex._texCoords = vec;
         } else {vertex._texCoords = glm::vec2(0.0f, 0.0f);}
+
+        vertices.push_back(vertex);
     }
 
     // process indices

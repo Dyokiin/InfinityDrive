@@ -40,10 +40,13 @@ public:
     // Check if a point is in a box
 
     bool pointInBox(const glm::vec3 &point) const;
+    bool pPointInBox(const glm::vec3 &point) const;
 
+    void printB() const ;
 
     // Check if two Boxes intersect : Method and Operator
     bool intersect(const Box &wBox) const ;
+    bool pIntersect(const Box &wBox) const;
     bool operator*(const Box &wBox) const ; 
     Box& operator=(const Box &wBox);
 };

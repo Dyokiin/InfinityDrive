@@ -43,12 +43,12 @@ Skybox::Skybox() {
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 
     std::string path = SDL_GetBasePath();
-    _faces.push_back(path + "../ressources/Sides.png"); 
-    _faces.push_back(path + "../ressources/Sides.png");
-    _faces.push_back(path + "../ressources/Sides.png");
-    _faces.push_back(path + "../ressources/Sides.png");
-    _faces.push_back(path + "../ressources/Front.png");
-    _faces.push_back(path + "../ressources/Back.png");
+    _faces.push_back(path + "../ressources/textures/Sides.png"); 
+    _faces.push_back(path + "../ressources/textures/Sides.png");
+    _faces.push_back(path + "../ressources/textures/Sides.png");
+    _faces.push_back(path + "../ressources/textures/Sides.png");
+    _faces.push_back(path + "../ressources/textures/Front.jpg");
+    _faces.push_back(path + "../ressources/textures/Back.png" );
 
     glGenTextures(1, &_texture);
     glBindTexture(GL_TEXTURE_CUBE_MAP, _texture);

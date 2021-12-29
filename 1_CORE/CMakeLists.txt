@@ -14,3 +14,7 @@ target_link_libraries(${PROJECT_NAME} INTERFACE File)
 add_subdirectory(Control)
 target_include_directories(Control PUBLIC "Control/include")
 target_link_libraries(${PROJECT_NAME} INTERFACE Control)
+
+add_subdirectory(Menu)
+target_include_directories(Menu PUBLIC "Menu/include")
+target_link_libraries(${PROJECT_NAME} INTERFACE Menu)

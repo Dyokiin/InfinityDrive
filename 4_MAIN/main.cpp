@@ -3,6 +3,8 @@
 #include "Scene.hpp"
 #include "CamControl.hpp"
 #include "GameControl.hpp"
+#include "TtfManager.hpp"
+#include "Menu.hpp"
 
 #include <GL/gl.h>
 
@@ -21,13 +23,28 @@ int main(int argc, char* argv[]){
 	glm::mat4 projectionMatrix = glm::perspective(glm::radians(90.f),
 												  (float)WINDOW_WIDTH/(float)WINDOW_HEIGHT,
 												  0.5f, 200.f);
-	//Scene Init
-	Scene mainScene;
-	mainScene.init();
+	//SDL_TTF init and menu init
+	Menu menu;
+	try{
+		SDL_Color color;
+		color.r = 255;
+		color.g = 255;
+		color.b = 255;
+		TtfManager printer(30, "../ressources/MMDR.ttf", color);
+		menu.init(printer);
+	}
+	catch(...){
+		std::cerr << "Switching to non-dynamic text" << std::endl;
+		menu.init();
+	}
+
 
 	//Camera Init
 	Camera super8;
 
+	//Scene Init
+	Scene mainScene;
+	mainScene.init(super8);
 
 	//Several variables useful to the main loop
 	bool quit = false;
@@ -76,14 +93,17 @@ int main(int argc, char* argv[]){
 			lastUpdate = current;
 		}
 
-
 		/******************
 		 * RENDERING CODE *
 		 *****************/
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 		glEnable(GL_DEPTH_TEST);
+		glEnable(GL_BLEND);
+		//glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 		glDepthFunc(GL_LEQUAL);
+
+		menu.display();
 
 		mainScene.Draw(super8.getViewMatrix(), projectionMatrix);
 

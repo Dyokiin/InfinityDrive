@@ -65,3 +65,4 @@ public :
               p4          p2
 **************************************/
 const Mesh texturedPlane(const glm::vec3 p1, const glm::vec3 p2, std::string pathToText);
+const Mesh texturedPlane(const glm::vec2 p1, const glm::vec2 p2, SDL_Surface* text);

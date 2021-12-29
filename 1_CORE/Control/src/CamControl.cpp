@@ -1,19 +1,18 @@
 #include "../include/CamControl.hpp"
-#include <iostream>
 
+#define MOUSE_SENSIVITY_X 5
+#define MOUSE_SENSIVITY_Y 10
+
+//Update camera position from keyboard imput : only during set-up phase
 bool camUpdate(Camera &cam, SDL_Event e, const int x, const int y){
 
     bool returnValue = true;
 
     switch (e.type) {
-
         case SDL_KEYDOWN :
 
             if(e.key.keysym.sym == SDLK_c){
                 returnValue = false;
-
-            } else {
-                //camControl(cam, e.key.keysym.sym);
             }
             break;
 
@@ -22,8 +21,8 @@ bool camUpdate(Camera &cam, SDL_Event e, const int x, const int y){
             int mx,my;
             SDL_GetMouseState(&mx, &my);
 
-            cam.rotateLeft((float)(y - my)/(float)10);
-            cam.rotateUp((float)(x - mx)/(float)10);
+            cam.rotateLeft((float)(y - my)/(float)MOUSE_SENSIVITY_Y);
+            cam.rotateUp((float)(x - mx)/(float)MOUSE_SENSIVITY_X);
 
             break;
 
@@ -42,8 +41,4 @@ bool camUpdate(Camera &cam, SDL_Event e, const int x, const int y){
         }
 
     return returnValue;
-}
-
-void camControl(Camera cam, SDL_Keycode key){
-    //TODO
 }

@@ -8,14 +8,14 @@
 #include <glm/gtx/norm.hpp>
 
 
-#define CAR_MAX_SPEED 0.3
+#define CAR_MAX_SPEED 0.5
 #define CARS_MAX_DIST 2
 
 enum DIRECTION {JUMP, LEFT, RIGHT, KEEP};
 
 
-
 class Object{
+//protected to be used by legacy 
 protected:
     Model _model;
     HitBox _hitBox;
@@ -60,13 +60,16 @@ private :
     glm::vec3 _aAccel;
     glm::mat4 _modelMatrix;
     glm::mat4 _rotMatrix;
+    bool _targetable;
 
 public :
     Car() : Object() {}
     Car(Model model, HitBox hitbox) 
-    : Object(model, hitbox), _pos(0.f), _Cspeed(0,0,0.01), _Caccel(0.,-0.008,0.0001),
-    _aSpeed(0.f), _aAccel(-0.01), _modelMatrix(1.f), _rotMatrix(1.f) {}
-
+    : Object(model, hitbox), _pos(0.f), _Cspeed(0,0,0.1), _Caccel(0.,-0.008,0.00001),
+    _aSpeed(0.f), _aAccel(-0.01), _modelMatrix(1.f), _rotMatrix(1.f), _targetable(true) {
+        _modelMatrix *= glm::translate(glm::vec3(0,1,96));
+        _hitBox.translate(glm::translate(glm::vec3(0,1,97)));
+    }
 
     void update();
     void update(EFFECTS e);
@@ -74,6 +77,8 @@ public :
     void Draw() const;
     inline const glm::mat4 getModelMat() const {return _modelMatrix;}
     inline const glm::mat4 getRotModelMat() const {return _modelMatrix * _rotMatrix;}
+    inline const bool isTargetable() const {return _targetable;}
+    inline void toggleTarget(bool yN) {_targetable = yN;}
 };
 
 std::vector<Road> loadObject();

@@ -1,5 +1,7 @@
 #include "../include/SceneNode.hpp"
 
+//Allow translation and rotation for SceneNode
+//Done before discovering glm::translate and rotate
 
 void SceneNode::translate(const float tx, const float ty, const float tz){
     glm::mat4 transmat = glm::mat4(1, 0, 0, 0,
@@ -31,4 +33,10 @@ void SceneNode::rotatez(const float a){
                                    0,      0,      1, 0,
                                    0,      0,      0, 1);
     _modelMatrix*=rotatmat;
+}
+
+HitBox SceneNode::getHitBox() const {
+    HitBox tempHit = _roadElem->getHitBox();
+    tempHit.translate(_modelMatrix);
+    return tempHit;
 }

@@ -80,3 +80,35 @@ const Mesh texturedPlane( glm::vec3 p1, glm::vec3 p2, std::string pathToText){
 
     return Mesh(vertices, indices, texture);
 }
+
+const Mesh texturedPlane(const glm::vec2 p1, const glm::vec2 p2, SDL_Surface* text) {
+    std::vector<Vertex> vertices;
+    std::vector<unsigned int> indices = {0,2,3,  1,2,3};
+
+    glm::vec2 p3(p2.x, p1.y);
+    glm::vec2 p4(p1.x, p2.y);
+
+    vertices.push_back(Vertex(glm::vec3(p1,1), glm::vec3(0,1,0), glm::vec2(0,0)));
+    vertices.push_back(Vertex(glm::vec3(p2,1), glm::vec3(0,1,0), glm::vec2(1,1)));
+    vertices.push_back(Vertex(glm::vec3(p3,1), glm::vec3(0,1,0), glm::vec2(1,0)));
+    vertices.push_back(Vertex(glm::vec3(p4,1), glm::vec3(0,1,0), glm::vec2(0,1)));
+
+    Texture texture;
+    glGenTextures(1, &texture._id);
+    glActiveTexture(GL_TEXTURE0);
+    glBindTexture(GL_TEXTURE_2D, texture._id);
+
+    glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MAG_FILTER,GL_NEAREST);
+    glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_NEAREST);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, text->w, text->h, 0, GL_RGB, GL_UNSIGNED_BYTE, text->pixels);
+    glGenerateMipmap(GL_TEXTURE_2D);
+
+    glBindTexture(GL_TEXTURE_2D, 0);
+
+    SDL_FreeSurface(text);
+
+    return Mesh(vertices, indices, texture);
+}

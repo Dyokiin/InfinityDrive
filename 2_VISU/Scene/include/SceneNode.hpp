@@ -9,6 +9,7 @@ private:
     const Road* _roadElem;
     glm::mat4 _modelMatrix;
     Box _boundingBox;
+
     int _NodePosInScene;
 
 public:
@@ -17,12 +18,14 @@ public:
     : _roadElem(obj), _modelMatrix(modelmat), _boundingBox(obj->getBnBox()), _NodePosInScene(pos) {_boundingBox.translate(modelmat);}
     ~SceneNode() = default;
 
+//Some getters / setters
     inline const Box getBndBox() const {return _boundingBox;} 
     inline glm::mat4 getModelMatrix() const {return _modelMatrix;}
     inline void multiMat(glm::mat4 mat) {_modelMatrix *= mat;}
     inline glm::mat4 getRoadTransf() const {return _roadElem->getEndPth();}
     inline void Draw() const {_roadElem->Draw();}
     inline int getPos() const {return _NodePosInScene;}
+    HitBox getHitBox() const;
 
     void translate(const float tx, const float ty, const float tz);
     void rotatex(const float alpha);
