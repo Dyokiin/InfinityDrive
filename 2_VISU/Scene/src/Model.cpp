@@ -1,7 +1,9 @@
 #include "../include/Model.hpp"
 
-void Model::Draw() const {
-    _mesh[0].Draw();
+void Model::Draw(MyShader &Shader) const {
+    Shader.sendMaterials(_Ks, _Kd);
+    for(Mesh i : _mesh)
+        i.Draw();
 }
 
 void Model::loadModel(const char* path) {
@@ -39,16 +41,20 @@ Mesh Model::processMesh(aiMesh *mesh, const aiScene *scene) {
     for(unsigned int i = 0; i < mesh->mNumVertices; i++) {
         Vertex vertex;
         glm::vec3 vector; 
+
+        //Get Vertex Position
         vector.x = mesh->mVertices[i].x;
         vector.y = mesh->mVertices[i].y;
         vector.z = mesh->mVertices[i].z; 
         vertex._position = vector;
 
+        //Get Vertex Normals
         vector.x = mesh->mNormals[i].x;
         vector.y = mesh->mNormals[i].y;
         vector.z = mesh->mNormals[i].z;
         vertex._normal = vector;
 
+        //Get Vertex Texture Coordinates if they exist
         if(mesh->mTextureCoords[0]) {
             glm::vec2 vec;
             vec.x = mesh->mTextureCoords[0][i].x; 
@@ -65,10 +71,6 @@ Mesh Model::processMesh(aiMesh *mesh, const aiScene *scene) {
         for(unsigned int j = 0; j < face.mNumIndices; j++)
             indices.push_back(face.mIndices[j]);
     } 
-    //TODO TEX
-    // for(auto i : vertices) {
-    //     std::cout << "Position : {" << i._position.x << ", " << i._position.y << ", " <<  i._position.z << "}" << std::endl;
-    //     std::cout << "Normal   : {" << i._normal.x << ", " << i._normal.y << ", " <<  i._normal.z << "}" << std::endl;
-    // }
+
     return Mesh(vertices, indices, tex);
 }

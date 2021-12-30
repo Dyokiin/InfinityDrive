@@ -1,20 +1,20 @@
 #include "../include/Object.hpp"
 
-//self explanatory
-void Object::Draw() const {
-    _model.Draw();
+//Draw generic object Object
+void Object::Draw(MyShader &Shader) const {
+    _model.Draw(Shader);
 }
 
-//self explanatory
-void Road::Draw() const {
-    this->Object::Draw();
+//Draw a RoadElements 
+void Road::Draw(MyShader &Shader) const {
+    this->Object::Draw(Shader);
     for(Object c : _coins)
-        c.Draw();
+        c.Draw(Shader);
 }
 
-//self explanatory
-void Car::Draw() const {
-    this->Object::Draw();
+//Draw complex object cars
+void Car::Draw(MyShader &Shader) const {
+    this->Object::Draw(Shader);
 }
 
 //Update regular car behaviour and matrices
@@ -27,8 +27,6 @@ void Car::update() {
 
     if(_Cspeed.z < CAR_MAX_SPEED && _Cspeed.z > 0.00001) { _Cspeed.z += _Caccel.z;}
 
-    _rotMatrix = glm::rotate(_rotMatrix, glm::length(_aSpeed), _aSpeed);
-
     _modelMatrix *= glm::translate(_Cspeed);
     _hitBox.translate(glm::translate(_Cspeed));
 
@@ -39,18 +37,21 @@ void Car::update() {
 void Car::update(EFFECTS e) {
     switch (e) {
     case FALL:
-        
+        _modelMatrix *= glm::translate(glm::vec3(0,-1,0));
+        _rotMatrix = glm::rotate(_rotMatrix, glm::radians(45.0f), glm::vec3(1.,0.,0.));
+        _Cspeed.z = 0.;
         break;
     case SLOW:
+// If Car hit SLOW effect hitbox : divide speed /  Check for low speed end trigger
         if(_Cspeed.z <= 0.1){_Cspeed.z = 0;}
         _Cspeed.z /= 1.5;
         _Caccel.z = 0.00002;
         break;
     case CAUTGH:
-
+        _Cspeed.z = 0;
         break;
     case BURST:
-
+        _Cspeed.z = 0;
         break;
     case LTURN:
 
@@ -68,16 +69,19 @@ void Car::update(DIRECTION d){
     switch (d)
     {
     case JUMP:
+// Speeds the car UP
         if(_pos.y <= 2.){_Cspeed += glm::vec3(0,0.3,0);}
         break;
     case LEFT:
-        if(_pos.x < 5 && _Cspeed.x < 0.2){_Cspeed += glm::vec3(0.2,0,0); _aSpeed.z += 0.5;}
+// Speeds the car left
+        if(_pos.x < 5 && _Cspeed.x < 0.2 && _Cspeed.z!= 0.){_Cspeed += glm::vec3(0.2,0,0); _aSpeed.z += 0.5;}
         break;
     case RIGHT:
-    if(_pos.x > -3 && _Cspeed.x > -0.2){_Cspeed += glm::vec3(-0.2,0,0);}
+// Speeds the car right
+    if(_pos.x > -3 && _Cspeed.x > -0.2 && _Cspeed.z != 0.){_Cspeed += glm::vec3(-0.2,0,0);}
         break;
     default:  case KEEP:
-    //Stop the car if it hits the center of a lane
+//Stop the car strafe if it hits the center of a lane
         if(_pos.x >= 5){_Cspeed.x = 0;}
         else if(_pos.x <= -3) {_Cspeed.x = 0;}
         else if(_pos.x < 1.1 && _pos.x > 0.9) {_Cspeed.x = 0;}
@@ -89,26 +93,44 @@ void Car::update(DIRECTION d){
 //Load all objects and sets their caracteristics
 std::vector<Road> loadObject() {
 
+    //Final Road Elements Vector
     std::vector<Road> stock;
 
+    //Declaration and initialisation of Roads Elements
+
+        //Straight Road        
     std::vector<Mesh> SRoad;
+    SRoad.push_back(texturedPlane(glm::vec3(-6,0,48), glm::vec3(6,0,0), "../ressources/textures/SRoad.png"));
+    stock.push_back(Road(Model(SRoad),HitBox(),Box(6,-5,0,-6,5,48),glm::translate(glm::vec3(0,0,48))));
+
+        //With a slowing obstacle
     std::vector<Mesh> SLRoad;
     std::vector<Mesh> SRMRoad;
     std::vector<Mesh> SLRRoad;
 
-    SRoad.push_back(texturedPlane(glm::vec3(-6,0,48), glm::vec3(6,0,0), "../ressources/textures/SRoad.png"));
-    stock.push_back(Road(Model(SRoad),HitBox(),Box(6,-5,0,-6,5,48),glm::translate(glm::vec3(0,0,48))));
-
-    SLRoad.push_back(texturedPlane(glm::vec3(-6,0,48), glm::vec3(6,0,0), "../ressources/textures/SlowLRoad.png"));
+    SLRoad.push_back(texturedPlane(glm::vec3(-6,0,48), glm::vec3(6,0,0), "../ressources/textures/Slow/SlowLRoad.png"));
     stock.push_back(Road(Model(SLRoad),HitBox(Box(3,-0.5,24,5,1.5,26), SLOW),Box(6,-5,0,-6,5,48),glm::translate(glm::vec3(0,0,48))));
 
-    SLRRoad.push_back(texturedPlane(glm::vec3(-6,0,48), glm::vec3(6,0,0), "../ressources/textures/SlowRRoad.png"));
-    stock.push_back(Road(Model(SLRRoad),HitBox(Box(6,-0.5,24,-6,1.5,26), SLOW),Box(6,-5,0,-6,5,48),glm::translate(glm::vec3(0,0,48))));
+    SLRRoad.push_back(texturedPlane(glm::vec3(-6,0,48), glm::vec3(6,0,0), "../ressources/textures/Slow/SlowRRoad.png"));
+    stock.push_back(Road(Model(SLRRoad),HitBox(Box(-5,-0.5,24,-3,1.5,26), SLOW),Box(6,-5,0,-6,5,48),glm::translate(glm::vec3(0,0,48))));
 
-    SRMRoad.push_back(texturedPlane(glm::vec3(-6,0,48), glm::vec3(6,0,0), "../ressources/textures/SlowRMRoad.png"));
-    stock.push_back(Road(Model(SRMRoad),HitBox(Box(-5,-0.5,24,-3,1.5,26), SLOW),Box(6,-5,0,-6,5,48),glm::translate(glm::vec3(0,0,48))));
-    
-    // meshes.push_back(texturedPlane(glm::vec3(-6,0,48), glm::vec3(6,0,0), "../ressources/textures/SlowLRRoad.png"));
+    SRMRoad.push_back(texturedPlane(glm::vec3(-6,0,48), glm::vec3(6,0,0), "../ressources/textures/Slow/SlowRMRoad.png"));
+    stock.push_back(Road(Model(SRMRoad),HitBox(Box(-5,-0.5,24,1,1.5,26), SLOW),Box(6,-5,0,-6,5,48),glm::translate(glm::vec3(0,0,48))));
+
+        //With a fall Obstacle
+    std::vector<Mesh> FLRoad;
+    std::vector<Mesh> FRRoad;
+    std::vector<Mesh> FMRoad;
+
+    FLRoad.push_back(texturedPlane(glm::vec3(-6,0,48), glm::vec3(6,0,0), "../ressources/textures/Fall/FallLRoad.png"));
+    stock.push_back(Road(Model(FLRoad), HitBox(Box(-1,-0.5,7,5,1.5,42), FALL), Box(6,-5,0,-6,5,48), glm::translate(glm::vec3(0,0,48))));
+
+    FRRoad.push_back(texturedPlane(glm::vec3(-6,0,48), glm::vec3(6,0,0), "../ressources/textures/Fall/FallRRoad.png"));
+    stock.push_back(Road(Model(FRRoad), HitBox(Box(-5,-0.5,7,1,1.5,42), FALL), Box(6,-5,0,-6,5,48), glm::translate(glm::vec3(0,0,48))));
+
+    FMRoad.push_back(texturedPlane(glm::vec3(-6,0,48), glm::vec3(6,0,0), "../ressources/textures/Fall/FallMRoad.png"));
+    stock.push_back(Road(Model(FMRoad), HitBox(Box(-2,-0.5,7,2,1.5,42), FALL), Box(6,-5,0,-6,5,48), glm::translate(glm::vec3(0,0,48))));
+
 
     return stock;
 }

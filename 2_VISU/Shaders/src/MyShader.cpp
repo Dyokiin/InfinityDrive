@@ -48,3 +48,12 @@ void MyShader::sendMVPMat(const glm::mat4 MVPMat) const {
         glUniformMatrix4fv(uniformMVPMat, 1, GL_FALSE, glm::value_ptr(MVPMat));
     }
 }
+
+void MyShader::sendMaterials(const glm::vec3 Ks, const glm::vec3 Kd) const {
+    char uKs[] = "uKs";
+    GLint uniformMat1 = glGetUniformLocation(_Shader2.getGLId(), (const GLchar*)uKs);
+    glUniform3f(uniformMat1, Ks.x, Ks.y, Ks.z);
+    char uKd[] = "uKd";
+    GLint uniformMat2 = glGetUniformLocation(_Shader2.getGLId(), (const GLchar*)uKd);
+    glUniform3f(uniformMat2, Kd.x, Kd.y, Kd.z);
+}

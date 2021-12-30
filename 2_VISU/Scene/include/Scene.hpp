@@ -2,6 +2,8 @@
 
 #include <vector>
 #include <deque>
+#include <random>
+#include <chrono>
 #include "SceneNode.hpp"
 #include "Model.hpp"
 #include "../../Camera/include/Camera.hpp"
@@ -34,7 +36,7 @@ public:
     void add();
     void init(Camera &cam);
 
-    void Draw(glm::mat4 ViewMat, glm::mat4 ProjMat);
+    void Draw(glm::mat4 ViewMat, glm::mat4 ProjMat, const bool fp);
     inline const glm::mat4 getCarModelMat() const {return _cars[0]->getModelMat();}
 //dT for even updates, even with high / low framerate
     void update(Camera &cam, const float dT, DIRECTION d);

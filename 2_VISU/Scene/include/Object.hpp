@@ -26,7 +26,7 @@ public:
     : _model(model), _hitBox(hitbox) {}
     ~Object() = default;
 
-    void Draw() const;
+    void Draw(MyShader &Shader) const;
     inline const HitBox getHitBox() const {return _hitBox;}
 };
 
@@ -48,7 +48,7 @@ public:
     inline Box getBnBox() const {return _boundingBox;}
     inline void setCoins(bool yN) {_realCoins = yN;}
     inline glm::mat4 getEndPth() const {return _endPath;}
-    void Draw() const;
+    void Draw(MyShader &Shader) const;
 };
 
 class Car : public Object {
@@ -65,7 +65,7 @@ private :
 public :
     Car() : Object() {}
     Car(Model model, HitBox hitbox) 
-    : Object(model, hitbox), _pos(0.f), _Cspeed(0,0,0.1), _Caccel(0.,-0.008,0.00001),
+    : Object(model, hitbox), _pos(0.f), _Cspeed(0,0,0.2), _Caccel(0.,-0.008,0.00001),
     _aSpeed(0.f), _aAccel(-0.01), _modelMatrix(1.f), _rotMatrix(1.f), _targetable(true) {
         _modelMatrix *= glm::translate(glm::vec3(0,1,96));
         _hitBox.translate(glm::translate(glm::vec3(0,1,97)));
@@ -74,11 +74,11 @@ public :
     void update();
     void update(EFFECTS e);
     void update(DIRECTION d);
-    void Draw() const;
     inline const glm::mat4 getModelMat() const {return _modelMatrix;}
     inline const glm::mat4 getRotModelMat() const {return _modelMatrix * _rotMatrix;}
     inline const bool isTargetable() const {return _targetable;}
     inline void toggleTarget(bool yN) {_targetable = yN;}
+    void Draw(MyShader &Shader) const;
 };
 
 std::vector<Road> loadObject();

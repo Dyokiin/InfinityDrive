@@ -100,12 +100,12 @@ int main(int argc, char* argv[]){
 
 		glEnable(GL_DEPTH_TEST);
 		glEnable(GL_BLEND);
-		//glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 		glDepthFunc(GL_LEQUAL);
 
 		menu.display();
 
-		mainScene.Draw(super8.getViewMatrix(), projectionMatrix);
+		mainScene.Draw(super8.getViewMatrix(), projectionMatrix, super8.getFP());
 
 		wndwManager.swapBuffers();
 

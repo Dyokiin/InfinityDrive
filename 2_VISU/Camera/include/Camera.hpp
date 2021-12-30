@@ -24,7 +24,7 @@ private:
 public:
 
     Camera()
-    : _lookAt(glm::vec3(0,0.5,0)), _upVect(0,1,0),_firstPerson(false), _transforms(3.f,1.f,1.f), _modelMatrix(1.f)  {
+    : _lookAt(glm::vec3(0,0.5,0)), _upVect(0,1,0), _firstPerson(false), _transforms(6.f,1.f,1.f), _modelMatrix(1.f)  {
         this->calcPos();
     };
     Camera(glm::vec3 lookat, glm::vec3 tranzform)
@@ -40,6 +40,7 @@ public:
     void rotateUp(const double gamma);
 
     inline void setModel(const glm::mat4 modelmat) {_modelMatrix = modelmat;}
+    inline bool getFP() const {return _firstPerson;}
 
     glm::mat4 getViewMatrix();
 };

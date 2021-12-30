@@ -46,10 +46,10 @@ const Mesh texturedPlane( glm::vec3 p1, glm::vec3 p2, std::string pathToText){
     glm::vec3 p3(p2.x, p1.y, p1.z);
     glm::vec3 p4(p1.x, p2.y, p2.z);
 
-    vertices.push_back(Vertex(p1, glm::vec3(0,1,0), glm::vec2(0,0)));
-    vertices.push_back(Vertex(p2, glm::vec3(0,1,0), glm::vec2(1,1)));
-    vertices.push_back(Vertex(p3, glm::vec3(0,1,0), glm::vec2(1,0)));
-    vertices.push_back(Vertex(p4, glm::vec3(0,1,0), glm::vec2(0,1)));
+    vertices.push_back(Vertex(p1, glm::vec3(0,-1,0), glm::vec2(0,0)));
+    vertices.push_back(Vertex(p2, glm::vec3(0,-1,0), glm::vec2(1,1)));
+    vertices.push_back(Vertex(p3, glm::vec3(0,-1,0), glm::vec2(1,0)));
+    vertices.push_back(Vertex(p4, glm::vec3(0,-1,0), glm::vec2(0,1)));
 
     Texture texture;
     glGenTextures(1, &texture._id);
@@ -67,10 +67,17 @@ const Mesh texturedPlane( glm::vec3 p1, glm::vec3 p2, std::string pathToText){
     std::string path = SDL_GetBasePath() + pathToText;
     img = stbi_load(path.c_str(), &width, &height, &nbChannels, 0);
 
+    //Different Load depending on Alpha Channel or no
     if(img) {
-        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, img);
-        glGenerateMipmap(GL_TEXTURE_2D);
-        stbi_image_free(img);
+        if(nbChannels>3){
+            glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, img);
+            glGenerateMipmap(GL_TEXTURE_2D);
+            stbi_image_free(img);
+        } else {
+            glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, img);
+            glGenerateMipmap(GL_TEXTURE_2D);
+            stbi_image_free(img);
+        }
     } else {
         std::cerr << "Texture Load Failed : " << pathToText << std::endl;
         stbi_image_free(img);

@@ -9,8 +9,13 @@ void Camera::calcPos(){
 }
 
 void Camera::moveFront(const float delta){
-    if((_transforms.x - delta) > CAMERA_MAX_ZOOM && (_transforms.x - delta) < CAMERA_MIN_ZOOM)
-        {_transforms.x -= delta;}
+    if((_transforms.x - delta) > CAMERA_MAX_ZOOM && (_transforms.x - delta) < CAMERA_MIN_ZOOM){
+        _transforms.x -= delta;
+        _firstPerson = false;
+    }
+    else if((_transforms.x - delta) < CAMERA_MIN_ZOOM){
+        _firstPerson = true;
+    }
     this->calcPos();
 }
 
