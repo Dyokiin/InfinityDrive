@@ -43,6 +43,10 @@ public:
     /// \param cam : To set its Model Matrix
     void init(Camera &cam);
 
+    /// \brief Reset the scene == reset the game
+    /// \param cam : Set its Model Matrix
+    void reset(Camera &cam);
+
     /// \brief Draws the scene
     /// \param ViewMat : View Matrix from the camera
     /// \param ProjMat : Projection Matrix

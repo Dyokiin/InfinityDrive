@@ -27,6 +27,17 @@ void Scene::init(Camera &cam) {
     cam.setModel(_cars[0]->getModelMat());
 }
 
+void Scene::reset(Camera &cam) {
+    _cars[0]->reset();
+    glm::mat4 modelMat(1.f);
+    for(int i = 0; i < MAX_NODE_IN_SCENE; i++) {
+        _road.pop_front();
+        _road.push_back(new SceneNode(&_stock[0], modelMat, i));
+        modelMat *= _road.back()->getRoadTransf();
+    }
+    cam.setModel(_cars[0]->getModelMat());
+}
+
 
 //add a road element a the end of the scene queue, pop first element if needed
 void Scene::add() {
@@ -109,4 +120,8 @@ void Scene::update(Camera &cam, const float dT, DIRECTION d) {
     _cars[0]->update(effect);
 
     cam.setModel(_cars[0]->getModelMat());
+
+    if(d == RESET) {
+        this->reset(cam);
+    }
 }

@@ -154,7 +154,7 @@ EXAMPLE_RECURSIVE      = NO
 IMAGE_PATH             = @BoxD_SOURCE_DIR@/doc/images/
 INPUT_FILTER           = 
 FILTER_PATTERNS        = 
-FILTER_SOURCE_FILES    = NO
+FILTER_SOURCE_FILES    = YES
 #---------------------------------------------------------------------------
 # configuration options related to source browsing
 #---------------------------------------------------------------------------

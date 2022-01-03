@@ -17,6 +17,13 @@ void Car::Draw(MyShader &Shader) const {
     this->Object::Draw(Shader);
 }
 
+void Car::reset() {
+    _modelMatrix *= glm::translate(glm::vec3(0,1,-_pos.z+96));
+    _hitBox.translate(glm::translate(glm::vec3(0,1,-_pos.z+96)));
+    _Cspeed.z = 0.2;
+    _rotMatrix = glm::mat4(1.f);
+}
+
 //Update regular car behaviour and matrices
 void Car::update() {
     if((_pos.y + _Cspeed.y) > 2.) {
@@ -79,7 +86,7 @@ void Car::update(DIRECTION d){
         break;
     case RIGHT:
 // Speeds the car right
-    if(_pos.x > -3 && _Cspeed.x > -0.2 && _Cspeed.z != 0.){_Cspeed += glm::vec3(-0.2,0,0);}
+        if(_pos.x > -3 && _Cspeed.x > -0.2 && _Cspeed.z != 0.){_Cspeed += glm::vec3(-0.2,0,0);}
         break;
     default:  case KEEP:
 //Stop the car strafe if it hits the center of a lane

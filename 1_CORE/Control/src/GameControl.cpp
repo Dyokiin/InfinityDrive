@@ -14,6 +14,9 @@ DIRECTION GameUpdate(SDL_Event e){
         case SDLK_d : case SDLK_RIGHT:
             returnValue = RIGHT;
             break;
+        case SDLK_p :
+            returnValue = RESET;
+            break;
         default:
             break;
         }

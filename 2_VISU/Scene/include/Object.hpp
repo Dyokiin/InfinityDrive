@@ -13,7 +13,7 @@
 
 /// \enum DIRECTION
 /// \brief Normalized direction signals
-enum DIRECTION {JUMP, LEFT, RIGHT, KEEP};
+enum DIRECTION {JUMP, LEFT, RIGHT, KEEP, RESET};
 
 /// \class Object
 /// \brief Basic object of the game
@@ -105,6 +105,9 @@ public :
     }
     /// \brief default destructor
     ~Car();
+
+    /// \brief Reset car pos and state
+    void reset();
 
     /// \brief Update Car postion, ... depending on its current state 
     void update(); 

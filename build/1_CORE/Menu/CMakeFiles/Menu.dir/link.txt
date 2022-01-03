@@ -1,0 +1,2 @@
+/usr/bin/ar qc libMenu.a  CMakeFiles/Menu.dir/src/Button.cpp.o CMakeFiles/Menu.dir/src/Menu.cpp.o CMakeFiles/Menu.dir/src/TtfManager.cpp.o
+/usr/bin/ranlib libMenu.a

@@ -1,0 +1,364 @@
+{
+	"artifacts" : 
+	[
+		{
+			"path" : "/media/theo/Stockage Ubuntu/VroomRun/bin/InfinityDrive"
+		}
+	],
+	"backtrace" : 1,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_executable",
+			"target_link_libraries",
+			"target_compile_options",
+			"target_include_directories"
+		],
+		"files" : 
+		[
+			"CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 6,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 29,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 34,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 39,
+				"parent" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 13,
+				"parent" : 0
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 22,
+				"parent" : 0
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 28,
+				"parent" : 0
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 33,
+				"parent" : 0
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 38,
+				"parent" : 0
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 46,
+				"parent" : 0
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 47,
+				"parent" : 0
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 49,
+				"parent" : 0
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 50,
+				"parent" : 0
+			}
+		]
+	},
+	"compileGroups" : 
+	[
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : "-g  "
+				},
+				{
+					"backtrace" : 5,
+					"fragment" : "-Wall"
+				},
+				{
+					"backtrace" : 5,
+					"fragment" : "-O2"
+				},
+				{
+					"backtrace" : 5,
+					"fragment" : "-w"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 6,
+					"path" : "/media/theo/Stockage Ubuntu/VroomRun/MAIN"
+				},
+				{
+					"backtrace" : 7,
+					"path" : "/media/theo/Stockage Ubuntu/VroomRun/3_EXT_INCLUDES/include"
+				},
+				{
+					"backtrace" : 8,
+					"path" : "/media/theo/Stockage Ubuntu/VroomRun/2_VISU/*/include"
+				},
+				{
+					"backtrace" : 9,
+					"path" : "/media/theo/Stockage Ubuntu/VroomRun/1_CORE/*/include"
+				},
+				{
+					"backtrace" : 10,
+					"path" : "/usr/include/SDL2"
+				},
+				{
+					"backtrace" : 11,
+					"path" : "/media/theo/Stockage Ubuntu/VroomRun"
+				},
+				{
+					"backtrace" : 12,
+					"path" : "/media/theo/Stockage Ubuntu/VroomRun/libs/assimp-3.1.1/include"
+				},
+				{
+					"backtrace" : 13,
+					"path" : "/usr/include/SDL"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "/media/theo/Stockage Ubuntu/VroomRun/3_EXT_INCLUDES/Window/include"
+				},
+				{
+					"backtrace" : 3,
+					"path" : "/media/theo/Stockage Ubuntu/VroomRun/2_VISU/Camera/include"
+				},
+				{
+					"backtrace" : 3,
+					"path" : "/media/theo/Stockage Ubuntu/VroomRun/2_VISU/Shaders/include"
+				},
+				{
+					"backtrace" : 3,
+					"path" : "/media/theo/Stockage Ubuntu/VroomRun/2_VISU/Texture/include"
+				},
+				{
+					"backtrace" : 3,
+					"path" : "/media/theo/Stockage Ubuntu/VroomRun/2_VISU/Scene/include"
+				},
+				{
+					"backtrace" : 4,
+					"path" : "/media/theo/Stockage Ubuntu/VroomRun/1_CORE/Box/include"
+				},
+				{
+					"backtrace" : 4,
+					"path" : "/media/theo/Stockage Ubuntu/VroomRun/1_CORE/Control/include"
+				},
+				{
+					"backtrace" : 4,
+					"path" : "/media/theo/Stockage Ubuntu/VroomRun/1_CORE/Menu/include"
+				}
+			],
+			"language" : "CXX",
+			"sourceIndexes" : 
+			[
+				0
+			]
+		}
+	],
+	"dependencies" : 
+	[
+		{
+			"backtrace" : 2,
+			"id" : "Window::@dc32a2cc4ff01b38d357"
+		},
+		{
+			"backtrace" : 3,
+			"id" : "Camera::@9d5097f4b6f777692166"
+		},
+		{
+			"backtrace" : 3,
+			"id" : "Shaders::@a0ad91dbebd74ad7ba8f"
+		},
+		{
+			"backtrace" : 3,
+			"id" : "Texture::@bdd934f076b048b6f08e"
+		},
+		{
+			"backtrace" : 3,
+			"id" : "Scene::@5f07d3b8be94228362dc"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "Box::@e0641ada99806eabc26b"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "Control::@2d016d4bdff7edbbc5ea"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "Menu::@d5914e62ef2dda1d866c"
+		}
+	],
+	"id" : "InfinityDrive::@6890427a1f51a3e7e1df",
+	"link" : 
+	{
+		"commandFragments" : 
+		[
+			{
+				"fragment" : "-g",
+				"role" : "flags"
+			},
+			{
+				"fragment" : "",
+				"role" : "flags"
+			},
+			{
+				"fragment" : "-lSDL2",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lGL",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lGLEW",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lGLU",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lGL",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lassimp",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lSDL_ttf",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lSDL",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "3_EXT_INCLUDES/Window/libWindow.a",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "2_VISU/Camera/libCamera.a",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "2_VISU/Shaders/libShaders.a",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "2_VISU/Texture/libTexture.a",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "2_VISU/Scene/libScene.a",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "1_CORE/Box/libBox.a",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "1_CORE/Control/libControl.a",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "1_CORE/Menu/libMenu.a",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lGLEW",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lGLU",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lassimp",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lSDL_ttf",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lSDL",
+				"role" : "libraries"
+			}
+		],
+		"language" : "CXX"
+	},
+	"name" : "InfinityDrive",
+	"nameOnDisk" : "InfinityDrive",
+	"paths" : 
+	{
+		"build" : ".",
+		"source" : "."
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "Source Files",
+			"sourceIndexes" : 
+			[
+				0
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "4_MAIN/main.cpp",
+			"sourceGroupIndex" : 0
+		}
+	],
+	"type" : "EXECUTABLE"
+}

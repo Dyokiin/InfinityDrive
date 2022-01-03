@@ -36,6 +36,9 @@ public:
     inline void multiMat(glm::mat4 mat) {_modelMatrix *= mat;}
     /// \brief Getter for End Path
     inline glm::mat4 getRoadTransf() const {return _roadElem->getEndPth();}
+    /// \brief Setter for End Path
+    /// \param mat : 4x4 matrix to set endPath to
+    inline void setEndPath(glm::mat4 mat) {_modelMatrix = mat;}
     /// \brief Draw the Node
     /// \param Shader : material
     inline void Draw(MyShader &Shader) const {_roadElem->Draw(Shader);}

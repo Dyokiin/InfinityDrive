@@ -89,6 +89,7 @@ int main(int argc, char* argv[]){
 		float dT = (current - lastUpdate) / 1000.0f;
 		
 		if(!camSetUp){
+			if(lastInput == RESET){camSetUp=true;}
 			mainScene.update(super8, dT, lastInput);
 
 			lastUpdate = current;

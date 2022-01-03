@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/VroomRun.dir/4_MAIN/main.cpp.o  -o ../bin/VroomRun  -lSDL2 -lGL -lGLEW -lGLU -lGL -lassimp 3_EXT_INCLUDES/Window/libWindow.a 2_VISU/Camera/libCamera.a 2_VISU/Shaders/libShaders.a 2_VISU/Texture/libTexture.a 2_VISU/Scene/libScene.a 1_CORE/Box/libBox.a 1_CORE/File/libFile.a 1_CORE/Control/libControl.a -lGLEW -lGLU -lassimp 
