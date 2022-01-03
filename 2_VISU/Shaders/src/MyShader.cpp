@@ -4,10 +4,10 @@ MyShader::MyShader(){
 
     std::string path = SDL_GetBasePath();
     
-    _Shader1 = loadProgram(path + "../ressources/shaders/vertshade.vs.glsl",
-                           path + "../ressources/shaders/fragshade.fs.glsl");
-    _Shader2 = loadProgram(path + "../ressources/shaders/triangle.vs.glsl",
-                           path + "../ressources/shaders/triangle.fs.glsl");
+    _Shader1 = loadProgram(path + "../ressources/shaders/plane.vs.glsl",
+                           path + "../ressources/shaders/plane.fs.glsl");
+    _Shader2 = loadProgram(path + "../ressources/shaders/maingame.vs.glsl",
+                           path + "../ressources/shaders/maingame.fs.glsl");
     _Shader3 = loadProgram(path + "../ressources/shaders/skybox.vs.glsl",
                            path + "../ressources/shaders/skybox.fs.glsl");
 }

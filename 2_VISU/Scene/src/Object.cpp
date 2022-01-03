@@ -52,6 +52,7 @@ void Car::update(EFFECTS e) {
         break;
     case BURST:
         _Cspeed.z = 0;
+        _rotMatrix = glm::rotate(_rotMatrix, glm::radians(90.0f), glm::vec3(1.,1.,0.));
         break;
     case LTURN:
 
@@ -101,6 +102,7 @@ std::vector<Road> loadObject() {
         //Straight Road        
     std::vector<Mesh> SRoad;
     SRoad.push_back(texturedPlane(glm::vec3(-6,0,48), glm::vec3(6,0,0), "../ressources/textures/SRoad.png"));
+    
     stock.push_back(Road(Model(SRoad),HitBox(),Box(6,-5,0,-6,5,48),glm::translate(glm::vec3(0,0,48))));
 
         //With a slowing obstacle
@@ -130,6 +132,33 @@ std::vector<Road> loadObject() {
 
     FMRoad.push_back(texturedPlane(glm::vec3(-6,0,48), glm::vec3(6,0,0), "../ressources/textures/Fall/FallMRoad.png"));
     stock.push_back(Road(Model(FMRoad), HitBox(Box(-2,-0.5,7,2,1.5,42), FALL), Box(6,-5,0,-6,5,48), glm::translate(glm::vec3(0,0,48))));
+
+        //With a burst Obstacle : mesh perpendicular to the road
+    std::vector<Mesh> BLRoad;
+    std::vector<Mesh> BRRoad;
+    std::vector<Mesh> BMRoad;
+    std::vector<Mesh> BLMRoad;
+    std::vector<Mesh> BRMRoad;
+
+    BLRoad.push_back(texturedPlane(glm::vec3(-6,0,48), glm::vec3(6,0,0), "../ressources/textures/SRoad.png"));
+    BLRoad.push_back(texturedPlane(glm::vec3(2,0,24), glm::vec3(5,2,24), "../ressources/textures/Burst/Obstacle1.1.png"));
+    stock.push_back(Road(Model(BLRoad), HitBox(Box(2,0,24,5,2.5,25)), Box(6,-5,0,-6,5,48), glm::translate(glm::vec3(0,0,48))));
+
+    BRRoad.push_back(texturedPlane(glm::vec3(-6,0,48), glm::vec3(6,0,0), "../ressources/textures/SRoad.png"));
+    BRRoad.push_back(texturedPlane(glm::vec3(-5,0,24), glm::vec3(-2,2,24), "../ressources/textures/Burst/Obstacle1.1.png"));
+    stock.push_back(Road(Model(BRRoad), HitBox(Box(-5,0,24,-2,2.5,25)), Box(6,-5,0,-6,5,48), glm::translate(glm::vec3(0,0,48))));
+
+    BMRoad.push_back(texturedPlane(glm::vec3(-6,0,48), glm::vec3(6,0,0), "../ressources/textures/SRoad.png"));
+    BMRoad.push_back(texturedPlane(glm::vec3(2,0,24), glm::vec3(-2,2,24), "../ressources/textures/Burst/Obstacle1.1.png"));
+    stock.push_back(Road(Model(BMRoad), HitBox(Box(2,0,24,-2,2.5,25)), Box(6,-5,0,-6,5,48), glm::translate(glm::vec3(0,0,48))));
+
+    BLMRoad.push_back(texturedPlane(glm::vec3(-6,0,48), glm::vec3(6,0,0), "../ressources/textures/SRoad.png"));
+    BLMRoad.push_back(texturedPlane(glm::vec3(5.,0.,24), glm::vec3(-1.,2.,24.), "../ressources/textures/Burst/Obstacle2.png"));
+    stock.push_back(Road(Model(BLMRoad), HitBox(Box(-1,0,24,5,2.5,25)), Box(6,-5,0,-6,5,48), glm::translate(glm::vec3(0,0,48))));
+    
+    BRMRoad.push_back(texturedPlane(glm::vec3(-6,0,48), glm::vec3(6,0,0), "../ressources/textures/SRoad.png"));
+    BRMRoad.push_back(texturedPlane(glm::vec3(1,0.,24), glm::vec3(-6.,2.,24.), "../ressources/textures/Burst/Obstacle3.png"));
+    stock.push_back(Road(Model(BRMRoad), HitBox(Box(-6,0,24,1,2.5,25)), Box(6,-5,0,-6,5,48), glm::translate(glm::vec3(0,0,48))));
 
 
     return stock;

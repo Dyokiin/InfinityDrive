@@ -11,7 +11,7 @@ void Menu::init(TtfManager &typewritter) {
 
     Label* text = new Label(texturedPlane(glm::vec2(0.33, 0.25), 
                                       glm::vec2(0.66, 0.5),
-                                      typewritter.getLabel("<Press Any Key to CONTINUE")));
+                                      typewritter.getLabel("<Press Any Key to CONTINUE>")));
 
     _titleScreen.push_back(title);
     _titleScreen.push_back(text);
@@ -28,7 +28,26 @@ void Menu::init(TtfManager &typewritter) {
 }
 
 void Menu::init() {
-    
+        _current = 1;
+
+/* Title Screen */
+
+    Label* title = new Label(texturedPlane( glm::vec3(0.33, 0.25, 0), 
+                                        glm::vec3(0.66, 0.5, 0),
+                                        "../ressources/textures/text/title.png"));
+
+
+    _titleScreen.push_back(title);
+
+/* Main Menu */ 
+
+    _mainMenu.push_back(title);
+
+
+
+/* Echap Menu */
+
+    _echapMenu.push_back(title);
 }
 
 void Menu::display() const {

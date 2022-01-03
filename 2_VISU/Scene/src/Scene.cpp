@@ -57,6 +57,11 @@ void Scene::Draw(glm::mat4 ViewMat, glm::mat4 ProjMat, const bool fp) {
     _shader.sendNormalMat(PlaneMatrix, ViewMat);
     _grid.render();
 
+    //Draw the Skybox
+    _shader.skyShader();
+    _shader.sendProjViewMat(VPmatrix);
+    _moonlight.display();
+
     //Draw Cars and Road
     _shader.triShader();
     //Change the Model Matrix for each element
@@ -70,10 +75,7 @@ void Scene::Draw(glm::mat4 ViewMat, glm::mat4 ProjMat, const bool fp) {
         i->Draw(_shader);
     }
 
-    //Draw the Skybox
-    _shader.skyShader();
-    _shader.sendProjViewMat(VPmatrix);
-    _moonlight.display();
+
 }
 
 //Update car Position, Check collision, Add element in scene if needed

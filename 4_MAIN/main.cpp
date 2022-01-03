@@ -17,13 +17,14 @@ int main(int argc, char* argv[]){
 	/********************* INITIALISATION ********************/
 
 	//Window init : fixed size
-	SDLWindowManager wndwManager(WINDOW_WIDTH, WINDOW_HEIGHT, "VroomRun");
+	SDLWindowManager wndwManager(WINDOW_WIDTH, WINDOW_HEIGHT, "Infinity Drive");
 	glewInit();
 	//Projection Matrix : fixed window size
 	glm::mat4 projectionMatrix = glm::perspective(glm::radians(90.f),
 												  (float)WINDOW_WIDTH/(float)WINDOW_HEIGHT,
 												  0.5f, 200.f);
 	//SDL_TTF init and menu init
+	//TODO: Menu 2D shader
 	Menu menu;
 	try{
 		SDL_Color color;

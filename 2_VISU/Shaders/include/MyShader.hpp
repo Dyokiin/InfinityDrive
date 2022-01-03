@@ -5,6 +5,8 @@
 #include <glm/gtc/type_ptr.hpp>
 #include <SDL2/SDL.h>
 
+/// \class MyShader
+/// \brief My implementation to use several shaders
 class MyShader{
 private:
     
